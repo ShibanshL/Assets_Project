@@ -1,6 +1,6 @@
 import create from "zustand";
-import dotenv from 'dotenv'
-// dotenv.config()
+
+import {persist} from 'zustand/middleware'
 
 interface NUM{
     num:number

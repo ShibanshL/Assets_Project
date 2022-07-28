@@ -1,23 +1,22 @@
 import React from 'react'
-import { AppShell ,Center ,Menu ,Group ,Grid ,Navbar ,Text , Button} from '@mantine/core';
+import { Group ,Grid , Text, Button} from '@mantine/core';
 import {Link} from 'react-router-dom'
 import {FiLogOut} from 'react-icons/fi'
 import { useStore_2 } from '../Store';
+import { useWindowEvent } from '@mantine/hooks';
 
-var M_Log:any;
+var M_Log=0;
 
 function Navtoolbar() {
   const setLog = useStore_2(state => state.setLog)
-  const log = useStore_2(state => state.log)
-  const log1 = useStore_2(state => state.log1)
 
   //This is the logout function which basically deletes the value of the specific localstorage value which logs us out
+  
   const Logout = () => { 
     window.localStorage.removeItem('Data')
     setLog()
   }
  
-
   return (
    <Grid p='0 7vw' style={{}}>
         <Grid.Col span={12} style={{}}>

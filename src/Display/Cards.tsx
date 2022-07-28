@@ -1,6 +1,6 @@
 import React from 'react'
-import { AppShell, Center, Container,Group,Grid, Select,Text,Button,Badge, Checkbox, Card, Divider, Tooltip} from '@mantine/core';
-import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
+import {Group,Grid, Text, Badge, Checkbox, Card, Divider, Tooltip} from '@mantine/core';
+import {AiOutlineLink} from 'react-icons/ai'
 
 interface props{
     data:{

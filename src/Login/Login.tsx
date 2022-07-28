@@ -1,12 +1,11 @@
 import React from 'react'
-import { AppShell, Center, Container,Group,Grid, Navbar,Text,Button,TextInput} from '@mantine/core';
-import { Link, useNavigate } from 'react-router-dom';
+import { Container, Group, Button, TextInput} from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from '@mantine/form';
 import {useMutation} from 'react-query' 
 import {BsEyeFill,BsEyeSlashFill} from 'react-icons/bs'
 import axios from 'axios';
 import { useStore_1, useStore_2} from '../Store';
-import dotenv from 'dotenv'
 
 
 var k = 0
@@ -30,6 +29,7 @@ function Login() {
 
 
   //Mantine's basic useform that handles all the input and input authorization
+  
   const form = useForm({
       initialValues: {
           email: '',
@@ -76,7 +76,9 @@ function Login() {
 
         let payload = {email:em,password:pa}
         await axios.post(`${import.meta.env.VITE_URL}/api/auth/token/login/`,payload)
-        .then((res) => {setData(res);console.log('D =',data);setToken(data?.data?.auth_token); console.log("Token = ",Token) })
+        .then((res) => {setData(res);console.log('D =',data);
+              setToken(data?.data?.auth_token);
+              console.log("Token = ",Token) })
         .catch(err => console.log(err))
 
         window.localStorage.setItem('Data',true)
@@ -88,6 +90,7 @@ function Login() {
           nav('/Display')
         }
         else return
+       
 
         
       }
@@ -95,7 +98,7 @@ function Login() {
     return (
       <Container pt='10px' pb='65vh' style={{background:'#f8f9fa'}} fluid>
         <Group sx={{maxWidth:400}} mx="auto" p='5px' style={{background:'white',borderRadius:'10px'}} direction='column' align='top' position='center'>
-            <form onSubmit={(values:any) => mutation.mutate(values)} style={{width:'100%'}}>
+            <form onSubmit={(values:any) => handleSubmit(values)} style={{width:'100%'}}>
               <TextInput
               required
               label="Email"
