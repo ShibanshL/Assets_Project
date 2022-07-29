@@ -4,6 +4,7 @@ import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { useStore,useStore_1,useStore_2} from '../Store';
+import useFishStore from '../Storer_2';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus} from 'react-icons/fi'
 import {MdDeleteOutline,MdNavigateBefore} from 'react-icons/md'
@@ -15,31 +16,18 @@ var pages = [1,2,3,4,5]
 function Display() {
     let nav = useNavigate()
     const a = useStore((state) => state.num)
-    const Token = useStore_1(state => state.token)
     const [check,setCheck] = React.useState(false)
     const [page,setPage] = React.useState(1)
     const [opened, setOpened] = React.useState(false);
     const [filter,setFilter] = React.useState('')
-
     const log = useStore_2(state => state.log)
-
-
-    console.log('API Key',import.meta.env.VITE_URL)
-
-    console.log('TOKEN ',Token)
-
-    // Set config defaults when creating the instance
-    const instance = axios.create({
-        baseURL: import.meta.env.VITE_URL+'api/org/18/asset/?page_size=20'
-    });
-    
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
         return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page=${page}`,{
             method:'GET',
             headers:{
-                'Authorization':`Token ${Token}`
+                'Authorization':`Token ${window.localStorage.getItem('Auth')}`
             }
         })
     },

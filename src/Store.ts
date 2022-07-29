@@ -13,14 +13,21 @@ const useStore = create<NUM>((set) => ({
 }))
 
 interface AUTH{
-    token:string
-    setToken:(e:any) => void
+    token?: string | null;
+  setToken: (newToken: string | null) => void;
 }
 
-const useStore_1 = create<AUTH>((set) => ({
-    token:'',
-    setToken:(e:any) =>  set(() => ({token:e}))
-}))
+const useStore_1 = create(
+        persist(
+          (set) => <AUTH>({
+            setToken: (newToken: string | null) => set((_state) => ({ token: newToken })),
+            token: "",
+            // addAFish: () => set(state => ({fishes:state.fishes+1}))
+          }),
+          {
+            name: 'AUTH KEY', // unique name
+          }
+))
 
 interface Log{
     log:number
@@ -36,5 +43,26 @@ const useStore_2 = create<Log>((set) => ({
     setLog_1:() => set(state => ({log1:state.log1+1}))
 }))
 
+
+// interface test{
+//     fishes:number,
+//     addAFish: () => void
+// }
+
+// const useFishStore = create(
+//     persist(
+//       (set, get) => ({
+//         api_key: '',
+//         setApi_Key: (e:any) => set({ api_key: e }),
+//         // addAFish: () => set(state => ({fishes:state.fishes+1}))
+//       }),
+//       {
+//         name: 'food-storage', // unique name
+//         getStorage: () => sessionStorage, // (optional) by default, 'localStorage' is used
+//       }
+//     )
+//   )
+
+// export default useFishStore
 
 export {useStore,useStore_1,useStore_2}

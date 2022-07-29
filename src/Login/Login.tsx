@@ -19,7 +19,6 @@ interface api {
 function Login() {
 
   const [pass,setPass] = React.useState('password')
-  const [data, setData] = React.useState<api>()
   const setLog1 = useStore_2(state => state.setLog_1)
 
   const setToken = useStore_1(state => state.setToken)
@@ -53,8 +52,6 @@ function Login() {
           k++
         }
       }
-    //   const onSub = (values:any) => mutate(values)
-
       
     //Here i am using react querry to send the post request
     const mutation = useMutation((values:any) => handleSubmit(values),
@@ -75,9 +72,10 @@ function Login() {
         console.log('Email : ',em+' Password : ',pa)
 
         let payload = {email:em,password:pa}
-        await axios.post(`${import.meta.env.VITE_URL}/api/auth/token/login/`,payload)
-        .then((res) => {setData(res);console.log('D =',data);
-              setToken(data?.data?.auth_token);
+        axios.post(`${import.meta.env.VITE_URL}/api/auth/token/login/`,payload)
+        .then((res) => {
+              // setData(res);console.log('D =',data);
+              setToken(res.data.auth_token);
               console.log("Token = ",Token) })
         .catch(err => console.log(err))
 
