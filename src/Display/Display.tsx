@@ -40,11 +40,6 @@ function Display() {
     {keepPreviousData:false},
     )
 
-    console.log('setData = ', data?.data.results.filter((e:any) => e.host == search))
-
-    //Just to check the value 
-    // console.log("Data = ",data?.data.results.filter((e:any) => e.type=='infra'))
-
     //This check value to keep us logged in
     React.useEffect(() => {
         if(!window.localStorage.getItem('Data')){
