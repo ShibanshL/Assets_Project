@@ -12,6 +12,7 @@ import Cards from './Cards';
 
 
 var pages = [1,2,3,4,5]
+var i = 0
 
 function Display() {
     let nav = useNavigate()
@@ -20,18 +21,25 @@ function Display() {
     const [page,setPage] = React.useState(1)
     const [opened, setOpened] = React.useState(false);
     const [filter,setFilter] = React.useState('')
+    const [finalfilter,setFinalFilter] = React.useState('infra')
+    const [pageVal,setPageVal] = React.useState('20')
+    const [finalPageVal,setFinalPageVal] = React.useState('20')
     const log = useStore_2(state => state.log)
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
-        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page=${page}`,{
+        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}&page=${page}`,{
             method:'GET',
             headers:{
                 'Authorization':`Token ${window.localStorage.getItem('Auth')}`
             }
         })
     },
-    {keepPreviousData:false})
+    {keepPreviousData:false},
+    )
+
+    //Just to check the value 
+    console.log("Data = ",data?.data.results.filter((e:any) => e.type=='infra'))
 
     //This check value to keep us logged in
     React.useEffect(() => {
@@ -48,6 +56,17 @@ function Display() {
         return <h2>{error?.message}</h2>
     }
 
+    //Function to clear all in the filter option
+    const clearAll = () => {
+        setFilter('')
+        setPageVal('')
+    }
+
+    //Function where we apply our filters to the data
+    const filterData = () => {
+        setFinalFilter(filter)
+        setFinalPageVal(pageVal)
+    }
 
   return (
     <>
@@ -88,15 +107,23 @@ function Display() {
                             <Group>
                                 <Select
                                     label="Type"
-                                    placeholder={filter}
+                                    onChange={(e:any) => setFilter(e)}
+                                    // placeholder={filter}
+                                    placeholder='Pick for a type'
+                                    value={filter}
+                                    rightSection={filter.length==0?'':<FiPlus onClick={() => setFilter('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
                                     data={[
                                         { value: 'Website', label: 'Website' },
                                         { value: 'Router', label: 'Router' },
+                                        { value: 'infra', label: 'infra' },
                                     ]}
                                 />
                                 <Select
                                     label="Items Per Page"
-                                    placeholder=""
+                                    placeholder='Pick for items per page'
+                                    onChange={(e:any) => setPageVal(e)}
+                                    value={pageVal}
+                                    rightSection={pageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
                                     data={[
                                         { value: '10', label: '10' },
                                         { value: '20', label: '20' },
@@ -108,8 +135,8 @@ function Display() {
                         </Grid.Col>
                         <Grid.Col span={12}>
                             <Group position='right'>
-                                <Button size='xs'>Apply</Button>
-                                <Button size='xs' variant='outline'>Clear All</Button>
+                                <Button onClick={filterData} size='xs'>Apply</Button>
+                                <Button size='xs' onClick={() => {setOpened((o) => !o); clearAll()}} variant='outline'>Clear All</Button>
                             </Group>
                         </Grid.Col>
                     </Grid>
@@ -139,7 +166,12 @@ function Display() {
             </Group>
         </Grid.Col>
         <Grid.Col span={12}>
-            <Cards data={data?.data} check={check}/>
+            {finalfilter.length?
+            <Cards data={data?.data.results.filter((e:any) => e.type==finalfilter)} check={check}/>
+            :
+            <Cards data={data?.data.results} check={check}/>
+        }
+            {/* // <Cards data={data?.data} check={check}/> */}
         </Grid.Col>
         <Grid.Col span={12}>
             <Text>Page : {page} / 5</Text>

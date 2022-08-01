@@ -2,9 +2,23 @@ import React from 'react'
 import {Group,Grid, Text, Badge, Checkbox, Card, Divider, Tooltip} from '@mantine/core';
 import {AiOutlineLink} from 'react-icons/ai'
 
+// interface props{
+//     data:{
+//         results:[
+//             {
+//                 display_name: string,
+//                 host: string,
+//                 scan_cycle_count:number,
+//                 type:string,
+//                 tags: string[]
+//             }
+//         ]
+//     },
+//     check:boolean
+// }
+
 interface props{
-    data:{
-        results:[
+    data:[
             {
                 display_name: string,
                 host: string,
@@ -12,18 +26,18 @@ interface props{
                 type:string,
                 tags: string[]
             }
-        ]
-    },
+        ],
+
     check:boolean
 }
 
 function Cards({data,check}:props) {
 
-    console.log('Cards :',data)
+    console.log('Cards ini :',data)
 
   return (
     <>
-    { data?.results?.map((e:any) =>{
+    { data?.map((e:any) =>{
                     return( 
                         <> 
                      <Grid.Col p='10' span={12} key={e.host}>
@@ -170,6 +184,7 @@ function Cards({data,check}:props) {
                 )
                 })
             }
+            {/* hi */}
     </>
   )
 }
