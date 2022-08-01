@@ -1,12 +1,12 @@
 import React from 'react'
-import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse} from '@mantine/core';
+import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput} from '@mantine/core';
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { useStore,useStore_1,useStore_2} from '../Store';
 import useFishStore from '../Storer_2';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
-import {FiUpload,FiPlus} from 'react-icons/fi'
+import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
 import {MdDeleteOutline,MdNavigateBefore} from 'react-icons/md'
 import Cards from './Cards';
 
@@ -24,6 +24,8 @@ function Display() {
     const [finalfilter,setFinalFilter] = React.useState('infra')
     const [pageVal,setPageVal] = React.useState('20')
     const [finalPageVal,setFinalPageVal] = React.useState('20')
+    const [search,setSearch] = React.useState('')
+    const [finalSearch,setFinalSearch] = React.useState('')
     const log = useStore_2(state => state.log)
 
     //This calls the server for data while providing an header for authorization
@@ -38,8 +40,10 @@ function Display() {
     {keepPreviousData:false},
     )
 
+    console.log('setData = ', data?.data.results.filter((e:any) => e.host == search))
+
     //Just to check the value 
-    console.log("Data = ",data?.data.results.filter((e:any) => e.type=='infra'))
+    // console.log("Data = ",data?.data.results.filter((e:any) => e.type=='infra'))
 
     //This check value to keep us logged in
     React.useEffect(() => {
@@ -60,12 +64,95 @@ function Display() {
     const clearAll = () => {
         setFilter('')
         setPageVal('')
+        setSearch('')
     }
 
     //Function where we apply our filters to the data
     const filterData = () => {
         setFinalFilter(filter)
         setFinalPageVal(pageVal)
+        setFinalSearch(search)
+    }
+
+    const FilterCardData = () => {
+        
+        if(finalfilter){
+            return(
+                <>
+                    <Cards  data={data?.data.results.filter((e:any) => e.type==finalfilter)} check={check}/>
+                </>
+            )
+        }
+        else if(!finalfilter && !finalSearch){
+            return(
+                <>
+                    <Cards data={data?.data.results} check={check}/>
+                    {/* hohoho */}
+                </>
+            )
+        }
+        else if(finalSearch && !finalfilter)
+        {
+          if(data?.data.results.filter((e:any) => e.host == finalSearch).length>0){
+            console.log('S1 ',data?.data.results.filter((e:any) => e.host == finalSearch))
+            return(
+                <>
+                    <Cards data={data?.data.results.filter((e:any) => e.host == finalSearch)} check={check}/>
+                </>
+            )
+          }
+          else if(data?.data.results.filter((e:any) => e.display_name == finalSearch).length>0){
+            console.log('S2 ',data?.data.results.filter((e:any) => e.display_name == finalSearch))
+
+            return(
+                <>
+                    <Cards data={data?.data.results.filter((e:any) => e.display_name == finalSearch)} check={check}/>
+                </>
+            )
+          }
+          else if(data?.data.results.filter((e:any) => e.tags[0] == finalSearch).length>0){
+            console.log('S3 ', data?.data.results.filter((e:any) => e.tags[0] == finalSearch))
+
+            return(
+                <>
+                    <Cards data={data?.data.results.filter((e:any) => e.tags[0] == finalSearch)} check={check}/>
+                </>
+            )
+          }
+          else if(data?.data.results.filter((e:any) => e.tags[1] == finalSearch).length>0){
+            console.log('S4 ', data?.data.results.filter((e:any) => e.tags[1] == finalSearch))
+
+            return(
+                <>
+                    <Cards data={data?.data.results.filter((e:any) => e.tags[1] == finalSearch)} check={check}/>
+                </>
+            )
+          }
+          else if(data?.data.results.filter((e:any) => e.type == finalSearch).length>0){
+            console.log('S5 ',data?.data.results.filter((e:any) => e.type == finalSearch))
+
+            return(
+                <>
+                    <Cards data={data?.data.results.filter((e:any) => e.type == finalSearch)} check={check}/>
+                </>
+            )
+          }
+          else{
+            return(
+                <>
+                    <Cards data={data?.data.results} check={check}/>
+                </>
+            )
+          }
+        }
+        else {
+            return(
+                <>
+                    <Cards data={data?.data.results} check={check}/>
+                </>
+            )
+        }
+        
     }
 
   return (
@@ -104,34 +191,53 @@ function Display() {
                             <Divider />
                         </Grid.Col>
                         <Grid.Col span={12}>
-                            <Group>
-                                <Select
-                                    label="Type"
-                                    onChange={(e:any) => setFilter(e)}
-                                    // placeholder={filter}
-                                    placeholder='Pick for a type'
-                                    value={filter}
-                                    rightSection={filter.length==0?'':<FiPlus onClick={() => setFilter('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
-                                    data={[
-                                        { value: 'Website', label: 'Website' },
-                                        { value: 'Router', label: 'Router' },
-                                        { value: 'infra', label: 'infra' },
-                                    ]}
-                                />
-                                <Select
-                                    label="Items Per Page"
-                                    placeholder='Pick for items per page'
-                                    onChange={(e:any) => setPageVal(e)}
-                                    value={pageVal}
-                                    rightSection={pageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
-                                    data={[
-                                        { value: '10', label: '10' },
-                                        { value: '20', label: '20' },
-                                        { value: '50', label: '50' },
-                                        { value: '100', label: '100' },
-                                    ]}
-                                />
-                            </Group>
+                            <Grid>
+                                <Grid.Col span={3}>
+                                    <Group grow>
+                                        <Select
+                                            label="Type"
+                                            onChange={(e:any) => setFilter(e)}
+                                            // placeholder={filter}
+                                            placeholder='Pick for a type'
+                                            value={filter}
+                                            rightSection={filter.length==0?'':<FiPlus onClick={() => setFilter('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
+                                            data={[
+                                                { value: 'Website', label: 'Website' },
+                                                { value: 'Router', label: 'Router' },
+                                                { value: 'infra', label: 'infra' },
+                                            ]}
+                                        />
+                                    </Group>
+                                </Grid.Col>
+                                <Grid.Col span={3}>
+                                    <Group grow>
+                                        <Select
+                                            label="Items Per Page"
+                                            placeholder='Pick for items per page'
+                                            onChange={(e:any) => setPageVal(e)}
+                                            value={pageVal}
+                                            rightSection={pageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
+                                            data={[
+                                                { value: '10', label: '10' },
+                                                { value: '20', label: '20' },
+                                                { value: '50', label: '50' },
+                                                { value: '100', label: '100' },
+                                            ]}
+                                        />
+                                    </Group>
+                                </Grid.Col>
+                                <Grid.Col span={3}>
+                                    <Group grow>
+                                        <TextInput
+                                            placeholder="Search"
+                                            label="Search"
+                                            value={search}
+                                            onChange={(e) => {setSearch(e.target.value);console.log(search)}}
+                                            rightSection={<FiSearch />}
+                                        />
+                                    </Group>
+                                </Grid.Col>
+                            </Grid>
                         </Grid.Col>
                         <Grid.Col span={12}>
                             <Group position='right'>
@@ -166,12 +272,7 @@ function Display() {
             </Group>
         </Grid.Col>
         <Grid.Col span={12}>
-            {finalfilter.length?
-            <Cards data={data?.data.results.filter((e:any) => e.type==finalfilter)} check={check}/>
-            :
-            <Cards data={data?.data.results} check={check}/>
-        }
-            {/* // <Cards data={data?.data} check={check}/> */}
+            {FilterCardData()}
         </Grid.Col>
         <Grid.Col span={12}>
             <Text>Page : {page} / 5</Text>

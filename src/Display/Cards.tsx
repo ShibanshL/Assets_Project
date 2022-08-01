@@ -33,7 +33,7 @@ interface props{
 
 function Cards({data,check}:props) {
 
-    console.log('Cards ini :',data)
+    // console.log('Cards ini :',data)
 
   return (
     <>
