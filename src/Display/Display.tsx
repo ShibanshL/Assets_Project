@@ -74,6 +74,7 @@ function Display() {
         setFinalSearch(search)
     }
 
+    //This function handles all the search queries sent but the users and give back a filtered data
     const FilterCardData = () => {
         
         if(finalfilter){
