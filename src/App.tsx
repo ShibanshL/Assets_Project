@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {QueryClientProvider, QueryClient} from 'react-query'
 import Navtoolbar from './Navbar/Navtoolbar';
 import Login from './Login/Login';
-import Display from './Display/Display';
-
+import Assets from './Display/Assets';
+import Test from './Test/Test'
 
 const reactQuery = new QueryClient()
 
@@ -28,7 +28,8 @@ function App() {
                 <Grid.Col span={12}>
                   <Routes>
                     <Route path='/' element={<Login />} />
-                    <Route path='/Display' element={<Display />} />
+                    <Route path='/Assets' element={<Assets />} />
+                    <Route path='/test' element={<Test />} />
                   </Routes>
                 </Grid.Col>
               </Grid>

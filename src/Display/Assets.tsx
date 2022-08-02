@@ -9,12 +9,13 @@ import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
 import {MdDeleteOutline,MdNavigateBefore} from 'react-icons/md'
 import Cards from './Cards';
+import {useSearchParams} from 'react-router-dom'
 
 
 var pages = [1,2,3,4,5]
 var i = 0
 
-function Display() {
+function Assets() {
     let nav = useNavigate()
     const a = useStore((state) => state.num)
     const [check,setCheck] = React.useState(false)
@@ -27,10 +28,15 @@ function Display() {
     const [search,setSearch] = React.useState('')
     const [finalSearch,setFinalSearch] = React.useState('')
     const log = useStore_2(state => state.log)
+    const [searchParams,setSearchParams] = useSearchParams()
+
+    React.useEffect(() => {
+        setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
+    })
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
-        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}&page=${page}`,{
+        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${finalSearch?`&search=${finalSearch}`:''}&page=${page}&`,{
             method:'GET',
             headers:{
                 'Authorization':`Token ${window.localStorage.getItem('Auth')}`
@@ -69,87 +75,7 @@ function Display() {
         setFinalSearch(search)
     }
 
-    //This function handles all the search queries sent but the users and give back a filtered data
-    const FilterCardData = () => {
-        
-        if(finalfilter){
-            return(
-                <>
-                    <Cards  data={data?.data.results.filter((e:any) => e.type==finalfilter)} check={check}/>
-                </>
-            )
-        }
-        else if(!finalfilter && !finalSearch){
-            return(
-                <>
-                    <Cards data={data?.data.results} check={check}/>
-                    {/* hohoho */}
-                </>
-            )
-        }
-        else if(finalSearch && !finalfilter)
-        {
-          if(data?.data.results.filter((e:any) => e.host == finalSearch).length>0){
-            console.log('S1 ',data?.data.results.filter((e:any) => e.host == finalSearch))
-            return(
-                <>
-                    <Cards data={data?.data.results.filter((e:any) => e.host == finalSearch)} check={check}/>
-                </>
-            )
-          }
-          else if(data?.data.results.filter((e:any) => e.display_name == finalSearch).length>0){
-            console.log('S2 ',data?.data.results.filter((e:any) => e.display_name == finalSearch))
-
-            return(
-                <>
-                    <Cards data={data?.data.results.filter((e:any) => e.display_name == finalSearch)} check={check}/>
-                </>
-            )
-          }
-          else if(data?.data.results.filter((e:any) => e.tags[0] == finalSearch).length>0){
-            console.log('S3 ', data?.data.results.filter((e:any) => e.tags[0] == finalSearch))
-
-            return(
-                <>
-                    <Cards data={data?.data.results.filter((e:any) => e.tags[0] == finalSearch)} check={check}/>
-                </>
-            )
-          }
-          else if(data?.data.results.filter((e:any) => e.tags[1] == finalSearch).length>0){
-            console.log('S4 ', data?.data.results.filter((e:any) => e.tags[1] == finalSearch))
-
-            return(
-                <>
-                    <Cards data={data?.data.results.filter((e:any) => e.tags[1] == finalSearch)} check={check}/>
-                </>
-            )
-          }
-          else if(data?.data.results.filter((e:any) => e.type == finalSearch).length>0){
-            console.log('S5 ',data?.data.results.filter((e:any) => e.type == finalSearch))
-
-            return(
-                <>
-                    <Cards data={data?.data.results.filter((e:any) => e.type == finalSearch)} check={check}/>
-                </>
-            )
-          }
-          else{
-            return(
-                <>
-                    <Cards data={data?.data.results} check={check}/>
-                </>
-            )
-          }
-        }
-        else {
-            return(
-                <>
-                    <Cards data={data?.data.results} check={check}/>
-                </>
-            )
-        }
-        
-    }
+    
 
   return (
     <>
@@ -268,7 +194,8 @@ function Display() {
             </Group>
         </Grid.Col>
         <Grid.Col span={12}>
-            {FilterCardData()}
+            <Cards data={data?.data.results} check={check}/>
+            {/* {FilterCardData()} */}
         </Grid.Col>
         <Grid.Col span={12}>
             <Text>Page : {page} / 5</Text>
@@ -291,4 +218,4 @@ function Display() {
   )
 }
 
-export default Display
+export default Assets

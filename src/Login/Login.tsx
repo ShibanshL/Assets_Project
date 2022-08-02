@@ -85,7 +85,7 @@ function Login() {
         setLog1()
 
         if(Token){
-          nav('/Display')
+          nav('/Assets')
         }
         else return
        
