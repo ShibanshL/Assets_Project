@@ -29,6 +29,25 @@ const useStore_1 = create(
           }
 ))
 
+interface persistLog {
+  logData:boolean | null,
+  setLogData: (newLogData: boolean | null) => void;
+}
+
+const useStore_3 = create(
+  persist(
+    (set) => <persistLog>(
+      {
+        logData:false,
+        setLogData: (newLogData: boolean | null) => set((_state) => ({logData:newLogData}))
+      }
+    ),
+    {
+      name:'LOGGED'
+    }
+  )
+)
+
 interface Log{
     log:number
     setLog:() => void
@@ -65,4 +84,4 @@ const useStore_2 = create<Log>((set) => ({
 
 // export default useFishStore
 
-export {useStore,useStore_1,useStore_2}
+export {useStore,useStore_1,useStore_2,useStore_3}

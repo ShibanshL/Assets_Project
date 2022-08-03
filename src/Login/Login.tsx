@@ -5,7 +5,7 @@ import { useForm } from '@mantine/form';
 import {useMutation} from 'react-query' 
 import {BsEyeFill,BsEyeSlashFill} from 'react-icons/bs'
 import axios from 'axios';
-import { useStore_1, useStore_2} from '../Store';
+import { useStore_1, useStore_2, useStore_3} from '../Store';
 
 
 var k = 0
@@ -20,7 +20,8 @@ function Login() {
 
   const [pass,setPass] = React.useState('password')
   const setLog1 = useStore_2(state => state.setLog_1)
-
+  const logData = useStore_3(state => state.logData)
+  const setLogData = useStore_3(state => state.setLogData)
   const setToken = useStore_1(state => state.setToken)
   const Token = useStore_1(state => state.token)
 
@@ -81,6 +82,7 @@ function Login() {
 
         window.localStorage.setItem('Data',true)
         window.localStorage.setItem('Auth',Token)
+        setLogData(true)
         // window.localStorage.setItem('token',true)
 
         setLog1()
