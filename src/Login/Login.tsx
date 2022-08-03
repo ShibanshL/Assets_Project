@@ -81,6 +81,7 @@ function Login() {
 
         window.localStorage.setItem('Data',true)
         window.localStorage.setItem('Auth',Token)
+        // window.localStorage.setItem('token',true)
 
         setLog1()
 

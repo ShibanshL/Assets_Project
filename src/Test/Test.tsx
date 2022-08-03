@@ -5,7 +5,7 @@ function Test() {
 
     const [searchParams,setSearchParams] = useSearchParams()
     React.useEffect(() =>{
-        setSearchParams({age:69})
+        setSearchParams({age:69,name:'Shibansh'})
     },[])
     searchParams.get('age')
 
@@ -13,7 +13,7 @@ function Test() {
     <div>
         <h1 style={{color:'black'}}>TESTING IS GOING ON!!</h1>
         <h2>{searchParams.get('age')}</h2>
-        <button onClick={() => setSearchParams({age:50})} >increment</button>
+        <button onClick={() => setSearchParams({age:50,name:'shibansh',id:1701209117})} >increment</button>
     </div>
   )
 }

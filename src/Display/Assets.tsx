@@ -31,8 +31,13 @@ function Assets() {
     const [searchParams,setSearchParams] = useSearchParams()
 
     React.useEffect(() => {
-        setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
-    })
+        if(!finalSearch){
+            setSearchParams({page_size:finalPageVal,page:page})
+        }
+        else{
+            setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
+        }
+    },[finalSearch])
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
@@ -64,17 +69,29 @@ function Assets() {
     //Function to clear all in the filter option
     const clearAll = () => {
         setFilter('')
-        setPageVal('')
+        setPageVal('20')
         setSearch('')
+
+        window.location.reload();
     }
+
+    
 
     //Function where we apply our filters to the data
     const filterData = () => {
         setFinalFilter(filter)
         setFinalPageVal(pageVal)
         setFinalSearch(search)
+
+
+        // setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
+
     }
 
+
+    // React.useEffect(() => {
+    //     setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
+    // },[finalSearch])
     
 
   return (
@@ -137,8 +154,8 @@ function Assets() {
                                             label="Items Per Page"
                                             placeholder='Pick for items per page'
                                             onChange={(e:any) => setPageVal(e)}
-                                            value={pageVal}
-                                            rightSection={pageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
+                                            value={finalPageVal}
+                                            rightSection={finalPageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
                                             data={[
                                                 { value: '10', label: '10' },
                                                 { value: '20', label: '20' },

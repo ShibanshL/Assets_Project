@@ -16,7 +16,35 @@ function Navtoolbar() {
     window.localStorage.removeItem('Data')
     setLog()
   }
- 
+  
+  //function that conditionally renders data onto the navtoolbar based on Login and logout
+
+  const [loggedIn, setLoggedIn] = React.useState(window.localStorage.getItem("token"));
+
+  const Login = () => {
+    if(window.localStorage.getItem('Data')){
+      
+      return(
+        <>
+        <Group>
+          <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Shibansh</Link>
+          <Button size='xs' variant='outline' onClick={Logout}><FiLogOut /></Button>
+        </Group>
+        </>
+      )
+    }
+    else{
+      return(
+        <>
+          <Group>
+            <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Login</Link>
+          </Group>
+        </>
+      )
+    }
+  }
+
+
   return (
    <Grid p='0 7vw' style={{}}>
         <Grid.Col span={12} style={{}}>
@@ -33,13 +61,14 @@ function Navtoolbar() {
                   </Group>
                   <Group p='5px 10px'>
                     <Text weight={600}>
-                      {window.localStorage.getItem('Data')?<>
+                      {/* {window.localStorage.getItem('Data')?<>
                       <Group>
                         <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Shibansh</Link>
                         <Button size='xs' variant='outline' onClick={Logout}><FiLogOut /></Button>
                       </Group>
                       </>:
-                      <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Login</Link>}
+                      <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Login</Link>} */}
+                      {Login()}
                     </Text>
                   </Group>
                   <Group p='5px' style={{border:'1px solid #228be6', borderRadius:'5px'}}>
