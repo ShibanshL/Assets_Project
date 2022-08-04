@@ -89,6 +89,8 @@ function Assets() {
         setSearchData(search)
 
 
+        window.location.reload()
+
     }
 
 
@@ -168,7 +170,7 @@ function Assets() {
                                         <TextInput
                                             placeholder="Search"
                                             label="Search"
-                                            value={search}
+                                            value={search?search:searchData}
                                             onChange={(e) => {setSearch(e.target.value);console.log(search)}}
                                             rightSection={<FiSearch />}
                                         />

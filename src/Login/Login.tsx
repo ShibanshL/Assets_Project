@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Group, Button, TextInput} from '@mantine/core';
+import { Container, Group, Button, TextInput, Text} from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '@mantine/form';
 import {useMutation} from 'react-query' 
@@ -10,6 +10,8 @@ import { constants } from 'buffer';
 
 
 var k = 0
+
+var invalid;
 
 interface api {
   data:{
@@ -25,6 +27,7 @@ function Login() {
   const setLogData = useStore_3(state => state.setLogData)
   const setToken = useStore_1(state => state.setToken)
   const Token = useStore_1(state => state.token)
+  const [invalidCred,setInvalidCred] = React.useState('')
 
   let nav = useNavigate()
 
@@ -76,21 +79,23 @@ function Login() {
         axios.post(`${import.meta.env.VITE_URL}/api/auth/token/login/`,payload)
         .then((res) => {
               setToken(res?.data?.auth_token);
-              console.log("Token = ",res) })
-        .catch(err => console.log(err))
+              if(res?.data?.auth_token){
+                nav('/Assets')
+              }
+              else return 
+            })
+        .catch(err => {
+          console.log(err)
+          setInvalidCred('Invalid credentials, please Reload and Try again.')
+        })
 
         setLogData(true)
 
         setLog1()
 
-        if(Token){
-          nav('/Assets')
-        }
-        else return
        
       }
-
-
+    
     return (
       <Container pt='10px' pb='65vh' style={{background:'#f8f9fa'}} fluid>
         <Group sx={{maxWidth:400}} mx="auto" p='5px' style={{background:'white',borderRadius:'10px'}} direction='column' align='top' position='center'>
@@ -116,7 +121,7 @@ function Login() {
               {...form.getInputProps(pass)}
               
               />
-
+              <Text color='red' ml='10px' pb='5px'>{invalidCred}</Text>
               {/* <Group position="right" mt="md"> */}
               <Button radius={'sm'} ml='10px' mt='5px' type="submit">Login</Button>
               {/* </Group> */}

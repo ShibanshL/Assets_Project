@@ -27,7 +27,7 @@ function Navtoolbar() {
 
 
   const Login = () => {
-    if(logData){
+    if(Token){
       return(
         <>
         <Group>
@@ -65,13 +65,6 @@ function Navtoolbar() {
                   </Group>
                   <Group p='5px 10px'>
                     <Text weight={600}>
-                      {/* {window.localStorage.getItem('Data')?<>
-                      <Group>
-                        <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Shibansh</Link>
-                        <Button size='xs' variant='outline' onClick={Logout}><FiLogOut /></Button>
-                      </Group>
-                      </>:
-                      <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Login</Link>} */}
                       {Login()}
                     </Text>
                   </Group>
