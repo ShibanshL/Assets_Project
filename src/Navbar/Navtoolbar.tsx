@@ -27,7 +27,7 @@ function Navtoolbar() {
 
 
   const Login = () => {
-    if(Token){
+    if(logData){
       return(
         <>
         <Group>

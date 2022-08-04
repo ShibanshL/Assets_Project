@@ -28,7 +28,6 @@ function Login() {
 
   let nav = useNavigate()
 
-
   //Mantine's basic useform that handles all the input and input authorization
   const form = useForm({
       initialValues: {
@@ -73,14 +72,14 @@ function Login() {
         console.log('Email : ',em+' Password : ',pa)
 
         let payload = {email:em,password:pa}
+
         axios.post(`${import.meta.env.VITE_URL}/api/auth/token/login/`,payload)
         .then((res) => {
-              setToken(res.data.auth_token);
-              console.log("Token = ",Token) })
+              setToken(res?.data?.auth_token);
+              console.log("Token = ",res) })
         .catch(err => console.log(err))
 
         setLogData(true)
-
 
         setLog1()
 
@@ -89,9 +88,8 @@ function Login() {
         }
         else return
        
-
-        
       }
+
 
     return (
       <Container pt='10px' pb='65vh' style={{background:'#f8f9fa'}} fluid>
