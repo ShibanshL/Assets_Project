@@ -6,6 +6,7 @@ import {useMutation} from 'react-query'
 import {BsEyeFill,BsEyeSlashFill} from 'react-icons/bs'
 import axios from 'axios';
 import { useStore_1, useStore_2, useStore_3} from '../Store';
+import { constants } from 'buffer';
 
 
 var k = 0
@@ -29,7 +30,6 @@ function Login() {
 
 
   //Mantine's basic useform that handles all the input and input authorization
-  
   const form = useForm({
       initialValues: {
           email: '',
@@ -75,15 +75,12 @@ function Login() {
         let payload = {email:em,password:pa}
         axios.post(`${import.meta.env.VITE_URL}/api/auth/token/login/`,payload)
         .then((res) => {
-              // setData(res);console.log('D =',data);
               setToken(res.data.auth_token);
               console.log("Token = ",Token) })
         .catch(err => console.log(err))
 
-        window.localStorage.setItem('Data',true)
-        window.localStorage.setItem('Auth',Token)
         setLogData(true)
-        // window.localStorage.setItem('token',true)
+
 
         setLog1()
 

@@ -3,13 +3,14 @@ import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, Te
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { useStore,useStore_1,useStore_2} from '../Store';
+import { useStore,useStore_4,useStore_2,useStore_1} from '../Store';
 import useFishStore from '../Storer_2';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
 import {MdDeleteOutline,MdNavigateBefore} from 'react-icons/md'
 import Cards from './Cards';
 import {useSearchParams} from 'react-router-dom'
+import { link } from 'fs';
 
 
 var pages = [1,2,3,4,5]
@@ -26,25 +27,28 @@ function Assets() {
     const [pageVal,setPageVal] = React.useState('20')
     const [finalPageVal,setFinalPageVal] = React.useState('20')
     const [search,setSearch] = React.useState('')
-    const [finalSearch,setFinalSearch] = React.useState('')
     const log = useStore_2(state => state.log)
+    const searchData = useStore_4(state => state.searchData)
+    const setSearchData = useStore_4(state => state.setSearchData)
+    const Token = useStore_1(state => state.token)
+
     const [searchParams,setSearchParams] = useSearchParams()
 
     React.useEffect(() => {
-        if(!finalSearch){
+        if(!searchData){
             setSearchParams({page_size:finalPageVal,page:page})
         }
         else{
-            setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
+            setSearchParams({page_size:finalPageVal,page:page,search:searchData})
         }
-    },[finalSearch])
+    },[searchData])
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
-        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${finalSearch?`&search=${finalSearch}`:''}&page=${page}&`,{
+        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${searchData?`&search=${searchData}`:''}&page=${page}&`,{
             method:'GET',
             headers:{
-                'Authorization':`Token ${window.localStorage.getItem('Auth')}`
+                'Authorization':`Token ${Token}`
             }
         })
     },
@@ -53,7 +57,7 @@ function Assets() {
 
     //This check value to keep us logged in
     React.useEffect(() => {
-        if(!window.localStorage.getItem('Data')){
+        if(!Token){
             nav('/')
         }
     },[log])
@@ -71,7 +75,7 @@ function Assets() {
         setFilter('')
         setPageVal('20')
         setSearch('')
-
+        setSearchData('')
         window.location.reload();
     }
 
@@ -81,18 +85,11 @@ function Assets() {
     const filterData = () => {
         setFinalFilter(filter)
         setFinalPageVal(pageVal)
-        setFinalSearch(search)
+        setSearchData(search)
 
-
-        // setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
 
     }
 
-
-    // React.useEffect(() => {
-    //     setSearchParams({page_size:finalPageVal,page:page,search:finalSearch})
-    // },[finalSearch])
-    
 
   return (
     <>
@@ -223,7 +220,7 @@ function Assets() {
                 {pages.map(e => {
                     return(
                         <>  
-                            <Button variant='outline' size='xs' color='gray' onClick={() => setPage(e)}>{e}</Button>
+                            <Button variant='outline' size='xs' color='gray' onClick={() => {setPage(e)}}>{e}</Button>
                         </>
                     )
                 })}
