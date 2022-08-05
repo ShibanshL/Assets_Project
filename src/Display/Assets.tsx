@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput} from '@mantine/core';
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
@@ -23,7 +23,7 @@ function Assets() {
     const [page,setPage] = React.useState(1)
     const [opened, setOpened] = React.useState(false);
     const [filter,setFilter] = React.useState('')
-    const [finalfilter,setFinalFilter] = React.useState('infra')
+    const [finalfilter,setFinalFilter] = React.useState('')
     const [pageVal,setPageVal] = React.useState('20')
     const [finalPageVal,setFinalPageVal] = React.useState('20')
     const [search,setSearch] = React.useState('')
@@ -36,17 +36,23 @@ function Assets() {
     const [searchParams,setSearchParams] = useSearchParams()
 
     React.useEffect(() => {
-        if(!searchData){
+        if(!searchData && !finalfilter){
             setSearchParams({page_size:finalPageVal,page:page})
         }
-        else{
+        else if(searchData && !finalfilter){
             setSearchParams({page_size:finalPageVal,page:page,search:searchData})
         }
-    },[searchData])
+        else if(!searchData && finalfilter){
+            setSearchParams({page_size:finalPageVal,page:page,type:finalfilter})
+        }
+        else{
+            setSearchParams({page_size:finalPageVal,page:page,type:finalfilter,search:searchData})
+        }
+    },[i])
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
-        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${searchData?`&search=${searchData}`:''}&page=${page}&`,{
+        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${finalfilter?`&type=${finalfilter}`:''}${searchData?`&search=${searchData}`:''}&page=${page}&`,{
             method:'GET',
             headers:{
                 'Authorization':`Token ${Token}`
@@ -87,13 +93,13 @@ function Assets() {
         setFinalFilter(filter)
         setFinalPageVal(pageVal)
         setSearchData(search)
-
-
-        window.location.reload()
+        // this.forceUpdate()
+        i++
+        // window.location.reload()
 
     }
 
-
+ 
   return (
     <>
     <Grid p='20px 120px' style={{background:'#f8f9fa'}}>
@@ -154,7 +160,7 @@ function Assets() {
                                             label="Items Per Page"
                                             placeholder='Pick for items per page'
                                             onChange={(e:any) => setPageVal(e)}
-                                            value={finalPageVal}
+                                            value={pageVal}
                                             rightSection={finalPageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
                                             data={[
                                                 { value: '10', label: '10' },
@@ -170,9 +176,9 @@ function Assets() {
                                         <TextInput
                                             placeholder="Search"
                                             label="Search"
-                                            value={search?search:searchData}
+                                            value={search}
                                             onChange={(e) => {setSearch(e.target.value);console.log(search)}}
-                                            rightSection={<FiSearch />}
+                                            rightSection={search.length == 0?<FiSearch />:<FiPlus onClick={() => setSearch('')} style={{cursor:'pointer',transform:'rotate(45deg)'}} />}
                                         />
                                     </Group>
                                 </Grid.Col>
