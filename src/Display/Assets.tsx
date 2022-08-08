@@ -32,9 +32,16 @@ function Assets() {
     const setSearchData = useStore_4(state => state.setSearchData)
     const Token = useStore_1(state => state.token)
     const logData = useStore_3(state => state.logData)
-
+    const [finalfilterData,setFilterData] = React.useState({
+        finalFilter:'',
+        finalSearch:'',
+        finalPage:'20',
+    })
     const [searchParams,setSearchParams] = useSearchParams()
 
+    const newDataTofetch = {page, finalfilter, finalPageVal, searchData}
+
+//This useEffect checks what the url will be based on the filters that are added
     React.useEffect(() => {
         if(!searchData && !finalfilter){
             setSearchParams({page_size:finalPageVal,page:page})
@@ -51,7 +58,7 @@ function Assets() {
     },[i])
 
     //This calls the server for data while providing an header for authorization
-    const { isLoading, error, data, isFetching, isPreviousData } = useQuery(['Devices',page], () => {
+    const { isLoading, error, data} = useQuery(['Devices',newDataTofetch], () => {
         return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${finalfilter?`&type=${finalfilter}`:''}${searchData?`&search=${searchData}`:''}&page=${page}&`,{
             method:'GET',
             headers:{
@@ -59,7 +66,7 @@ function Assets() {
             }
         })
     },
-    {keepPreviousData:false},
+ 
     )
 
     //This check value to keep us logged in
@@ -86,17 +93,14 @@ function Assets() {
         window.location.reload();
     }
 
-    
 
     //Function where we apply our filters to the data
     const filterData = () => {
         setFinalFilter(filter)
         setFinalPageVal(pageVal)
         setSearchData(search)
-        // this.forceUpdate()
+        setFilterData({finalFilter:filter,finalSearch:search,finalPage:pageVal})
         i++
-        // window.location.reload()
-
     }
 
  
@@ -142,7 +146,6 @@ function Assets() {
                                         <Select
                                             label="Type"
                                             onChange={(e:any) => setFilter(e)}
-                                            // placeholder={filter}
                                             placeholder='Pick for a type'
                                             value={filter}
                                             rightSection={filter.length==0?'':<FiPlus onClick={() => setFilter('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
