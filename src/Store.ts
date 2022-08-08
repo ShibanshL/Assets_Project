@@ -81,4 +81,16 @@ const useStore_4 = create(
   )
 )
 
-export {useStore,useStore_1,useStore_2,useStore_3,useStore_4}
+interface Un_key{
+  key:string,
+  setKey:(e:any) => void
+}
+
+const useStore_5 = create<Un_key>((set) =>({
+  key:'',
+  setKey:(e:any) =>  set(() => ({key:e}))
+
+})
+
+)
+export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5}

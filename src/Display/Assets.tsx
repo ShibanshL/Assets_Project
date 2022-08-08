@@ -42,20 +42,20 @@ function Assets() {
     const newDataTofetch = {page, finalfilter, finalPageVal, searchData}
 
 //This useEffect checks what the url will be based on the filters that are added
-    React.useEffect(() => {
-        if(!searchData && !finalfilter){
-            setSearchParams({page_size:finalPageVal,page:page})
-        }
-        else if(searchData && !finalfilter){
-            setSearchParams({page_size:finalPageVal,page:page,search:searchData})
-        }
-        else if(!searchData && finalfilter){
-            setSearchParams({page_size:finalPageVal,page:page,type:finalfilter})
-        }
-        else{
-            setSearchParams({page_size:finalPageVal,page:page,type:finalfilter,search:searchData})
-        }
-    },[i])
+React.useEffect(() => {
+    if(!searchData && !finalfilter){
+        setSearchParams({page_size:finalPageVal,page:page})
+    }
+    else if(searchData && !finalfilter){
+        setSearchParams({page_size:finalPageVal,page:page,search:searchData})
+    }
+    else if(!searchData && finalfilter){
+        setSearchParams({page_size:finalPageVal,page:page,type:finalfilter})
+    }
+    else{
+        setSearchParams({page_size:finalPageVal,page:page,type:finalfilter,search:searchData})
+    }
+},[i])
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data} = useQuery(['Devices',newDataTofetch], () => {
@@ -102,7 +102,6 @@ function Assets() {
         setFilterData({finalFilter:filter,finalSearch:search,finalPage:pageVal})
         i++
     }
-
  
   return (
     <>

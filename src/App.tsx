@@ -6,12 +6,15 @@ import Navtoolbar from './Navbar/Navtoolbar';
 import Login from './Login/Login';
 import Assets from './Display/Assets';
 import Test from './Test/Test'
+import SubTest from './Test/SubTest';
+import Sub_Assets from './Display/Sub_Assets';
+import { useStore_5 } from './Store';
 
 const reactQuery = new QueryClient()
-
+var i = 1
 
 function App() {
-
+const key = useStore_5(state => state.key)
   return (
     <QueryClientProvider client={reactQuery}>
       <Router>
@@ -29,7 +32,9 @@ function App() {
                   <Routes>
                     <Route path='/' element={<Login />} />
                     <Route path='/Assets' element={<Assets />} />
+                    <Route path={`/Asset/:keyID`} element={<Sub_Assets />} />
                     <Route path='/test' element={<Test />} />
+                    <Route path='/test/ada' element={<SubTest />} />
                   </Routes>
                 </Grid.Col>
               </Grid>

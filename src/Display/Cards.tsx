@@ -1,7 +1,8 @@
 import React from 'react'
 import {Group,Grid, Text, Badge, Checkbox, Card, Divider, Tooltip} from '@mantine/core';
 import {AiOutlineLink} from 'react-icons/ai'
-
+import {Link} from 'react-router-dom'
+import {useStore_5} from '../Store'
 // interface props{
 //     data:{
 //         results:[
@@ -24,7 +25,8 @@ interface props{
                 host: string,
                 scan_cycle_count:number,
                 type:string,
-                tags: string[]
+                tags: string[],
+                unique_id:string
             }
         ],
 
@@ -32,8 +34,9 @@ interface props{
 }
 
 function Cards({data,check}:props) {
-
-    // console.log('Cards ini :',data)
+    const key = useStore_5(state => state.key)
+    const setKey = useStore_5(state => state.setKey)
+    console.log('Cards ini :',data)
 
   return (
     <>
@@ -46,7 +49,7 @@ function Cards({data,check}:props) {
                                 <Grid.Col span={12}>
                                     <Group>
                                         <Checkbox checked={check} />
-                                        <AiOutlineLink />
+                                        <Link to={`/Asset/${e.unique_id}`}><AiOutlineLink /></Link>
                                         <Group>
                                             <Text weight={700} style={{fontSize:'20px'}}>{e.host}</Text>
                                         </Group>

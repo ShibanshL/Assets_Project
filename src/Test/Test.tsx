@@ -1,19 +1,15 @@
 import React from 'react'
 import {useSearchParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Test() {
 
-    const [searchParams,setSearchParams] = useSearchParams()
-    React.useEffect(() =>{
-        setSearchParams({age:69,name:'Shibansh'})
-    },[])
-    searchParams.get('age')
-
+   var ab = [1,2,3,4,5,6]
   return (
     <div>
-        <h1 style={{color:'black'}}>TESTING IS GOING ON!!</h1>
-        <h2>{searchParams.get('age')}</h2>
-        <button onClick={() => setSearchParams({age:50,name:'shibansh',id:1701209117})} >increment</button>
+        <h3>
+          <Link to=''>{ab.map(e => e)}</Link>
+        </h3>
     </div>
   )
 }
