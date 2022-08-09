@@ -66,7 +66,6 @@ function Sub_Assets() {
                             <Link to='/Assets'><AiOutlineDoubleLeft size={22}/></Link>
                         </Group>
                         <Group>
-                            <Text style={{fontSize:'22px'}}>/</Text>
                             <Text weight={700} style={{fontSize:'22px'}}> Assets</Text>
                             <Text style={{fontSize:'22px'}} weight={600}>/ {appData?.map((e:any) => e.host)}</Text>
                         </Group>
