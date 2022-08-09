@@ -12,8 +12,8 @@ var appData = []
 
 
 function Sub_Assets() {
-    const Token = useStore_1(state => state.token)
-    const log = useStore_2(state => state.log)
+  const Token = useStore_1(state => state.token)
+  const log = useStore_2(state => state.log)
   const logData = useStore_3(state => state.logData)
   const pageNum = useStore_6(state => state.pageNum)
   const num = useStore(state => state.num)

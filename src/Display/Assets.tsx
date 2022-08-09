@@ -113,10 +113,6 @@ React.useEffect(() => {
                 <Grid.Col span={6}>
                     <Group>
                         <Group>
-                            <AiOutlineDoubleLeft size={22}/>
-                        </Group>
-                        <Group>
-                            <Text style={{fontSize:'22px'}}>/</Text>
                             <Text weight={700} style={{fontSize:'22px'}}> Assets</Text>
                         </Group>
                     </Group>
