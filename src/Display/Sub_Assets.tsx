@@ -1,9 +1,9 @@
 import React from 'react'
-import {useParams,Link} from 'react-router-dom'
+import {useParams,Link,useNavigate} from 'react-router-dom'
 import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput, Container,Tooltip, Badge} from '@mantine/core';
 import {AiOutlineDoubleLeft} from 'react-icons/ai'
 import {HiOutlinePencil} from 'react-icons/hi'
-import {useStore_1,useStore_6} from '../Store'
+import {useStore,useStore_1,useStore_6,useStore_3,useStore_2} from '../Store'
 import { useQuery} from 'react-query';
 import axios from 'axios';
 
@@ -13,9 +13,23 @@ var appData = []
 
 function Sub_Assets() {
     const Token = useStore_1(state => state.token)
-    const pageNum = useStore_6(state => state.pageNum)
+    const log = useStore_2(state => state.log)
+  const logData = useStore_3(state => state.logData)
+  const pageNum = useStore_6(state => state.pageNum)
+  const num = useStore(state => state.num)
+
+  let nav = useNavigate()
     const {keyID} = useParams()
     console.log(useParams())
+
+
+    React.useEffect(() => { 
+      if(!logData){
+        nav('/')
+      }
+      },
+      [num])
+  
 
     //I'm recalling the api and just filtering based on the unique_id i receive through params
     const { isLoading, error, data} = useQuery(['Devices'], () => {
@@ -36,6 +50,10 @@ function Sub_Assets() {
   {
     return <h1>Loading ...</h1>
   }
+
+
+ 
+
 
   return (
     <>
