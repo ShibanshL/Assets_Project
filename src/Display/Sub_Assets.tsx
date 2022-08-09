@@ -21,7 +21,7 @@ interface apiData {
  
 }
 
-var appData = {}
+var appData = []
 
 
 function Sub_Assets() {
@@ -62,12 +62,12 @@ function Sub_Assets() {
                 <Grid.Col span={6}>
                     <Group>
                         <Group>
-                            <AiOutlineDoubleLeft size={22}/>
+                            <Link to='/Assets'><AiOutlineDoubleLeft size={22}/></Link>
                         </Group>
                         <Group>
                             <Text style={{fontSize:'22px'}}>/</Text>
                             <Text weight={700} style={{fontSize:'22px'}}> Assets</Text>
-                            <Text style={{fontSize:'22px'}} weight={600}>/ {console.log('AA,',appData)}</Text>
+                            <Text style={{fontSize:'22px'}} weight={600}>/ {appData?.map((e:any) => e.host)}</Text>
                         </Group>
                     </Group>
                 </Grid.Col>
@@ -187,23 +187,23 @@ function Sub_Assets() {
               <Grid grow>
                 <Group direction='column'>
                   <Text color='#868E96' style={{fontSize:'16px'}}>Display Name</Text>
-                  <Text></Text>
+                  <Text>{appData?.map((e:any) => e.display_name)}</Text>
                 </Group>
                 <Group direction='column' pl='150px'>
                   <Text color='#868E96' style={{fontSize:'16px'}}>Cycle Count</Text>
-                  <Text></Text>
+                  <Text>{appData?.map((e:any) => e.scan_cycle_count)}</Text>
                 </Group>
                 <Group direction='column' pl='150px'>
                   <Text color='#868E96' style={{fontSize:'16px'}}>Type</Text>
-                  <Text></Text>
+                  <Text>{appData?.map((e:any) => e.type)}</Text>
                 </Group>
                 <Group direction='column' pl='150px'>
                   <Text color='#868E96' style={{fontSize:'16px'}}>Tags</Text>
-                  <Text></Text>
+                  <Text>{appData?.map((e:any) => e.tags[0])}, {appData?.map((e:any) => e.tags[1])}</Text>
                 </Group>
                 <Group direction='column' pl='150px'>
                   <Text color='#868E96' style={{fontSize:'16px'}}>Time to Decommission</Text>
-                  <Text></Text>
+                  <Text>{appData?.map((e:any) => e.time_to_decommission)}</Text>
                 </Group>
               </Grid>
             </Grid.Col>
