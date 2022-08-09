@@ -3,34 +3,23 @@ import {useParams,Link} from 'react-router-dom'
 import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput, Container,Tooltip, Badge} from '@mantine/core';
 import {AiOutlineDoubleLeft} from 'react-icons/ai'
 import {HiOutlinePencil} from 'react-icons/hi'
-import {useStore_1} from '../Store'
+import {useStore_1,useStore_6} from '../Store'
 import { useQuery} from 'react-query';
 import axios from 'axios';
 
-interface apiData {
-    api:[
-      {
-        display_name: string,
-        host: string,
-        scan_cycle_count:number,
-        type:string,
-        tags: string[],
-        unique_id:string
-      }
-    ]
- 
-}
-
+//Here the specific object is stored
 var appData = []
 
 
 function Sub_Assets() {
     const Token = useStore_1(state => state.token)
+    const pageNum = useStore_6(state => state.pageNum)
     const {keyID} = useParams()
     console.log(useParams())
 
+    //I'm recalling the api and just filtering based on the unique_id i receive through params
     const { isLoading, error, data} = useQuery(['Devices'], () => {
-      return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/`,{
+      return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?&page=${pageNum}`,{
           method:'GET',
           headers:{
               'Authorization':`Token ${Token}`
@@ -39,20 +28,14 @@ function Sub_Assets() {
 
   },
   )
+
+  //Here im pushing the filterd data into an array
   appData = data?.data.results.filter((e:any) => e.unique_id == keyID)
-  // console.log('APp,',appData)
 
-
-
-// //React query part for loading and error
-// if(isLoading){
-// return <h1>Loading</h1>
-// }
-// if (error){
-//     return <h2>{error?.message}</h2>
-// }
-
-
+  if(isLoading)
+  {
+    return <h1>Loading ...</h1>
+  }
 
   return (
     <>

@@ -91,6 +91,18 @@ const useStore_5 = create<Un_key>((set) =>({
   setKey:(e:any) =>  set(() => ({key:e}))
 
 })
-
 )
-export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5}
+
+interface pageNum {
+  pageNum:number,
+  setPageNum:(e:any) => void
+}
+
+const useStore_6 = create<pageNum>(
+  (set) =>({
+    pageNum:1,
+    setPageNum:(e:any) => set(() => ({pageNum:e}))
+  })
+)
+
+export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5,useStore_6}

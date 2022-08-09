@@ -3,7 +3,7 @@ import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, Te
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { useStore,useStore_4,useStore_2,useStore_1,useStore_3} from '../Store';
+import { useStore,useStore_4,useStore_2,useStore_1,useStore_3,useStore_6} from '../Store';
 import useFishStore from '../Storer_2';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
@@ -32,6 +32,8 @@ function Assets() {
     const setSearchData = useStore_4(state => state.setSearchData)
     const Token = useStore_1(state => state.token)
     const logData = useStore_3(state => state.logData)
+    const setPageNum = useStore_6(state => state.setPageNum)
+    const pageNum = useStore_6(state => state.pageNum)
     const [finalfilterData,setFilterData] = React.useState({
         finalFilter:'',
         finalSearch:'',
@@ -227,15 +229,15 @@ React.useEffect(() => {
         </Grid.Col>
         <Grid.Col span={12}>
             <Group>
-                <Button variant='outline' color='gray' size='xs' onClick={() => setPage(page-1)} disabled={page==1}><MdNavigateBefore /></Button>
+                <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
                 {pages.map(e => {
                     return(
                         <>  
-                            <Button variant='outline' size='xs' color='gray' onClick={() => {setPage(e)}}>{e}</Button>
+                            <Button variant='outline' size='xs' color='gray' onClick={() => {setPage(e);setPageNum(e)}}>{e}</Button>
                         </>
                     )
                 })}
-                <Button variant='outline' color='gray' size='xs' onClick={() => setPage(page+1)} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
+                <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
             </Group>
         </Grid.Col>
     </Grid>
