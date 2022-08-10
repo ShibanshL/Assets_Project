@@ -50,32 +50,32 @@ function Cards({data,check}:props) {
                             <Grid>
                                 <Grid.Col span={12}>
                                     <Group>
-                                        <Checkbox checked={check} />
-                                        <Link to={`/Asset/${e.unique_id}`}><AiOutlineLink /></Link>
-                                        <Group>
+                                        <Checkbox pr='20px' checked={check} />
+                                        <Link p ='0px 20px' to={`/Asset/${e.unique_id}`}><AiOutlineLink /></Link>
+                                        <Group p='0px 20px'>
                                             <Text weight={700} style={{fontSize:'20px'}}>{e.host}</Text>
                                         </Group>
-                                        <Group>
+                                        <Group p='0px 20px'>
                                             <Text style={{fontSize:'16px'}}>{e.display_name}</Text>
                                         </Group>
-                                        <Group dir='column'>
+                                        <Group p='0px 20px' dir='column'>
                                             <Grid>
                                                 <Grid.Col span={12}>
                                                     <Text style={{fontSize:'12px'}}>Scan Cycles</Text>
                                                 </Grid.Col>
                                                 <Grid.Col span={12}>
-                                                    <Text weight={500} style={{fontSize:'16px'}}>{!e.scan_cycle_coun?0:e.scan_cycle_coun}</Text>
+                                                    <Text weight={500} style={{fontSize:'16px'}}>{!e.scan_cycle_count?0:e.scan_cycle_count}</Text>
                                                 </Grid.Col>
                                             </Grid>
                                         </Group>
-                                        <Group>
+                                        <Group p='0px 20px'>
                                             <Text style={{fontSize:'12px'}}>Last Scan Date</Text>
                                             <AiOutlineLink size={18}/>
                                         </Group>
-                                        <Group>
+                                        <Group p='0px 20px'>
                                             <Text style={{fontSize:'12px'}}>Time to Decommision</Text>
                                         </Group>
-                                        <Group>
+                                        <Group p='0px 20px'>
                                             <Grid.Col span={12}>
                                                         <Text style={{fontSize:'12px'}}>Type</Text>
                                                     </Grid.Col>
@@ -137,7 +137,10 @@ function Cards({data,check}:props) {
                                                 </Tooltip>
                                             </Group>
                                         </Grid.Col>
-                                        <Grid.Col  span={6}>
+                                        <Grid.Col ml='-310px' p='0 15px' style={{transform:'rotate(90deg)'}} span={1}>
+                                            <Divider />
+                                        </Grid.Col>
+                                        <Grid.Col  span={5}>
                                             <Group>
                                                 <Text style={{fontSize:'12px'}}>Status Breakup</Text>
                                             </Group>

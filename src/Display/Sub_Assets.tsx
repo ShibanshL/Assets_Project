@@ -204,26 +204,42 @@ function Sub_Assets() {
           <Grid p='24px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
             <Grid.Col span={12} pl='20px'>
               <Grid grow>
-                <Group direction='column'>
-                  <Text color='#868E96' style={{fontSize:'16px'}}>Display Name</Text>
-                  <Text>{data.data?.data.display_name}</Text>
-                </Group>
-                <Group direction='column' pl='150px'>
-                  <Text color='#868E96' style={{fontSize:'16px'}}>Cycle Count</Text>
-                  <Text>{data.data?.data.scan_cycle_count}</Text>
-                </Group>
-                <Group direction='column' pl='150px'>
-                  <Text color='#868E96' style={{fontSize:'16px'}}>Type</Text>
-                  <Text>{data.data?.data.type}</Text>
-                </Group>
-                <Group direction='column' pl='150px'>
-                  <Text color='#868E96' style={{fontSize:'16px'}}>Tags</Text>
-                  <Text>{data.data?.data.tags[0]}, {data.data?.data.tags[1]}</Text>
-                </Group>
-                <Group direction='column' pl='150px'>
-                  <Text color='#868E96' style={{fontSize:'16px'}}>Time to Decommission</Text>
-                  <Text>{data.data?.data.time_to_decommission}</Text>
-                </Group>
+                <Grid.Col span={2}>
+                  <Group direction='column'>
+                    <Text color='#868E96' style={{fontSize:'16px'}}>Display Name</Text>
+                    <Text>{data.data?.data.display_name}</Text>
+                  </Group>
+                </Grid.Col>
+                <Grid.Col span={2}>
+                  <Group direction='column'>
+                    <Text color='#868E96' style={{fontSize:'16px'}}>Cycle Count</Text>
+                    <Text>{data.data?.data.scan_cycle_count}</Text>
+                  </Group>
+                </Grid.Col>
+                <Grid.Col span={2}>
+                  <Group direction='column'>
+                    <Text color='#868E96' style={{fontSize:'16px'}}>Type</Text>
+                    <Text>{data.data?.data.type}</Text>
+                  </Group>
+                </Grid.Col>
+                <Grid.Col span={2}>
+                  <Group direction='column'>
+                    <Text color='#868E96' style={{fontSize:'16px'}}>Tags</Text>
+                    <Text>{data.data?.data.tags[0]}, {data.data?.data.tags[1]}</Text>
+                  </Group>
+                </Grid.Col>
+                <Grid.Col span={2}>
+                  <Group direction='column'>
+                    <Text color='#868E96' style={{fontSize:'16px'}}>Time to Decommission</Text>
+                    <Text>{data.data?.data.time_to_decommission}</Text>
+                  </Group>
+                </Grid.Col>
+
+                
+               
+                
+               
+                
               </Grid>
             </Grid.Col>
           </Grid>

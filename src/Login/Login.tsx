@@ -5,7 +5,7 @@ import { useForm } from '@mantine/form';
 import {useMutation} from 'react-query' 
 import {BsEyeFill,BsEyeSlashFill} from 'react-icons/bs'
 import axios from 'axios';
-import { useStore_1, useStore_2, useStore_3} from '../Store';
+import {useStore, useStore_1, useStore_2, useStore_3} from '../Store';
 import { constants } from 'buffer';
 
 
@@ -28,8 +28,17 @@ function Login() {
   const setToken = useStore_1(state => state.setToken)
   const Token = useStore_1(state => state.token)
   const [invalidCred,setInvalidCred] = React.useState('')
+  const num = useStore(state => state.num)
 
   let nav = useNavigate()
+
+  React.useEffect(() => { 
+    if(logData){
+      nav('/Assets')
+    }
+    },
+    [num])
+
 
   //Mantine's basic useform that handles all the input and input authorization
   const form = useForm({
