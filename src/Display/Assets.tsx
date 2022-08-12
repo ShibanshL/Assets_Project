@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput} from '@mantine/core';
+import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput,MediaQuery} from '@mantine/core';
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
@@ -136,133 +136,135 @@ React.useEffect(() => {
  
   return (
     <>
-    <Grid p='20px 120px' style={{background:'#f8f9fa'}}>
-        <Grid.Col span={12}>
-            <Grid p='5px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
-                <Grid.Col span={6}>
-                    <Group>
+    <MediaQuery query='(max-width:700px)' styles={{padding:'20px'}}>
+        <Grid p='20px 120px' style={{background:'#f8f9fa'}}>
+            <Grid.Col span={12}>
+                <Grid p='5px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
+                    <Grid.Col span={6}>
                         <Group>
-                            <AiOutlineDoubleLeft size={22}/>
-                        </Group>
-                        <Group>
-                            <Text weight={700} style={{fontSize:'22px'}}> Assets</Text>
-                        </Group>
-                    </Group>
-                </Grid.Col>
-                <Grid.Col mt='2px' span={6}>
-                    <Group position='right'>
-                        <Button size='xs' leftIcon={<FiUpload />}>Bulk Update</Button>
-                        <Button size='xs' leftIcon={<FiPlus />}>Create Assets</Button>
-                        <Button size='xs' color='red' leftIcon={<MdDeleteOutline />} disabled={check==false}>Delete</Button>
-                    </Group>
-                </Grid.Col>
-            </Grid>
-        </Grid.Col>
-        <Grid.Col span={12}>
-            <Collapse in={opened} pt='30px'>
-                <Card style={{border:'5px'}}>
-                    <Grid>
-                        <Grid.Col span={12}>
-                            <Text weight={600} style={{fontSize:'14px'}}>Filters</Text>
-                        </Grid.Col>
-                        <Grid.Col span={12}>
-                            <Divider />
-                        </Grid.Col>
-                        <Grid.Col span={12}>
-                            <Grid>
-                                <Grid.Col span={3}>
-                                    <Group grow>
-                                        <Select
-                                            label="Type"
-                                            onChange={(e:any) => setFilter(e)}
-                                            placeholder='Pick for a type'
-                                            value={filter}
-                                            rightSection={filter.length==0?'':<FiPlus onClick={() => setFilter('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
-                                            data={[
-                                                { value: 'Website', label: 'Website' },
-                                                { value: 'Router', label: 'Router' },
-                                                { value: 'infra', label: 'infra' },
-                                            ]}
-                                        />
-                                    </Group>
-                                </Grid.Col>
-                                <Grid.Col span={3}>
-                                    <Group grow>
-                                        <Select
-                                            label="Items Per Page"
-                                            placeholder='Pick for items per page'
-                                            onChange={(e:any) => setPageVal(e)}
-                                            value={pageVal}
-                                            rightSection={finalPageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
-                                            data={[
-                                                { value: '10', label: '10' },
-                                                { value: '20', label: '20' },
-                                                { value: '50', label: '50' },
-                                                { value: '100', label: '100' },
-                                            ]}
-                                        />
-                                    </Group>
-                                </Grid.Col>
-                                <Grid.Col span={3}>
-                                    <Group grow>
-                                        <TextInput
-                                            placeholder="Search"
-                                            label="Search"
-                                            value={search}
-                                            onChange={(e) => {setSearch(e.target.value);console.log(search)}}
-                                            rightSection={search.length == 0?<FiSearch />:<FiPlus onClick={() => setSearch('')} style={{cursor:'pointer',transform:'rotate(45deg)'}} />}
-                                        />
-                                    </Group>
-                                </Grid.Col>
-                            </Grid>
-                        </Grid.Col>
-                        <Grid.Col span={12}>
-                            <Group position='right'>
-                                <Button onClick={filterData} size='xs'>Apply</Button>
-                                <Button size='xs' onClick={() => {setOpened((o) => !o); clearAll()}} variant='outline'>Clear All</Button>
+                            <Group>
+                                <AiOutlineDoubleLeft size={22}/>
                             </Group>
-                        </Grid.Col>
-                    </Grid>
-                </Card>
-            </Collapse>
-        </Grid.Col>
-        <Grid.Col  pt='40px' span={12}>
-            <Grid>
-                <Grid.Col span={6}>
-                    {j%2==0?<Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>:
-                    <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>1</span> out of <span style={{color:'#d63399'}}>1</span> resources</Text>}
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Group p='0px' position='right'>
-                        <Button p='0px 7px' size='xs' onClick={() => setOpened((o) => !o)}>{!opened?'Show Filters':'Hide Filters'}</Button>
-                    </Group>
-                </Grid.Col>
-            </Grid>
-        </Grid.Col>
-        <Grid.Col span={12}>
-            <Group p='15px 10px' style={{background:'white'}}>
-                <Text weight={700} style={{fontSize:'14px'}}>Current Filters</Text>
-            </Group>
-        </Grid.Col>
-        <Grid.Col span={12}>
-            <Group  p='20px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
-                <Checkbox onChange={() => {check==false?setCheck(true):setCheck(false)}} label="Select all Assets"/>
-            </Group>
-        </Grid.Col>
-        <Grid.Col span={12}>
-            <Cards data={data?.data.results} check={check}/>
-        </Grid.Col>
-        <Grid.Col span={12}>
-             {j%2==0?<Text>Page : {page} / 5</Text>:<Text>Page : 1 / 1</Text>}                               
-        </Grid.Col>
-        <Grid.Col span={12}>
-            <Group>
-                <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
-                {Page_button()}
-                <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
-            </Group>
-        </Grid.Col>
-    </Grid>
+                            <Group>
+                                <Text weight={700} style={{fontSize:'22px'}}> Assets</Text>
+                            </Group>
+                        </Group>
+                    </Grid.Col>
+                    <Grid.Col mt='2px' span={6}>
+                        <Group position='right'>
+                            <Button size='xs' leftIcon={<FiUpload />}>Bulk Update</Button>
+                            <Button size='xs' leftIcon={<FiPlus />}>Create Assets</Button>
+                            <Button size='xs' color='red' leftIcon={<MdDeleteOutline />} disabled={check==false}>Delete</Button>
+                        </Group>
+                    </Grid.Col>
+                </Grid>
+            </Grid.Col>
+            <Grid.Col span={12}>
+                <Collapse in={opened} pt='30px'>
+                    <Card style={{border:'5px'}}>
+                        <Grid>
+                            <Grid.Col span={12}>
+                                <Text weight={600} style={{fontSize:'14px'}}>Filters</Text>
+                            </Grid.Col>
+                            <Grid.Col span={12}>
+                                <Divider />
+                            </Grid.Col>
+                            <Grid.Col span={12}>
+                                <Grid>
+                                    <Grid.Col span={3}>
+                                        <Group grow>
+                                            <Select
+                                                label="Type"
+                                                onChange={(e:any) => setFilter(e)}
+                                                placeholder='Pick for a type'
+                                                value={filter}
+                                                rightSection={filter.length==0?'':<FiPlus onClick={() => setFilter('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
+                                                data={[
+                                                    { value: 'Website', label: 'Website' },
+                                                    { value: 'Router', label: 'Router' },
+                                                    { value: 'infra', label: 'infra' },
+                                                ]}
+                                            />
+                                        </Group>
+                                    </Grid.Col>
+                                    <Grid.Col span={3}>
+                                        <Group grow>
+                                            <Select
+                                                label="Items Per Page"
+                                                placeholder='Pick for items per page'
+                                                onChange={(e:any) => setPageVal(e)}
+                                                value={pageVal}
+                                                rightSection={finalPageVal.length==0?'':<FiPlus onClick={() => setPageVal('')} style={{cursor:'pointer',transform:'rotate(45deg)'}}/>}
+                                                data={[
+                                                    { value: '10', label: '10' },
+                                                    { value: '20', label: '20' },
+                                                    { value: '50', label: '50' },
+                                                    { value: '100', label: '100' },
+                                                ]}
+                                            />
+                                        </Group>
+                                    </Grid.Col>
+                                    <Grid.Col span={3}>
+                                        <Group grow>
+                                            <TextInput
+                                                placeholder="Search"
+                                                label="Search"
+                                                value={search}
+                                                onChange={(e) => {setSearch(e.target.value);console.log(search)}}
+                                                rightSection={search.length == 0?<FiSearch />:<FiPlus onClick={() => setSearch('')} style={{cursor:'pointer',transform:'rotate(45deg)'}} />}
+                                            />
+                                        </Group>
+                                    </Grid.Col>
+                                </Grid>
+                            </Grid.Col>
+                            <Grid.Col span={12}>
+                                <Group position='right'>
+                                    <Button onClick={filterData} size='xs'>Apply</Button>
+                                    <Button size='xs' onClick={() => {setOpened((o) => !o); clearAll()}} variant='outline'>Clear All</Button>
+                                </Group>
+                            </Grid.Col>
+                        </Grid>
+                    </Card>
+                </Collapse>
+            </Grid.Col>
+            <Grid.Col  pt='40px' span={12}>
+                <Grid>
+                    <Grid.Col span={6}>
+                        {j%2==0?<Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>:
+                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>1</span> out of <span style={{color:'#d63399'}}>1</span> resources</Text>}
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Group p='0px' position='right'>
+                            <Button p='0px 7px' size='xs' onClick={() => setOpened((o) => !o)}>{!opened?'Show Filters':'Hide Filters'}</Button>
+                        </Group>
+                    </Grid.Col>
+                </Grid>
+            </Grid.Col>
+            <Grid.Col span={12}>
+                <Group p='15px 10px' style={{background:'white'}}>
+                    <Text weight={700} style={{fontSize:'14px'}}>Current Filters</Text>
+                </Group>
+            </Grid.Col>
+            <Grid.Col span={12}>
+                <Group  p='20px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
+                    <Checkbox onChange={() => {check==false?setCheck(true):setCheck(false)}} label="Select all Assets"/>
+                </Group>
+            </Grid.Col>
+            <Grid.Col span={12}>
+                <Cards data={data?.data.results} check={check}/>
+            </Grid.Col>
+            <Grid.Col span={12}>
+                {j%2==0?<Text>Page : {page} / 5</Text>:<Text>Page : 1 / 1</Text>}                               
+            </Grid.Col>
+            <Grid.Col span={12}>
+                <Group>
+                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
+                    {Page_button()}
+                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
+                </Group>
+            </Grid.Col>
+        </Grid>
+    </MediaQuery>
     </>
   )
 }

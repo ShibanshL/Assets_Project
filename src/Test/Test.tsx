@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSearchParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import {MediaQuery, Text,Group} from '@mantine/core'
 
 function Test() {
   const [data, setData] = React.useState({})
@@ -18,9 +19,13 @@ function Test() {
         <h3 onClick={Data}>
           <Link to=''>{ab.map(e => e)}</Link>
         </h3>
-        <h2>
-          {JSON.stringify(data)}
-        </h2>
+        <MediaQuery  query='(max-width: 500px)' styles={{padding:'5px 5px'}}>
+          <Group p='10px 50px'>
+            <Text>
+              {JSON.stringify(data)}
+            </Text>
+          </Group>
+        </MediaQuery>
     </div>
   )
 }
