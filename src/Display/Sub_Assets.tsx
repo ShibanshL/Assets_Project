@@ -104,33 +104,33 @@ function Sub_Assets() {
                 <Grid.Col span={12}>
                 <Group style={{}} p='15px 0px'>
                       <Tooltip label={`Critical=${data.data?.data.vuln_breakup?.critical?data.data?.data.vuln_breakup?.critical:0}`} color='red' withArrow>
-                          <Group style={{}} spacing='0'>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.critical?'red':'gray'} variant='filled'>C</Badge>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.critical?'red':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.critical?data.data?.data.vuln_breakup?.critical:0}</Badge>
+                          <Group style={{}} spacing={0}>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.critical?'red':'gray'} variant='filled'>C</Badge>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.critical?'red':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.critical?data.data?.data.vuln_breakup?.critical:0}</Badge>
                           </Group>
                       </Tooltip>
                       <Tooltip label={`High=${data.data?.data.vuln_breakup?.high?data.data?.data.vuln_breakup?.high:0}`} color='orange' withArrow>
-                          <Group style={{}} spacing='0'>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.high?'orange':'gray'} variant='filled'>H</Badge>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.high?'orange':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.high?data.data?.data.vuln_breakup?.high:0}</Badge>
+                          <Group style={{}} spacing={0}>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.high?'orange':'gray'} variant='filled'>H</Badge>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.high?'orange':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.high?data.data?.data.vuln_breakup?.high:0}</Badge>
                           </Group>
                       </Tooltip>
                       <Tooltip label={`Medium=${data.data?.data.vuln_breakup?.medium?data.data?.data.vuln_breakup?.medium:0}`} color='yellow' withArrow>
-                          <Group style={{}} spacing='0'>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.medium?'yellow':'gray'} variant='filled'>M</Badge>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.medium?'yellow':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.medium?data.data?.data.vuln_breakup?.medium:0}</Badge>
+                          <Group style={{}} spacing={0}>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.medium?'yellow':'gray'} variant='filled'>M</Badge>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.medium?'yellow':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.medium?data.data?.data.vuln_breakup?.medium:0}</Badge>
                           </Group>
                       </Tooltip>
                       <Tooltip label={`Low=${data.data?.data.vuln_breakup?.low?data.data?.data.vuln_breakup?.low:0}`} color='indigo' withArrow>
-                          <Group style={{}} spacing='0'>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.low?'indigo':'gray'} variant='filled'>L</Badge>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.low?'indigo':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.low?data.data?.data.vuln_breakup?.low:0}</Badge>
+                          <Group style={{}} spacing={0}>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.low?'indigo':'gray'} variant='filled'>L</Badge>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.low?'indigo':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.low?data.data?.data.vuln_breakup?.low:0}</Badge>
                           </Group>
                       </Tooltip>
                       <Tooltip label={`None=${data.data?.data.vuln_breakup?.none?data.data?.data.vuln_breakup?.none:0}`} color='dark' withArrow>
-                          <Group style={{}} spacing='0'>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.none?'dark':'gray'} variant='filled'>N</Badge>
-                              <Badge radius='xm' color={data.data?.data.vuln_breakup?.none?'dark':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.none?data.data?.data.vuln_breakup?.none:0}</Badge>
+                          <Group style={{}} spacing={0}>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.none?'dark':'gray'} variant='filled'>N</Badge>
+                              <Badge radius={0} color={data.data?.data.vuln_breakup?.none?'dark':'gray'} variant='outline'>{data.data?.data.vuln_breakup?.none?data.data?.data.vuln_breakup?.none:0}</Badge>
                           </Group>
                       </Tooltip>
                   </Group>
@@ -150,37 +150,37 @@ function Sub_Assets() {
                   <Grid.Col span={12}>
                     <Group style={{}} p='15px 0px'>
                       <Tooltip label={`OPEN=${data.data?.data.cve_status_distribution.OPEN?data.data?.data.cve_status_distribution.OPEN:0}`} color='green' withArrow>
-                              <Group style={{}} spacing='0'>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.OPEN?'green':'gray'} variant='filled'>O</Badge>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.OPEN?'green':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.OPEN?data.data?.data.cve_status_distribution.OPEN:0}</Badge>
+                              <Group style={{}} spacing={0}>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.OPEN?'green':'gray'} variant='filled'>O</Badge>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.OPEN?'green':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.OPEN?data.data?.data.cve_status_distribution.OPEN:0}</Badge>
                               </Group>
                           </Tooltip>
                           <Tooltip label={`CLOSED=${data.data?.data.cve_status_distribution.CLOSE?data.data?.data.cve_status_distribution.CLOSE:0}`} color='red' withArrow>
-                              <Group style={{}} spacing='0'>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.CLOSE?'red':'gray'} variant='filled'>C</Badge>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.CLOSE?'red':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.CLOSE?data.data?.data.cve_status_distribution.CLOSE:0}</Badge>
+                              <Group style={{}} spacing={0}>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.CLOSE?'red':'gray'} variant='filled'>C</Badge>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.CLOSE?'red':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.CLOSE?data.data?.data.cve_status_distribution.CLOSE:0}</Badge>
                               </Group>
                           </Tooltip>
                           <Tooltip label={`REOPENED=${data.data?.data.cve_status_distribution.REOPENED?data.data?.data.cve_status_distribution.REOPENED:0}`} color='orange' withArrow>
-                              <Group style={{}} spacing='0'>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.REOPENED?'orange':'gray'} variant='filled'>R</Badge>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.REOPENED?'orange':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.REOPENED?data.data?.data.cve_status_distribution.REOPENED:0}</Badge>
+                              <Group style={{}} spacing={0}>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.REOPENED?'orange':'gray'} variant='filled'>R</Badge>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.REOPENED?'orange':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.REOPENED?data.data?.data.cve_status_distribution.REOPENED:0}</Badge>
                               </Group>
                           </Tooltip>
                           <Tooltip label={`RISKACCEPTED=${data.data?.data.cve_status_distribution.RISKACCEPTED?data.data?.data.cve_status_distribution.RISKACCEPTED:0}`} color='indigo' withArrow>
-                              <Group style={{}} spacing='0'>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.RISKACCEPTED?'indigo':'gray'} variant='filled'>R</Badge>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.RISKACCEPTED?'indigo':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.RISKACCEPTED?data.data?.data.cve_status_distribution.RISKACCEPTED:0}</Badge>
+                              <Group style={{}} spacing={0}>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.RISKACCEPTED?'indigo':'gray'} variant='filled'>R</Badge>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.RISKACCEPTED?'indigo':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.RISKACCEPTED?data.data?.data.cve_status_distribution.RISKACCEPTED:0}</Badge>
                               </Group>
                           </Tooltip>
                           <Tooltip label={`EXCEPTIONTAKEN=${data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?data.data?.data.cve_status_distribution.EXCEPTIONTAKEN:0}`} color='dark' withArrow>
-                              <Group style={{}} spacing='0'>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?'dark':'gray'} variant='filled'>E</Badge>
-                                  <Badge radius='xm' color={data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?'dark':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?data.data?.data.cve_status_distribution.EXCEPTIONTAKEN:0}</Badge>
+                              <Group style={{}} spacing={0}>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?'dark':'gray'} variant='filled'>E</Badge>
+                                  <Badge radius={0} color={data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?'dark':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.EXCEPTIONTAKEN?data.data?.data.cve_status_distribution.EXCEPTIONTAKEN:0}</Badge>
                               </Group>
                           </Tooltip>
                           <Tooltip label={`None=${data.data?.data.cve_status_distribution.None?data.data?.data.cve_status_distribution.None:0}`} color='dark' withArrow>
-                              <Group style={{}} spacing='0'>
+                              <Group style={{}} spacing={0}>
                                   <Badge radius='xs' color={data.data?.data.cve_status_distribution.None?'dark':'gray'} variant='filled'>N</Badge>
                                   <Badge radius='xs' color={data.data?.data.cve_status_distribution.None?'dark':'gray'} variant='outline'>{data.data?.data.cve_status_distribution.None?data.data?.data.cve_status_distribution.None:0}</Badge>
                               </Group>
@@ -267,21 +267,21 @@ function Sub_Assets() {
                 <Grid.Col span={6}>
                   <Group p='0px 15px'>
                     <Tooltip label={`Critical=${data_Cycle.data?.data.results[0].vuln_breakup.critical?data_Cycle.data?.data.results[0].vuln_breakup.critical:0}`} color='green' withArrow>
-                        <Group style={{}} spacing='0'>
-                            <Badge radius='xm' color={data_Cycle.data?.data.results[0].vuln_breakup.critical?'green':'gray'} variant='filled'>C</Badge>
-                            <Badge radius='xm' color={data_Cycle.data?.data.results[0].vuln_breakup.critical?'green':'gray'} variant='outline'>{data_Cycle.data?.data.results[0].vuln_breakup.critical?data_Cycle.data?.data.results[0].vuln_breakup.critical:0}</Badge>
+                        <Group style={{}} spacing={0}>
+                            <Badge radius={0} color={data_Cycle.data?.data.results[0].vuln_breakup.critical?'green':'gray'} variant='filled'>C</Badge>
+                            <Badge radius={0} color={data_Cycle.data?.data.results[0].vuln_breakup.critical?'green':'gray'} variant='outline'>{data_Cycle.data?.data.results[0].vuln_breakup.critical?data_Cycle.data?.data.results[0].vuln_breakup.critical:0}</Badge>
                         </Group>
                     </Tooltip>
                     <Tooltip label={`High=${data_Cycle.data?.data.results[0].vuln_breakup.high?data_Cycle.data?.data.results[0].vuln_breakup.high:0}`} color='red' withArrow>
-                        <Group style={{}} spacing='0'>
-                            <Badge radius='xm' color={data_Cycle.data?.data.results[0].vuln_breakup.high?'red':'gray'} variant='filled'>H</Badge>
-                            <Badge radius='xm' color={data_Cycle.data?.data.results[0].vuln_breakup.high?'red':'gray'} variant='outline'>{data_Cycle.data?.data.results[0].vuln_breakup.high?data_Cycle.data?.data.results[0].vuln_breakup.high:0}</Badge>
+                        <Group style={{}} spacing={0}>
+                            <Badge radius={0} color={data_Cycle.data?.data.results[0].vuln_breakup.high?'red':'gray'} variant='filled'>H</Badge>
+                            <Badge radius={0} color={data_Cycle.data?.data.results[0].vuln_breakup.high?'red':'gray'} variant='outline'>{data_Cycle.data?.data.results[0].vuln_breakup.high?data_Cycle.data?.data.results[0].vuln_breakup.high:0}</Badge>
                         </Group>
                     </Tooltip>
                     <Tooltip label={`Medium=${data_Cycle.data?.data.results[0].vuln_breakup.medium?data_Cycle.data?.data.results[0].vuln_breakup.medium:0}`} color='orange' withArrow>
-                        <Group style={{}} spacing='0'>
-                            <Badge radius='xm' color={data_Cycle.data?.data.results[0].vuln_breakup.medium?'orange':'gray'} variant='filled'>M</Badge>
-                            <Badge radius='xm' color={data_Cycle.data?.data.results[0].vuln_breakup.medium?'orange':'gray'} variant='outline'>{data_Cycle.data?.data.results[0].vuln_breakup.medium?data_Cycle.data?.data.results[0].vuln_breakup.medium:0}</Badge>
+                        <Group style={{}} spacing={0}>
+                            <Badge radius={0} color={data_Cycle.data?.data.results[0].vuln_breakup.medium?'orange':'gray'} variant='filled'>M</Badge>
+                            <Badge radius={0} color={data_Cycle.data?.data.results[0].vuln_breakup.medium?'orange':'gray'} variant='outline'>{data_Cycle.data?.data.results[0].vuln_breakup.medium?data_Cycle.data?.data.results[0].vuln_breakup.medium:0}</Badge>
                         </Group>
                     </Tooltip>
                   </Group>

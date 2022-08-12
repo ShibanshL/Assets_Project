@@ -120,20 +120,18 @@ function Login() {
               />
               <TextInput
               required
-              type={pass}
+              type={k%2 != 0?'text':'password'}
               label="Password"
               placeholder="Password"
               radius="sm"
               pt='5px'
               p='10px'
               rightSection ={k%2 == 0?<BsEyeSlashFill style={{cursor:'pointer'}} onClick={Password}/>:<BsEyeFill style={{cursor:'pointer'}} onClick={Password}/>}
-              {...form.getInputProps(pass)}
+              {...form.getInputProps(`password`)}
               
               />
               <Text color='red' ml='10px' pb='5px'>{invalidCred}</Text>
-              {/* <Group position="right" mt="md"> */}
               <Button radius={'sm'} ml='10px' mt='5px' type="submit">Login</Button>
-              {/* </Group> */}
             </form>
         </Group>
       </Container>
