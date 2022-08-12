@@ -7,6 +7,7 @@ import {BsEyeFill,BsEyeSlashFill} from 'react-icons/bs'
 import axios from 'axios';
 import {useStore, useStore_1, useStore_2, useStore_3} from '../Store';
 import { constants } from 'buffer';
+import { stat } from 'fs';
 
 
 var k = 0
@@ -23,10 +24,10 @@ function Login() {
 
   const [pass,setPass] = React.useState('password')
   const setLog1 = useStore_2(state => state.setLog_1)
-  const logData = useStore_3(state => state.logData)
-  const setLogData = useStore_3(state => state.setLogData)
-  const setToken = useStore_1(state => state.setToken)
-  const Token = useStore_1(state => state.token)
+  const logData = useStore_3((state:any) => state.logData)
+  const setLogData = useStore_3((state:any)=> state.setLogData)
+  const setToken = useStore_1((state:any) => state.setToken)
+  const Token = useStore_1((state:any) => state.token)
   const [invalidCred,setInvalidCred] = React.useState('')
   const num = useStore(state => state.num)
 
@@ -101,6 +102,8 @@ function Login() {
         setLogData(true)
 
         setLog1()
+
+        // console.log('Log 1 ',logData,'Log 2 ',data_Check)
 
        
       }
