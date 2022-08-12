@@ -15,6 +15,8 @@ import { link } from 'fs';
 
 var pages = [1,2,3,4,5]
 var i = 0
+var j = 0
+
 
 function Assets() {
     let nav = useNavigate()
@@ -39,9 +41,11 @@ function Assets() {
         finalSearch:'',
         finalPage:'20',
     })
-    const [searchParams,setSearchParams] = useSearchParams()
+    const [searchParams,setSearchParams] = useSearchParams({})
 
     const newDataTofetch = {page, finalfilter, finalPageVal, searchData}
+
+    let urlStr = {page_size:finalPageVal,page:page}
 
 //This useEffect checks what the url will be based on the filters that are added
 React.useEffect(() => {
@@ -82,7 +86,7 @@ React.useEffect(() => {
     if(isLoading){
         return <h1>Loading</h1>
     }
-    if (error){
+    if (error instanceof Error){
         return <h2>{error?.message}</h2>
     }
 
@@ -103,6 +107,31 @@ React.useEffect(() => {
         setSearchData(search)
         setFilterData({finalFilter:filter,finalSearch:search,finalPage:pageVal})
         i++
+        j++
+    }
+
+    //Function for pagination buttons upon search
+    const Page_button = () => {
+        if(j%2 == 0){
+            return(
+                <>
+                    {pages.map(e => {
+                        return(
+                            <>  
+                                <Button variant={page==e?'filled':'outline'} size='xs' color={page==e?'blue':'gray'} onClick={() => {setPage(e);setPageNum(e)}}>{e}</Button>
+                            </>
+                        )
+                    })}
+                </>
+            )
+        }
+        else{
+            return(
+                <>
+                    <Button variant='filled' size='xs' color='blue'>1</Button>
+                </>
+            )
+        }
     }
  
   return (
@@ -200,7 +229,8 @@ React.useEffect(() => {
         <Grid.Col  pt='40px' span={12}>
             <Grid>
                 <Grid.Col span={6}>
-                    <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>
+                    {j%2==0?<Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>:
+                    <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>1</span> out of <span style={{color:'#d63399'}}>1</span> resources</Text>}
                 </Grid.Col>
                 <Grid.Col span={6}>
                     <Group p='0px' position='right'>
@@ -221,21 +251,14 @@ React.useEffect(() => {
         </Grid.Col>
         <Grid.Col span={12}>
             <Cards data={data?.data.results} check={check}/>
-            {/* {FilterCardData()} */}
         </Grid.Col>
         <Grid.Col span={12}>
-            <Text>Page : {page} / 5</Text>
+             {j%2==0?<Text>Page : {page} / 5</Text>:<Text>Page : 1 / 1</Text>}                               
         </Grid.Col>
         <Grid.Col span={12}>
             <Group>
                 <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
-                {pages.map(e => {
-                    return(
-                        <>  
-                            <Button variant={page==e?'filled':'outline'} size='xs' color={page==e?'blue':'gray'} onClick={() => {setPage(e);setPageNum(e)}}>{e}</Button>
-                        </>
-                    )
-                })}
+                {Page_button()}
                 <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
             </Group>
         </Grid.Col>
