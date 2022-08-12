@@ -232,7 +232,7 @@ React.useEffect(() => {
                 {pages.map(e => {
                     return(
                         <>  
-                            <Button variant='outline' size='xs' color='gray' onClick={() => {setPage(e);setPageNum(e)}}>{e}</Button>
+                            <Button variant={page==e?'filled':'outline'} size='xs' color={page==e?'blue':'gray'} onClick={() => {setPage(e);setPageNum(e)}}>{e}</Button>
                         </>
                     )
                 })}
