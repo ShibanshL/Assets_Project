@@ -23,6 +23,8 @@ function Sub_Assets() {
     console.log(useParams())
 
 
+
+    //this checks if you are logged in or not
     React.useEffect(() => { 
       if(!logData){
         nav('/')
@@ -31,7 +33,7 @@ function Sub_Assets() {
       [num])
   
 
-
+  //here i am calling the api just with the unique id
   const data = useQuery(['Devices_1'], () => {
     return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/${keyID}`,{
         method:'GET',
@@ -44,35 +46,24 @@ function Sub_Assets() {
 )
 
 
-    //I'm recalling the api and just filtering based on the unique_id i receive through params
-    const data_Cycle = useQuery(['Devices'], () => {
-      return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/${keyID}/cycles`,{
-          method:'GET',
-          headers:{
-              'Authorization':`Token ${Token}`
-          }
-      })
+  //I'm recalling the api and just adding another parameter to get some more data
+  const data_Cycle = useQuery(['Devices'], () => {
+    return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/${keyID}/cycles`,{
+        method:'GET',
+        headers:{
+            'Authorization':`Token ${Token}`
+        }
+    })
 
   },
   )
 
 
-
-  //Here im pushing the filterd data into an array
-  console.log('data',data.data?.data)
-  console.log('data1 ',data_Cycle.data?.data)
-
-  // appData = data?.data.results.filter((e:any) => e.unique_id == keyID)
-  // console.log('App = ',appData)
-
+//This appears when data is loading
   if(data.isLoading && data_Cycle.isLoading)
   {
     return <h1>Loading ...</h1>
   }
-
-
- 
-
 
   return (
     <>
