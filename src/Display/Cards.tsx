@@ -1,5 +1,5 @@
 import React from 'react'
-import {Group,Grid, Text, Badge, Checkbox, Card, Divider, Tooltip} from '@mantine/core';
+import {Group,Grid, Text, Badge, Checkbox, Card, Divider, Tooltip, MediaQuery} from '@mantine/core';
 import {AiOutlineLink} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import {useStore_5} from '../Store'
@@ -35,9 +35,9 @@ function Cards({data,check}:props) {
                             <Grid>
                                 <Grid.Col span={12}>
                                     <Group>
-                                        <Checkbox pr='20px' checked={check} />
+                                        <Checkbox pr={window.screen.width<1000?'10px':'20px'} checked={check} />
                                         <Link to={`/Asset/${e.unique_id}`}><AiOutlineLink /></Link>
-                                        <Group p='0px 20px'>
+                                        <Group p={window.screen.width<1000?'0 10px':'0 20px'}>
                                             <Text weight={700} style={{fontSize:'20px'}}>{e.host}</Text>
                                         </Group>
                                         <Group p='0px 20px'>
@@ -85,7 +85,7 @@ function Cards({data,check}:props) {
                                 </Grid.Col>
                                 <Grid.Col span={12}>
                                     <Grid>
-                                        <Grid.Col  span={6} style={{}}>
+                                        <Grid.Col span={window.screen.width<1000?12:6} style={{}}>
                                             <Group>
                                                 <Text style={{fontSize:'12px'}}>Vuln Breakup</Text>
                                             </Group>
@@ -122,10 +122,12 @@ function Cards({data,check}:props) {
                                                 </Tooltip>
                                             </Group>
                                         </Grid.Col>
-                                        <Grid.Col ml='-310px' p='0 15px' style={{transform:'rotate(90deg)'}} span={1}>
-                                            <Divider />
-                                        </Grid.Col>
-                                        <Grid.Col  span={5}>
+                                        <MediaQuery query='(max-width:700px)' styles={{display:'none'}}>
+                                            <Grid.Col ml='-310px' p='0 15px' style={{transform:'rotate(90deg)'}} span={1}>
+                                                <Divider />
+                                            </Grid.Col>
+                                        </MediaQuery>
+                                        <Grid.Col span={window.screen.width<1000?12:5}>
                                             <Group>
                                                 <Text style={{fontSize:'12px'}}>Status Breakup</Text>
                                             </Group>

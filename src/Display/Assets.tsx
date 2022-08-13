@@ -136,7 +136,7 @@ React.useEffect(() => {
  
   return (
     <>
-    <MediaQuery query='(max-width:700px)' styles={{padding:'20px'}}>
+    <MediaQuery query='(max-width:1000px)' styles={{padding:'20px'}}>
         <Grid p='20px 120px' style={{background:'#f8f9fa'}}>
             <Grid.Col span={12}>
                 <Grid p='5px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
