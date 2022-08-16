@@ -91,7 +91,7 @@ function Sub_Assets() {
           </Grid.Col>
           <Grid.Col span={12} pt='20px'>
             <Grid p='0 24px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
-              <Grid.Col span={window.screen.width<1000?12:6}>
+              <Grid.Col md={12} lg={6}>
                 <Grid>
                   <Grid.Col span={12}>
                     <Group>
@@ -138,7 +138,7 @@ function Sub_Assets() {
                   </Grid.Col>
                 </Grid>
               </Grid.Col>
-              <Grid.Col span={window.screen.width<1000?12:6}>
+              <Grid.Col md={12} lg={6}>
                 <Grid pt='15px'>
                     <Grid.Col span={12}>
                       <Group>

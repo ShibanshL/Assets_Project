@@ -105,5 +105,53 @@ const useStore_6 = create<pageNum>(
   })
 )
 
+interface search_1{
+  search:'',
+  setSearch:(e:any)=>void
+}
 
-export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5,useStore_6}
+const useStore_7 = create<search_1>((set) => ({
+  search:'',
+  setSearch:(e:any) => set(() => ({search:e}))
+}))
+
+interface filterD{
+  filter:'',
+  setFilter:(e:any) => void
+}
+
+const useStore_8 = create<filterD>((set) => ({
+  filter:'',
+  setFilter:(e:any) => set(() => ({filter:e}))
+}))
+
+interface pageValD{
+  pageVal:'20',
+  setPageVal:(e:any) => void
+}
+
+const useStore_9 = create<pageValD>((set) => ({
+  pageVal:'20',
+  setPageVal:(e:any) => set(() => ({pageVal:e}))
+}))
+
+interface pageD{
+  page:1,
+  setPage:(e:any) => void
+}
+
+const useStore_10 = create(
+  persist(
+    (set) => <pageD>(
+      {
+        page:1,
+        setPage: (newPage: number | null) => set((_state) => ({page:newPage}))
+      }
+    ),
+    {
+      name:'PAGE'
+    }
+  )
+)
+
+export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10}

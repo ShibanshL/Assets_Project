@@ -3,7 +3,7 @@ import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, Te
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { useStore,useStore_4,useStore_2,useStore_1,useStore_3,useStore_6} from '../Store';
+import { useStore,useStore_4,useStore_2,useStore_1,useStore_3,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10} from '../Store';
 import useFishStore from '../Storer_2';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
@@ -24,11 +24,19 @@ function Assets() {
     const [check,setCheck] = React.useState(false)
     const [page,setPage] = React.useState(1)
     const [opened, setOpened] = React.useState(false);
-    const [filter,setFilter] = React.useState('')
+    // const [filter,setFilter] = React.useState('')
     const [finalfilter,setFinalFilter] = React.useState('')
-    const [pageVal,setPageVal] = React.useState('20')
+    // const [pageVal,setPageVal] = React.useState('20')
     const [finalPageVal,setFinalPageVal] = React.useState('20')
-    const [search,setSearch] = React.useState('')
+    // const [search,setSearch] = React.useState('')
+    const search = useStore_7(state => state.search)
+    const setSearch = useStore_7(state => state.setSearch)
+    const filter = useStore_8(state => state.filter)
+    const setFilter = useStore_8(state => state.setFilter)
+    const pageVal = useStore_9(state => state.pageVal)
+    const setPageVal = useStore_9(state => state.setPageVal)
+    // const page = useStore_10((state:any) => state.page)
+    // const setPage = useStore_10((state:any) => state.setPage)
     const log = useStore_2(state => state.log)
     const searchData = useStore_4((state:any) => state.searchData)
     const setSearchData = useStore_4((state:any) => state.setSearchData)
@@ -65,7 +73,7 @@ React.useEffect(() => {
 
     //This calls the server for data while providing an header for authorization
     const { isLoading, error, data} = useQuery(['Devices',newDataTofetch], () => {
-        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${finalfilter?`&type=${finalfilter}`:''}${searchData?`&search=${searchData}`:''}&page=${page}&`,{
+        return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/?page_size=${finalPageVal}${finalfilter?`&type=${finalfilter}`:''}${searchData?`&search=${searchData}`:''}&page=${page}`,{
             method:'GET',
             headers:{
                 'Authorization':`Token ${Token}`
@@ -74,7 +82,7 @@ React.useEffect(() => {
     },
  
     )
-
+    // console.log('Pahe P ',page)
     //This check value to keep us logged in
     React.useEffect(() => {
         if(!logData){
@@ -87,7 +95,7 @@ React.useEffect(() => {
         return <h1>Loading</h1>
     }
     if (error instanceof Error){
-        return <h2>{error?.message}</h2>
+        return <h2 style={{color:'pink'}}>{error?.message}</h2>
     }
 
     //Function to clear all in the filter option
@@ -230,8 +238,9 @@ React.useEffect(() => {
             <Grid.Col  pt='40px' span={12}>
                 <Grid>
                     <Grid.Col span={6}>
-                        {j%2==0?<Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>:
-                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>1</span> out of <span style={{color:'#d63399'}}>1</span> resources</Text>}
+                        {/* {j%2==0?<Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>:
+                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>1</span> out of <span style={{color:'#d63399'}}>1</span> resources</Text>} */}
+                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>{data?.data.count==100?20:1}</span> out of <span style={{color:'#d63399'}}>{data?.data.count}</span> resources</Text>
                     </Grid.Col>
                     <Grid.Col span={6}>
                         <Group p='0px' position='right'>
