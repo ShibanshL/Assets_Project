@@ -120,9 +120,10 @@ React.useEffect(() => {
 
     //Function for pagination buttons upon search
     const Page_button = () => {
-        if(j%2 == 0){
+        if(data?.data.count == 100){
             return(
                 <>
+                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
                     {pages.map(e => {
                         return(
                             <>  
@@ -130,6 +131,7 @@ React.useEffect(() => {
                             </>
                         )
                     })}
+                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
                 </>
             )
         }
@@ -238,8 +240,6 @@ React.useEffect(() => {
             <Grid.Col  pt='40px' span={12}>
                 <Grid>
                     <Grid.Col span={6}>
-                        {/* {j%2==0?<Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>20</span> out of <span style={{color:'#d63399'}}>100</span> resources</Text>:
-                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>1</span> out of <span style={{color:'#d63399'}}>1</span> resources</Text>} */}
                         <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>{data?.data.count==100?20:1}</span> out of <span style={{color:'#d63399'}}>{data?.data.count}</span> resources</Text>
                     </Grid.Col>
                     <Grid.Col span={6}>
@@ -267,9 +267,7 @@ React.useEffect(() => {
             </Grid.Col>
             <Grid.Col span={12}>
                 <Group>
-                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
                     {Page_button()}
-                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
                 </Group>
             </Grid.Col>
         </Grid>
