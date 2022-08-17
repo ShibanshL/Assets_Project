@@ -255,7 +255,7 @@ React.useEffect(() => {
             <Grid.Col  pt='40px' span={12}>
                 <Grid>
                     <Grid.Col span={6}>
-                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>{data?.data.count==100?20:1}</span> out of <span style={{color:'#d63399'}}>{data?.data.count}</span> resources</Text>
+                        <Text style={{fontSize:'16px'}}>Showing <span style={{color:'#f59f00'}}>{data?.data.count==1?1:data?.data.page_size}</span> out of <span style={{color:'#d63399'}}>{data?.data.count}</span> resources</Text>
                     </Grid.Col>
                     <Grid.Col span={6}>
                         <Group p='0px' position='right'>
