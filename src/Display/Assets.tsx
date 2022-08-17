@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput,MediaQuery} from '@mantine/core';
+import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput,MediaQuery, Badge} from '@mantine/core';
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
@@ -117,6 +117,20 @@ React.useEffect(() => {
         i++
         j++
     }
+
+    //Function to clear Type
+    const ClearType = () => {
+        setFilter('')
+        window.location.reload()
+    }
+
+    //Function to clear Type
+    const ClearSearch = () => {
+        setSearch('')
+        setSearchData('')
+        window.location.reload()
+    }
+
 
     //Function for pagination buttons upon search
     const Page_button = () => {
@@ -249,10 +263,24 @@ React.useEffect(() => {
                     </Grid.Col>
                 </Grid>
             </Grid.Col>
-            <Grid.Col span={12}>
-                <Group p='15px 10px' style={{background:'white'}}>
-                    <Text weight={700} style={{fontSize:'14px'}}>Current Filters</Text>
-                </Group>
+            <Grid.Col p='15px 10px' style={{background:'white'}} span={12}>
+                <Grid>
+                    <Grid.Col span={12}>
+                        <Group>
+                            <Text weight={700} style={{fontSize:'14px'}}>Current Filters</Text>
+                        </Group>
+                    </Grid.Col>
+                    <Grid.Col span={2}>
+                        <Group>
+                            {finalfilter?<Badge rightSection={<FiPlus onClick={() => ClearType()} style={{cursor:'pointer',transform:'rotate(45deg)'}} />} style={{fontStyle:'uppercase'}}>type:{filter}</Badge>:null}
+                        </Group>
+                    </Grid.Col>
+                    <Grid.Col span={10}>
+                        <Group ml='-80px' align='left' position='left'>
+                            {searchData?<Badge rightSection={<FiPlus onClick={() =>  ClearSearch()} style={{cursor:'pointer',transform:'rotate(45deg)'}} />} style={{fontStyle:'uppercase'}}>search:{search}</Badge>:null}
+                        </Group>
+                    </Grid.Col>
+                </Grid>
             </Grid.Col>
             <Grid.Col span={12}>
                 <Group  p='20px' style={{background:'white',boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px'}}>
