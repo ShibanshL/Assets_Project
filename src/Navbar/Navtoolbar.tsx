@@ -1,5 +1,5 @@
 import React from 'react'
-import { Group ,Grid , Text, Button, MediaQuery, Burger} from '@mantine/core';
+import { Group ,Grid , Text, Button, MediaQuery, Burger,Drawer} from '@mantine/core';
 import {Link} from 'react-router-dom'
 import {FiLogOut} from 'react-icons/fi'
 import { useStore_2, useStore_3, useStore_1,useStore,useStore_7,useStore_8,useStore_9,useStore_4,useStore_10 } from '../Store';
@@ -80,6 +80,16 @@ function Navtoolbar() {
                       onClick={() => setOpened((o) => !o)}
                       title={title}
                     />
+                    <Drawer
+                      opened={opened}
+                      onClose={() => setOpened(false)}
+                      title="Shibansh"
+                      position='right'
+                      padding="xl"
+                      size="xs"
+                    >
+                      <Button onClick={() => Logout()} >Logout</Button>
+                  </Drawer>
                   </Group>
                 </Grid.Col>
               </MediaQuery>
