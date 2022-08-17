@@ -2,7 +2,7 @@ import React from 'react'
 import { Group ,Grid , Text, Button, MediaQuery, Burger} from '@mantine/core';
 import {Link} from 'react-router-dom'
 import {FiLogOut} from 'react-icons/fi'
-import { useStore_2, useStore_3, useStore_1,useStore,useStore_7,useStore_8,useStore_9,useStore_4 } from '../Store';
+import { useStore_2, useStore_3, useStore_1,useStore,useStore_7,useStore_8,useStore_9,useStore_4,useStore_10 } from '../Store';
 import { useWindowEvent } from '@mantine/hooks';
 
 var M_Log=0;
@@ -21,6 +21,7 @@ function Navtoolbar() {
   const setFilter = useStore_8(state => state.setFilter)
   const setPageVal = useStore_9(state => state.setPageVal)
   const setSearchData = useStore_4((state:any) => state.setSearchData)
+  const setPage = useStore_10((state:any) => state.setPage)
 
   //This is the logout function which basically deletes the value of the specific localstorage value which logs us out
   
@@ -33,6 +34,7 @@ function Navtoolbar() {
     setPageVal('20')
     setSearch('')
     setSearchData('')
+    setPage(1)
     setNum(num+1)
     window.location.reload()
   }
