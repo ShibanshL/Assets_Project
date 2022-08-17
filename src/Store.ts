@@ -154,4 +154,24 @@ const useStore_10 = create(
   )
 )
 
-export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10}
+interface filterD_1{
+  finalfilter:'',
+  setFinalFilter:(e:any) => void
+
+}
+
+const useStore_11 = create(
+  persist(
+    (set) => <filterD_1>(
+      {
+        finalfilter:'',
+        setFinalFilter: (newFilter: string | null) => set((_state) => ({finalfilter:newFilter}))
+      }
+    ),
+    {
+      name:'FILTER'
+    }
+  )
+)
+
+export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10,useStore_11}

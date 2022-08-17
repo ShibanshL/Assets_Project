@@ -34,6 +34,7 @@ function Navtoolbar() {
     setSearch('')
     setSearchData('')
     setNum(num+1)
+    window.location.reload()
   }
   
   //function that conditionally renders data onto the navtoolbar based on Login and logout

@@ -3,7 +3,7 @@ import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, Te
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { useStore,useStore_4,useStore_2,useStore_1,useStore_3,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10} from '../Store';
+import { useStore,useStore_4,useStore_2,useStore_1,useStore_3,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10,useStore_11} from '../Store';
 import useFishStore from '../Storer_2';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
@@ -22,21 +22,19 @@ function Assets() {
     let nav = useNavigate()
     const a = useStore((state) => state.num)
     const [check,setCheck] = React.useState(false)
-    const [page,setPage] = React.useState(1)
+    // const [page,setPage] = React.useState(1)
     const [opened, setOpened] = React.useState(false);
-    // const [filter,setFilter] = React.useState('')
-    const [finalfilter,setFinalFilter] = React.useState('')
-    // const [pageVal,setPageVal] = React.useState('20')
     const [finalPageVal,setFinalPageVal] = React.useState('20')
-    // const [search,setSearch] = React.useState('')
     const search = useStore_7(state => state.search)
     const setSearch = useStore_7(state => state.setSearch)
     const filter = useStore_8(state => state.filter)
     const setFilter = useStore_8(state => state.setFilter)
     const pageVal = useStore_9(state => state.pageVal)
     const setPageVal = useStore_9(state => state.setPageVal)
-    // const page = useStore_10((state:any) => state.page)
-    // const setPage = useStore_10((state:any) => state.setPage)
+    const page = useStore_10((state:any) => state.page)
+    const setPage = useStore_10((state:any) => state.setPage)
+    const finalfilter = useStore_11((state:any) => state.finalfilter)
+    const setFinalFilter = useStore_11((state:any) => state.setFinalFilter)
     const log = useStore_2(state => state.log)
     const searchData = useStore_4((state:any) => state.searchData)
     const setSearchData = useStore_4((state:any) => state.setSearchData)
@@ -50,6 +48,8 @@ function Assets() {
         finalPage:'20',
     })
     const [searchParams,setSearchParams] = useSearchParams({})
+
+    // React.useEffect(() => setPage(1),[])
 
     const newDataTofetch = {page, finalfilter, finalPageVal, searchData}
 
@@ -121,6 +121,7 @@ React.useEffect(() => {
     //Function to clear Type
     const ClearType = () => {
         setFilter('')
+        setFinalFilter('')
         window.location.reload()
     }
 
@@ -137,15 +138,15 @@ React.useEffect(() => {
         if(data?.data.count == 100){
             return(
                 <>
-                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1)}} disabled={page==1}><MdNavigateBefore /></Button>
+                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page-1);setPageNum(pageNum-1);window.location.reload()}} disabled={page==1}><MdNavigateBefore /></Button>
                     {pages.map(e => {
                         return(
                             <>  
-                                <Button variant={page==e?'filled':'outline'} size='xs' color={page==e?'blue':'gray'} onClick={() => {setPage(e);setPageNum(e)}}>{e}</Button>
+                                <Button variant={page==e?'filled':'outline'} size='xs' color={page==e?'blue':'gray'} onClick={() => {setPage(e);setPageNum(e);window.location.reload()}}>{e}</Button>
                             </>
                         )
                     })}
-                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1)}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
+                    <Button variant='outline' color='gray' size='xs' onClick={() => {setPage(page+1);setPageNum(pageNum+1);window.location.reload()}} disabled={page==5}><MdNavigateBefore style={{transform:'rotate(-180deg)'}}/></Button>
                 </>
             )
         }
@@ -270,14 +271,10 @@ React.useEffect(() => {
                             <Text weight={700} style={{fontSize:'14px'}}>Current Filters</Text>
                         </Group>
                     </Grid.Col>
-                    <Grid.Col span={2}>
+                    <Grid.Col span={12}>
                         <Group>
-                            {finalfilter?<Badge rightSection={<FiPlus onClick={() => ClearType()} style={{cursor:'pointer',transform:'rotate(45deg)'}} />} style={{fontStyle:'uppercase'}}>type:{filter}</Badge>:null}
-                        </Group>
-                    </Grid.Col>
-                    <Grid.Col span={10}>
-                        <Group ml='-80px' align='left' position='left'>
-                            {searchData?<Badge rightSection={<FiPlus onClick={() =>  ClearSearch()} style={{cursor:'pointer',transform:'rotate(45deg)'}} />} style={{fontStyle:'uppercase'}}>search:{search}</Badge>:null}
+                            {finalfilter?<Badge rightSection={<FiPlus onClick={() => ClearType()} style={{cursor:'pointer',transform:'rotate(45deg)'}} />} style={{fontStyle:'uppercase'}}>type:{finalfilter}</Badge>:null}
+                            {searchData?<Badge rightSection={<FiPlus onClick={() =>  ClearSearch()} style={{cursor:'pointer',transform:'rotate(45deg)'}} />} style={{fontStyle:'uppercase'}}>search:{searchData}</Badge>:null}
                         </Group>
                     </Grid.Col>
                 </Grid>
@@ -291,7 +288,7 @@ React.useEffect(() => {
                 <Cards data={data?.data.results} check={check}/>
             </Grid.Col>
             <Grid.Col span={12}>
-                {j%2==0?<Text>Page : {page} / 5</Text>:<Text>Page : 1 / 1</Text>}                               
+                {data?.data.count==100?<Text>Page : {page} / 5</Text>:<Text>Page : 1 / 1</Text>}                               
             </Grid.Col>
             <Grid.Col span={12}>
                 <Group>
