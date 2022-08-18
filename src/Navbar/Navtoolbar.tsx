@@ -2,31 +2,30 @@ import React from 'react'
 import { Group ,Grid , Text, Button, MediaQuery, Burger,Drawer} from '@mantine/core';
 import {Link} from 'react-router-dom'
 import {FiLogOut} from 'react-icons/fi'
-import { useStore_2, useStore_3, useStore_1,useStore,useStore_7,useStore_8,useStore_9,useStore_4,useStore_10 } from '../Store';
+import { useStore_2, LOGGED_JN_OUT, AUTH_KEY,useStore,useStore_7,useStore_8,PAGE_SIZE,SEARCH_FILTER,PAGE_NUMBER_LOCAL } from '../Store';
 import { useWindowEvent } from '@mantine/hooks';
 
 var M_Log=0;
 
 function Navtoolbar() {
   const setLog = useStore_2(state => state.setLog)
-  const logData = useStore_3((state:any) => state.logData)
-  const setLogData = useStore_3((state:any) => state.setLogData)
-  const setToken = useStore_1((state:any) => state.setToken)
-  const Token = useStore_1((state:any) => state.token)
+  const logData = LOGGED_JN_OUT((state:any) => state.logData)
+  const setLogData = LOGGED_JN_OUT((state:any) => state.setLogData)
+  const setToken = AUTH_KEY((state:any) => state.setToken)
+  const Token = AUTH_KEY((state:any) => state.token)
   const setNum = useStore(state => state.setNum)
   const num = useStore(state => state.num)
   const [opened, setOpened] = React.useState(false);
   const title = opened ? 'Close navigation' : 'Open navigation';
   const setSearch = useStore_7(state => state.setSearch)
   const setFilter = useStore_8(state => state.setFilter)
-  const setPageVal = useStore_9(state => state.setPageVal)
-  const setSearchData = useStore_4((state:any) => state.setSearchData)
-  const setPage = useStore_10((state:any) => state.setPage)
+  const setPageVal = PAGE_SIZE(state => state.setPageVal)
+  const setSearchData = SEARCH_FILTER((state:any) => state.setSearchData)
+  const setPage = PAGE_NUMBER_LOCAL((state:any) => state.setPage)
 
-  //This is the logout function which basically deletes the value of the specific localstorage value which logs us out
-  
+
+  //This is the logout function which basically deletes the value of the specific localstorage value which logs us in and out
   const Logout = () => { 
-    // setLoggedIn(false)
     setLog()
     setLogData(false)
     setToken('')
@@ -39,10 +38,8 @@ function Navtoolbar() {
     window.location.reload()
   }
   
-  //function that conditionally renders data onto the navtoolbar based on Login and logout
-
-
-  const Login = () => {
+  //function that conditionally renders data onto the navtoolbar based on Logged_In_Out and logout
+  const Logged_In_Out = () => {
     if(Token){
       return(
         <>
@@ -57,7 +54,7 @@ function Navtoolbar() {
       return(
         <>
           <Group>
-            <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Login</Link>
+            <Link to='/' style={{fontFamily:'sans-serif', textDecoration:'none', fontSize:'14px', color:'#228be6'}}>Logged</Link>
           </Group>
         </>
       )
@@ -103,7 +100,7 @@ function Navtoolbar() {
                     </Group>
                     <Group p='5px 10px'>
                       <Text weight={600}>
-                        {Login()}
+                        {Logged_In_Out()}
                       </Text>
                     </Group>
                     <Group p='5px' style={{border:'1px solid #228be6', borderRadius:'5px'}}>

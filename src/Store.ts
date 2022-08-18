@@ -17,15 +17,14 @@ interface AUTH{
   setToken: (newToken: string | null) => void;
 }
 
-const useStore_1 = create(
+const AUTH_KEY= create(
         persist(
           (set) => <AUTH>({
             setToken: (newToken: string | null) => set((_state) => ({ token: newToken })),
             token: "",
-            // addAFish: () => set(state => ({fishes:state.fishes+1}))
           }),
           {
-            name: 'AUTH KEY', // unique name
+            name: 'AUTH KEY', 
           }
 ))
 
@@ -48,7 +47,7 @@ interface persistLog {
   setLogData: (newLogData: boolean | null) => void;
 }
 
-const useStore_3 = create(
+const LOGGED_JN_OUT = create(
   persist(
     (set) => <persistLog>(
       {
@@ -67,7 +66,7 @@ interface search{
   setSearchData:(newSearchData: string | null) => void;
 }
 
-const useStore_4 = create(
+const SEARCH_FILTER = create(
   persist(
     (set) => <search>(
       {
@@ -98,7 +97,7 @@ interface pageNum {
   setPageNum:(e:any) => void
 }
 
-const useStore_6 = create<pageNum>(
+const PAGE_NUMBER = create<pageNum>(
   (set) =>({
     pageNum:1,
     setPageNum:(e:any) => set(() => ({pageNum:e}))
@@ -130,7 +129,7 @@ interface pageValD{
   setPageVal:(e:any) => void
 }
 
-const useStore_9 = create<pageValD>((set) => ({
+const PAGE_SIZE = create<pageValD>((set) => ({
   pageVal:'20',
   setPageVal:(e:any) => set(() => ({pageVal:e}))
 }))
@@ -140,7 +139,7 @@ interface pageD{
   setPage:(e:any) => void
 }
 
-const useStore_10 = create(
+const PAGE_NUMBER_LOCAL = create(
   persist(
     (set) => <pageD>(
       {
@@ -160,7 +159,7 @@ interface filterD_1{
 
 }
 
-const useStore_11 = create(
+const TYPE_FILTER = create(
   persist(
     (set) => <filterD_1>(
       {
@@ -174,4 +173,4 @@ const useStore_11 = create(
   )
 )
 
-export {useStore,useStore_1,useStore_2,useStore_3,useStore_4,useStore_5,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10,useStore_11}
+export {useStore,AUTH_KEY,useStore_2,LOGGED_JN_OUT,SEARCH_FILTER,useStore_5,PAGE_NUMBER,useStore_7,useStore_8,PAGE_SIZE,PAGE_NUMBER_LOCAL,TYPE_FILTER}

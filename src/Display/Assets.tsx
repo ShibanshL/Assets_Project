@@ -3,14 +3,12 @@ import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, Te
 import { useQuery} from 'react-query';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { useStore,useStore_4,useStore_2,useStore_1,useStore_3,useStore_6,useStore_7,useStore_8,useStore_9,useStore_10,useStore_11} from '../Store';
-import useFishStore from '../Storer_2';
+import { useStore,SEARCH_FILTER,useStore_2,AUTH_KEY,LOGGED_JN_OUT,PAGE_NUMBER,useStore_7,useStore_8,PAGE_SIZE,PAGE_NUMBER_LOCAL,TYPE_FILTER} from '../Store';
 import {AiOutlineDoubleLeft,AiOutlineLink} from 'react-icons/ai'
 import {FiUpload,FiPlus,FiSearch} from 'react-icons/fi'
 import {MdDeleteOutline,MdNavigateBefore} from 'react-icons/md'
 import Cards from './Cards';
 import {useSearchParams} from 'react-router-dom'
-import { link } from 'fs';
 
 
 var pages = [1,2,3,4,5]
@@ -20,40 +18,34 @@ var j = 0
 
 function Assets() {
     let nav = useNavigate()
-    const a = useStore((state) => state.num)
+    // const a = useStore((state) => state.num)
     const [check,setCheck] = React.useState(false)
-    // const [page,setPage] = React.useState(1)
     const [opened, setOpened] = React.useState(false);
     const [finalPageVal,setFinalPageVal] = React.useState('20')
     const search = useStore_7(state => state.search)
     const setSearch = useStore_7(state => state.setSearch)
     const filter = useStore_8(state => state.filter)
     const setFilter = useStore_8(state => state.setFilter)
-    const pageVal = useStore_9(state => state.pageVal)
-    const setPageVal = useStore_9(state => state.setPageVal)
-    const page = useStore_10((state:any) => state.page)
-    const setPage = useStore_10((state:any) => state.setPage)
-    const finalfilter = useStore_11((state:any) => state.finalfilter)
-    const setFinalFilter = useStore_11((state:any) => state.setFinalFilter)
+    const pageVal = PAGE_SIZE(state => state.pageVal)
+    const setPageVal = PAGE_SIZE(state => state.setPageVal)
+    const page = PAGE_NUMBER_LOCAL((state:any) => state.page)
+    const setPage = PAGE_NUMBER_LOCAL((state:any) => state.setPage)
+    const finalfilter = TYPE_FILTER((state:any) => state.finalfilter)
+    const setFinalFilter = TYPE_FILTER((state:any) => state.setFinalFilter)
     const log = useStore_2(state => state.log)
-    const searchData = useStore_4((state:any) => state.searchData)
-    const setSearchData = useStore_4((state:any) => state.setSearchData)
-    const Token = useStore_1((state:any) => state.token)
-    const logData = useStore_3((state:any) => state.logData)
-    const setPageNum = useStore_6(state => state.setPageNum)
-    const pageNum = useStore_6(state => state.pageNum)
+    const searchData = SEARCH_FILTER((state:any) => state.searchData)
+    const setSearchData = SEARCH_FILTER((state:any) => state.setSearchData)
+    const Token = AUTH_KEY((state:any) => state.token)
+    const logData = LOGGED_JN_OUT((state:any) => state.logData)
+    const setPageNum = PAGE_NUMBER(state => state.setPageNum)
+    const pageNum = PAGE_NUMBER(state => state.pageNum)
     const [finalfilterData,setFilterData] = React.useState({
         finalFilter:'',
         finalSearch:'',
         finalPage:'20',
     })
     const [searchParams,setSearchParams] = useSearchParams({})
-
-    // React.useEffect(() => setPage(1),[])
-
     const newDataTofetch = {page, finalfilter, finalPageVal, searchData}
-
-    let urlStr = {page_size:finalPageVal,page:page}
 
 //This useEffect checks what the url will be based on the filters that are added
 React.useEffect(() => {
@@ -82,13 +74,15 @@ React.useEffect(() => {
     },
  
     )
-    // console.log('Pahe P ',page)
+
+
     //This check value to keep us logged in
     React.useEffect(() => {
         if(!logData){
             nav('/')
         }
     },[log])
+
 
     //React query part for loading and error
     if(isLoading){
@@ -98,8 +92,9 @@ React.useEffect(() => {
         return <h2 style={{color:'pink'}}>{error?.message}</h2>
     }
 
+
     //Function to clear all in the filter option
-    const clearAll = () => {
+    const clearAllFilter = () => {
         setFilter('')
         setPageVal('20')
         setSearch('')
@@ -109,7 +104,7 @@ React.useEffect(() => {
 
 
     //Function where we apply our filters to the data
-    const filterData = () => {
+    const apply_Filtered_Data = () => {
         setFinalFilter(filter)
         setFinalPageVal(pageVal)
         setSearchData(search)
@@ -118,14 +113,16 @@ React.useEffect(() => {
         j++
     }
 
-    //Function to clear Type
+
+    //Function to clear Type from current filter
     const ClearType = () => {
         setFilter('')
         setFinalFilter('')
         window.location.reload()
     }
 
-    //Function to clear Type
+
+    //Function to clear search from current filter
     const ClearSearch = () => {
         setSearch('')
         setSearchData('')
@@ -134,7 +131,7 @@ React.useEffect(() => {
 
 
     //Function for pagination buttons upon search
-    const Page_button = () => {
+    const pagination_Button = () => {
         if(data?.data.count == 100){
             return(
                 <>
@@ -158,6 +155,7 @@ React.useEffect(() => {
             )
         }
     }
+
  
   return (
     <>
@@ -244,8 +242,8 @@ React.useEffect(() => {
                             </Grid.Col>
                             <Grid.Col span={12}>
                                 <Group position='right'>
-                                    <Button onClick={filterData} size='xs'>Apply</Button>
-                                    <Button size='xs' onClick={() => {setOpened((o) => !o); clearAll()}} variant='outline'>Clear All</Button>
+                                    <Button onClick={apply_Filtered_Data} size='xs'>Apply</Button>
+                                    <Button size='xs' onClick={() => {setOpened((o) => !o); clearAllFilter()}} variant='outline'>Clear All</Button>
                                 </Group>
                             </Grid.Col>
                         </Grid>
@@ -292,7 +290,7 @@ React.useEffect(() => {
             </Grid.Col>
             <Grid.Col span={12}>
                 <Group>
-                    {Page_button()}
+                    {pagination_Button()}
                 </Group>
             </Grid.Col>
         </Grid>

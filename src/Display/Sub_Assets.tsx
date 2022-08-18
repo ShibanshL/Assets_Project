@@ -3,37 +3,32 @@ import {useParams,Link,useNavigate} from 'react-router-dom'
 import {Group, Grid, Select, Text, Button, Checkbox, Card, Divider, Collapse, TextInput, MediaQuery ,Tooltip, Badge} from '@mantine/core';
 import {AiOutlineDoubleLeft} from 'react-icons/ai'
 import {HiOutlinePencil} from 'react-icons/hi'
-import {useStore,useStore_1,useStore_6,useStore_3,useStore_2} from '../Store'
+import {useStore,AUTH_KEY,PAGE_NUMBER,LOGGED_JN_OUT,useStore_2} from '../Store'
 import { useQuery} from 'react-query';
 import axios from 'axios';
 
-//Here the specific object is stored
-var appData = []
-
 
 function Sub_Assets() {
-  const Token = useStore_1((state:any) => state.token)
+  const Token = AUTH_KEY((state:any) => state.token)
   const log = useStore_2(state => state.log)
-  const logData = useStore_3((state:any) => state.logData)
-  const pageNum = useStore_6(state => state.pageNum)
+  const logData = LOGGED_JN_OUT((state:any) => state.logData)
+  const pageNum = PAGE_NUMBER(state => state.pageNum)
   const num = useStore(state => state.num)
 
   let nav = useNavigate()
-    const {keyID} = useParams()
-    console.log(useParams())
+  const {keyID} = useParams()
 
 
-
-    //this checks if you are logged in or not
-    React.useEffect(() => { 
-      if(!logData){
-        nav('/')
-      }
-      },
-      [num])
+  //this checks if you are logged in or not
+  React.useEffect(() => { 
+    if(!logData){
+      nav('/')
+    }
+    },
+    [num])
   
 
-  //here i am calling the api just with the unique id
+  //Here i am calling the api just with the unique id
   const data = useQuery(['Devices_1'], () => {
     return axios.get(`${import.meta.env.VITE_URL}/api/org/18/asset/${keyID}`,{
         method:'GET',
@@ -41,9 +36,8 @@ function Sub_Assets() {
             'Authorization':`Token ${Token}`
         }
     })
-
-},
-)
+  },
+  )
 
 
   //I'm recalling the api and just adding another parameter to get some more data
@@ -59,11 +53,12 @@ function Sub_Assets() {
   )
 
 
-//This appears when data is loading
+  //This appears when data is loading
   if(data.isLoading && data_Cycle.isLoading)
   {
     return <h1>Loading ...</h1>
   }
+
 
   return (
     <>

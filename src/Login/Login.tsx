@@ -5,34 +5,26 @@ import { useForm } from '@mantine/form';
 import {useMutation} from 'react-query' 
 import {BsEyeFill,BsEyeSlashFill} from 'react-icons/bs'
 import axios from 'axios';
-import {useStore, useStore_1, useStore_2, useStore_3} from '../Store';
-import { constants } from 'buffer';
-import { stat } from 'fs';
+import {useStore, AUTH_KEY, useStore_2, LOGGED_JN_OUT} from '../Store';
 
 
 var k = 0
 
-var invalid;
-
-interface api {
-  data:{
-    auth_token: string
-  }
-}
 
 function Login() {
 
   const [pass,setPass] = React.useState('password')
   const setLog1 = useStore_2(state => state.setLog_1)
-  const logData = useStore_3((state:any) => state.logData)
-  const setLogData = useStore_3((state:any)=> state.setLogData)
-  const setToken = useStore_1((state:any) => state.setToken)
-  const Token = useStore_1((state:any) => state.token)
+  const logData = LOGGED_JN_OUT((state:any) => state.logData)
+  const setLogData = LOGGED_JN_OUT((state:any)=> state.setLogData)
+  const setToken = AUTH_KEY((state:any) => state.setToken)
+  const Token = AUTH_KEY((state:any) => state.token)
   const [invalidCred,setInvalidCred] = React.useState('')
   const num = useStore(state => state.num)
 
   let nav = useNavigate()
 
+  //This is to check, once logged in even after you close your tab unless you log out it will keep you logged in
   React.useEffect(() => { 
     if(logData){
       nav('/Assets')
@@ -53,7 +45,8 @@ function Login() {
         },
     });
 
-    const Password = () => {
+    //This program is to check what i have entered in the password field. where this changed the type of the field onclick
+    const Password_Text = () => {
         if(k%2 == 0){
           setPass('text')
           console.log('Icon = ',pass)
@@ -129,7 +122,7 @@ function Login() {
               radius="sm"
               pt='5px'
               p='10px'
-              rightSection ={k%2 == 0?<BsEyeSlashFill style={{cursor:'pointer'}} onClick={Password}/>:<BsEyeFill style={{cursor:'pointer'}} onClick={Password}/>}
+              rightSection ={k%2 == 0?<BsEyeSlashFill style={{cursor:'pointer'}} onClick={Password_Text}/>:<BsEyeFill style={{cursor:'pointer'}} onClick={Password_Text}/>}
               {...form.getInputProps(`password`)}
               
               />
