@@ -1,31 +1,28 @@
-import React from 'react'
-// import renderer from 'react-test-renderer'
-// import Link from '../components/Link'
+import { describe, expect, it } from 'vitest'
+import App from './App'
+import { render, screen, userEvent } from './test-utils'
 
-// function toJson(component: renderer.ReactTestRenderer) {
-//   const result = component.toJSON()
-//   expect(result).toBeDefined()
-//   expect(result).not.toBeInstanceOf(Array)
-//   return result as renderer.ReactTestRendererJSON
-// }
+describe('Simple working test', () => {
+  it('the title is visible', () => {
+    render(<App />)
+    expect(screen.getByText(/Random Text/)).toBeInTheDocument()
+  })
+  it('Text has changed', async () => {
+    render(<App />)
+    userEvent.click(screen.getByText('Add'))
+    expect(await screen.findByText(/2/)).toBeInTheDocument()
+  })
 
-// test('Link changes the class when hovered', () => {
-//   const component = renderer.create(
-//     <Link page="http://antfu.me">Anthony Fu</Link>,
-//   )
-//   let tree = toJson(component)
-//   expect(tree).toMatchSnapshot()
+  // it('should increment count on click', async () => {
+  //   render(<App />)
+  //   userEvent.click(screen.getByRole('button'))
+  //   expect(await screen.findByText(/count is: 1/i)).toBeInTheDocument()
+  // })
 
-//   // manually trigger the callback
-//   tree.props.onMouseEnter()
-
-//   // re-rendering
-//   tree = toJson(component)
-//   expect(tree).toMatchSnapshot()
-
-//   // manually trigger the callback
-//   tree.props.onMouseLeave()
-//   // re-rendering
-//   tree = toJson(component)
-//   expect(tree).toMatchSnapshot()
-// })
+  // it('uses flexbox in app header', async () => {
+  //   render(<App />)
+  //   const element = screen.getByRole('banner')
+  //   expect(element.className).toEqual('App-header')
+  //   expect(getComputedStyle(element).display).toEqual('flex')
+  // })
+})
