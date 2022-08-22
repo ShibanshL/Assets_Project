@@ -2,19 +2,12 @@ import { useState } from 'react'
 import { AppShell, Center, Container,Group,Grid, Navbar} from '@mantine/core';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import {QueryClientProvider, QueryClient} from 'react-query'
-import Navtoolbar from './Navbar/Navtoolbar';
-import Login from './Login/Login';
-import Assets from './Display/Assets';
-import Test from './Test/Test'
-import SubTest from './Test/SubTest';
-import Sub_Assets from './Display/Sub_Assets';
-import { useStore_5 } from './Store';
+import Test_File_1 from './Test_Files/Test_File_1';
+import Test_File_2 from './Test_Files/Test_File_2';
 
 const reactQuery = new QueryClient()
-var i = 1
 
 function App() {
-const key = useStore_5(state => state.key)
   return (
     <QueryClientProvider client={reactQuery}>
       <Router>
@@ -24,20 +17,10 @@ const key = useStore_5(state => state.key)
             main: {background:'white',backgroundSize:'cover'},
           })}>
             <Container size={1920} p='0' m='0' style={{}} fluid>
-              <Grid>
-                <Grid.Col span={12}>
-                  <Navtoolbar />
-                </Grid.Col>
-                <Grid.Col span={12}>
-                  <Routes>
-                    <Route path='/' element={<Login />} />
-                    <Route path='/Assets' element={<Assets />} />
-                    <Route path={`/Asset/:keyID`} element={<Sub_Assets />} />
-                    <Route path='/test' element={<Test />} />
-                    <Route path='/test/ada' element={<SubTest />} />
-                  </Routes>
-                </Grid.Col>
-              </Grid>
+                <Grid>
+                  <Grid.Col span={12}><Test_File_1/></Grid.Col>
+                  <Grid.Col span={12}><Test_File_2/></Grid.Col>
+                </Grid>
             </Container>
         </AppShell>
       </Router>
