@@ -18,4 +18,10 @@ describe('Simple working test', () => {
     const data1 =  screen.getAllByRole('textbox')
     expect(data1.length).toBe(1)
   })
+
+  it('the title is visible - 2', () => {
+    render(<Test_File_1 />)
+    const data1 =  screen.getByPlaceholderText('Enter your Email')
+    expect(data1.innerHTML).toBe('')
+  })
 })
