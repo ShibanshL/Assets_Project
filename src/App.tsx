@@ -23,7 +23,7 @@ function App() {
             main: {background:'white',backgroundSize:'cover'},
           })}>
             <Container size={1920} p='0' m='0' style={{}} fluid>
-              {/* <Grid>
+              <Grid>
                 <Grid.Col span={12}>
                   <Navtoolbar />
                 </Grid.Col>
@@ -36,13 +36,13 @@ function App() {
                     <Route path='/test/ada' element={<SubTest />} />
                   </Routes>
                 </Grid.Col>
-              </Grid> */}
-              <Grid grow>
+              </Grid>
+              {/* <Grid grow>
                 <Grid.Col span={12}>
                     <Test_File_1 />
                 </Grid.Col>
               </Grid>
-              {/* <Test_File_2 /> */}
+              <Test_File_2 /> */}
             </Container>
         </AppShell>
     </QueryClientProvider>

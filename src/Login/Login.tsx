@@ -84,6 +84,7 @@ function Login() {
               setToken(res?.data?.auth_token);
               if(res?.data?.auth_token){
                 nav('/Assets')
+                setLogData(true)
               }
               else return 
             })
@@ -92,7 +93,6 @@ function Login() {
           setInvalidCred('Invalid credentials, please Reload and Try again.')
         })
 
-        setLogData(true)
 
         setLog1()
 
