@@ -76,7 +76,7 @@ describe('Login', () => {
         userEvent.type(pass,'123456897')
         userEvent.click(button_Log)
         const invalid = await screen.findByText('Invalid credentials, please Reload and Try again.')
-        expect(invalid).toBeInTheDocument()
+        expect(invalid).toBeVisible()
         // expect(name).not.toContainHTML('button')
     })
 
