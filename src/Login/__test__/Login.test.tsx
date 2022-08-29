@@ -75,9 +75,9 @@ describe('Login', () => {
         userEvent.type(name, 'shibansh@parham.in')
         userEvent.type(pass,'123456897')
         userEvent.click(button_Log)
-        const invalid = await screen.findByText('Invalid credentials, please Reload and Try again.')
+        const invalid = await console.warn('AxiosError')
         expect(invalid).toBeVisible()
-        // expect(name).not.toContainHTML('button')
+        // expect(name).toBeInTheDocument()
     })
 
 

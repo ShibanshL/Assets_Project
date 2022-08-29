@@ -2,13 +2,18 @@ import React from 'react'
 import {useSearchParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import {MediaQuery, Text,Group, Button,Burger,Drawer} from '@mantine/core'
+import axios from 'axios';
 
 
 let i;
+
+var auth_token: "1c8b4fc805dacf28f00a2b9efe1db8ad513162cc"
+
 function Test() {
   const [data, setData] = React.useState({})
   const [opened, setOpened] = React.useState(false);
   const title = opened ? 'Close navigation' : 'Open navigation';
+  const [test,setTest] = React.useState({})
 
   const Data = () => {
     setData(
@@ -18,6 +23,14 @@ function Test() {
       }
     )
   }
+const Rdata = () => {
+  axios.get('https://jsonplaceholder.typicode.com/users')
+  .then(res => setTest(res))
+} 
+  React.useEffect(() => {
+    Rdata()
+
+  },[])
 
   const a = () => {
     for(i=0; i<5; i++){
@@ -54,6 +67,7 @@ function Test() {
           <Group p='10px 50px'>
             <Text>
               {JSON.stringify(data)}
+              {JSON.stringify(test)}
             </Text>
           </Group>
         </MediaQuery>
