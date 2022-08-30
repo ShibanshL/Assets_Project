@@ -7,8 +7,8 @@ import Test_File_1 from './Test_Files/Test_File_1';
 import Test_File_2 from './Test_Files/Test_File_2';
 import Login from './Login/Login';
 import Assets from './Display/Assets';
-import Test from './Test/Test'
-import SubTest from './Test/SubTest';
+import Test from './TestD/TestD'
+import SubTest from './TestD/SubTest';
 import Sub_Assets from './Display/Sub_Assets';
 
 const reactQuery = new QueryClient()

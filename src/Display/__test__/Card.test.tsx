@@ -10,15 +10,16 @@ import {QueryClientProvider, QueryClient } from 'react-query'
 import { renderWithClient } from '../../test-utils'
 import { newRenderClient } from '../../test-utils'
 import { mockResponse,mockData } from '../../__mock__/axios'
+import Login from '../../Login/Login'
 
 var check = true
 
 describe('Card', () => {
 
     it('First Mock call', () => {
-        render(newRenderClient(<Assets/>))
-        const host = screen.getByText('Assets')
-        // expect(host).toBeInTheDocument()
+        render(newRenderClient(<Login/>))
+        const host = screen.getByText('Email')
+        expect(host).toBeInTheDocument()
     })
 
     // it('Call all the data', async () => {

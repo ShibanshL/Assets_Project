@@ -8,19 +8,20 @@ import { BrowserRouter } from 'react-router-dom'
 import {QueryClientProvider, QueryClient } from 'react-query'
 import { renderWithClient } from '../../test-utils'
 import { newRenderClient } from '../../test-utils'
+import TestD from '../../TestD/TestD'
 
-const reactQuery = new QueryClient()
-// const Mock = (history:any) => {
-//     return(
-//         <QueryClientProvider client={reactQuery}>
-//             <BrowserRouter>
-//                 <Login />
-//             </BrowserRouter>
-//         </QueryClientProvider>
-//     )
-// }
+// const reactQuery = new QueryClient()
+// // const Mock = (history:any) => {
+// //     return(
+// //         <QueryClientProvider client={reactQuery}>
+// //             <BrowserRouter>
+// //                 <Login />
+// //             </BrowserRouter>
+// //         </QueryClientProvider>
+// //     )
+// // }
 
-describe('Login', () => {
+// describe('Login', () => {
 
     it('check someting', async() => {
         // const res = renderWithClient(<Login />)
@@ -47,38 +48,46 @@ describe('Login', () => {
         expect(name).toContainHTML('input')
     })
 
-    it('check someting_4', () => {
-        render(newRenderClient(<Login />))
-        const name = screen.getByPlaceholderText('Enter your Email')
-        expect(name).not.toContainHTML('button')
+    it('check someting_6', () => {
+        render(<TestD />)
+        const name = screen.getByText('Hi')
+        expect(name).toBeTruthy()
+    
     })
+
+   
+//     it('check someting_4', () => {
+//         render(newRenderClient(<Login />))
+//         const name = screen.getByPlaceholderText('Enter your Email')
+//         expect(name).not.toContainHTML('button')
+//     })
 
     
-    // it('check someting_5', async () => {
-    //     render(newRenderClient(<Login />))
-    //     const name = screen.getByPlaceholderText('Enter your Email')
-    //     const pass = screen.getByPlaceholderText('Password')
-    //     const button_Log = screen.getByRole('button',{name:'Login'})
-    //     userEvent.type(name, 'shibansh@parham.in')
-    //     userEvent.type(pass,'123456789')
-    //     userEvent.click(button_Log)
-    //     const url = await window.location.pathname
-    //     expect(url).toBe('/Assets')
-    //     // expect(name).not.toContainHTML('button')
-    // })
+//     // it('check someting_5', async () => {
+//     //     render(newRenderClient(<Login />))
+//     //     const name = screen.getByPlaceholderText('Enter your Email')
+//     //     const pass = screen.getByPlaceholderText('Password')
+//     //     const button_Log = screen.getByRole('button',{name:'Login'})
+//     //     userEvent.type(name, 'shibansh@parham.in')
+//     //     userEvent.type(pass,'123456789')
+//     //     userEvent.click(button_Log)
+//     //     const url = await window.location.pathname
+//     //     expect(url).toBe('/Assets')
+//     //     // expect(name).not.toContainHTML('button')
+//     // })
 
-    it('check someting_6', async () => {
-        render(newRenderClient(<Login />))
-        const name = screen.getByPlaceholderText('Enter your Email')
-        const pass = screen.getByPlaceholderText('Password')
-        const button_Log = screen.getByRole('button',{name:'Login'})
-        userEvent.type(name, 'shibansh@parham.in')
-        userEvent.type(pass,'123456897')
-        userEvent.click(button_Log)
-        const invalid = await console.warn('AxiosError')
-        expect(invalid).toBeVisible()
-        // expect(name).toBeInTheDocument()
-    })
+//     it('check someting_6', async () => {
+//         render(newRenderClient(<Login />))
+//         const name = screen.getByPlaceholderText('Enter your Email')
+//         const pass = screen.getByPlaceholderText('Password')
+//         const button_Log = screen.getByRole('button',{name:'Login'})
+//         userEvent.type(name, 'shibansh@parham.in')
+//         userEvent.type(pass,'123456897')
+//         userEvent.click(button_Log)
+//         const invalid = await console.warn('AxiosError')
+//         expect(invalid).toBeVisible()
+//         // expect(name).toBeInTheDocument()
+//     })
 
 
-}) 
+// }) 
