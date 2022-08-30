@@ -1,14 +1,15 @@
-import { describe, expect, it } from 'vitest'
-import App from '../../App'
-import Login from '../Login'
-import Test_File_1 from '../../Test_Files/Test_File_1'
-import { render, screen, userEvent } from '../../test-utils'
-import { HiLogin } from 'react-icons/hi'
-import { BrowserRouter } from 'react-router-dom'
-import {QueryClientProvider, QueryClient } from 'react-query'
-import { renderWithClient } from '../../test-utils'
-import { newRenderClient } from '../../test-utils'
-import TestD from '../../TestD/TestD'
+import { describe, expect, it } from "vitest";
+import App from "../../App";
+import Login from "../Login";
+import Test_File_1 from "../../Test_Files/Test_File_1";
+import { render, screen, userEvent } from "../../test-utils";
+import { HiLogin } from "react-icons/hi";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { renderWithClient } from "../../test-utils";
+import { newRenderClient } from "../../test-utils";
+import TestD from "../../TestD/TestD";
+import { createMemoryHistory } from "history";
 
 // const reactQuery = new QueryClient()
 // // const Mock = (history:any) => {
@@ -23,46 +24,50 @@ import TestD from '../../TestD/TestD'
 
 // describe('Login', () => {
 
-    it('check someting', async() => {
-        // const res = renderWithClient(<Login />)
-        render(newRenderClient(<Login />))
-        const name = screen.getByText('Email')
-        expect(name).toBeInTheDocument()
-    })
+it("check someting", async () => {
+  // const res = renderWithClient(<Login />)
+  const history = createMemoryHistory();
+  history.push("/");
+  const testComponent = render(
+    <Router location={history.location} navigator={history}>
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+      </Routes>
+    </Router>
+  );
+  expect(testComponent).toMatchSnapshot();
+});
 
-    it('check someting_1', () => {
-        render(newRenderClient(<Login />))
-        const name = screen.getByText('Email')
-        expect(name).toBeTruthy()
-    })
+it("check someting_1", () => {
+  render(newRenderClient(<Login />));
+  const name = screen.getByText("Email");
+  expect(name).toBeTruthy();
+});
 
-    it('check someting_2', () => {
-        render(newRenderClient(<Login />))
-        const name = screen.getByText('Email')
-        expect(name).toContainHTML('label')
-    })
+it("check someting_2", () => {
+  render(newRenderClient(<Login />));
+  const name = screen.getByText("Email");
+  expect(name).toContainHTML("label");
+});
 
-    it('check someting_3', () => {
-        render(newRenderClient(<Login />))
-        const name = screen.getByPlaceholderText('Enter your Email')
-        expect(name).toContainHTML('input')
-    })
+it("check someting_3", () => {
+  render(newRenderClient(<Login />));
+  const name = screen.getByPlaceholderText("Enter your Email");
+  expect(name).toContainHTML("input");
+});
 
-    it('check someting_6', () => {
-        render(<TestD />)
-        const name = screen.getByText('Hi')
-        expect(name).toBeTruthy()
-    
-    })
+it("check someting_6", () => {
+  render(<TestD />);
+  const name = screen.getByText("Hi");
+  expect(name).toBeTruthy();
+});
 
-   
 //     it('check someting_4', () => {
 //         render(newRenderClient(<Login />))
 //         const name = screen.getByPlaceholderText('Enter your Email')
 //         expect(name).not.toContainHTML('button')
 //     })
 
-    
 //     // it('check someting_5', async () => {
 //     //     render(newRenderClient(<Login />))
 //     //     const name = screen.getByPlaceholderText('Enter your Email')
@@ -89,5 +94,4 @@ import TestD from '../../TestD/TestD'
 //         // expect(name).toBeInTheDocument()
 //     })
 
-
-// }) 
+// })
