@@ -24,6 +24,8 @@ function Login() {
 
   let nav = useNavigate()
 
+  console.log('plds',import.meta.env)
+
   //This is to check, once logged in even after you close your tab unless you log out it will keep you logged in
   React.useEffect(() => { 
     if(logData){
