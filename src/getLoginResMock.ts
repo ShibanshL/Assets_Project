@@ -1,4 +1,4 @@
 const PostLoginResMock = {
-  auth_token: "bc4e054bf97e7eaceba39311f3cad8c243f85731",
+  auth_token: "2d4f1c654ba09aab345c003c52369eee40bde101",
 };
 export { PostLoginResMock };

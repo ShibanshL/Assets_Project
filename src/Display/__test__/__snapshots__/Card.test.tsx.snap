@@ -22,8 +22,8 @@ exports[`Card > First Mock call 1`] = `
             >
               <label
                 class="mantine-1w07r5r mantine-TextInput-label"
-                for="mantine-r4xop7twq"
-                id="mantine-r4xop7twq-label"
+                for="mantine-6q412thu5"
+                id="mantine-6q412thu5-label"
               >
                 Email
                 <span
@@ -39,7 +39,7 @@ exports[`Card > First Mock call 1`] = `
                 <input
                   aria-invalid="false"
                   class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-g773hu"
-                  id="mantine-r4xop7twq"
+                  id="mantine-6q412thu5"
                   placeholder="Enter your Email"
                   required=""
                   type="text"
@@ -52,8 +52,8 @@ exports[`Card > First Mock call 1`] = `
             >
               <label
                 class="mantine-1w07r5r mantine-TextInput-label"
-                for="mantine-tfhoo3epq"
-                id="mantine-tfhoo3epq-label"
+                for="mantine-o1yift9cv"
+                id="mantine-o1yift9cv-label"
               >
                 Password
                 <span
@@ -69,7 +69,7 @@ exports[`Card > First Mock call 1`] = `
                 <input
                   aria-invalid="false"
                   class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
-                  id="mantine-tfhoo3epq"
+                  id="mantine-o1yift9cv"
                   placeholder="Password"
                   required=""
                   type="password"
@@ -138,8 +138,8 @@ exports[`Card > First Mock call 1`] = `
           >
             <label
               class="mantine-1w07r5r mantine-TextInput-label"
-              for="mantine-r4xop7twq"
-              id="mantine-r4xop7twq-label"
+              for="mantine-6q412thu5"
+              id="mantine-6q412thu5-label"
             >
               Email
               <span
@@ -155,7 +155,7 @@ exports[`Card > First Mock call 1`] = `
               <input
                 aria-invalid="false"
                 class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-g773hu"
-                id="mantine-r4xop7twq"
+                id="mantine-6q412thu5"
                 placeholder="Enter your Email"
                 required=""
                 type="text"
@@ -168,8 +168,8 @@ exports[`Card > First Mock call 1`] = `
           >
             <label
               class="mantine-1w07r5r mantine-TextInput-label"
-              for="mantine-tfhoo3epq"
-              id="mantine-tfhoo3epq-label"
+              for="mantine-o1yift9cv"
+              id="mantine-o1yift9cv-label"
             >
               Password
               <span
@@ -185,7 +185,7 @@ exports[`Card > First Mock call 1`] = `
               <input
                 aria-invalid="false"
                 class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
-                id="mantine-tfhoo3epq"
+                id="mantine-o1yift9cv"
                 placeholder="Password"
                 required=""
                 type="password"

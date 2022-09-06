@@ -12,7 +12,7 @@ const axios = require('axios')
 
 describe('Simple mock test', () => {
 
-    it('first Try', () => {
+    it('first Try', async () => {
         // const mockRes = {
         //     data:
         //     { 
@@ -27,7 +27,7 @@ describe('Simple mock test', () => {
         // Test.Rdata()
 
         render(<TestD />)
-        const name = screen.getByText('Hi')
+        const name = screen.findByText('Bret')
         expect(name).toBeTruthy()
     })
 }) 

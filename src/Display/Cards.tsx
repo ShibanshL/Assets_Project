@@ -22,7 +22,7 @@ interface props{
 }
 
 
-function Cards({data,check}:props) {
+function Cards({data,check}:props|any) {
   
 
     return (
