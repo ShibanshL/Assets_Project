@@ -53,8 +53,8 @@ describe("Card", () => {
       history.push("/Assets");
       renderWithClient(
         <Router location={history.location} navigator={history}>
-          <Routes>
-            <Route path="/Assets" element={<Cards data={mockData_1.data} check={check} />}></Route>
+            <Routes>
+             <Route path="/Assets" element={<Cards data={mockData_1.data} check={check} />}></Route>
             </Routes>
         </Router>
       )

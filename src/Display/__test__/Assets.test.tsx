@@ -50,6 +50,74 @@ var results = [
     }
 ]
 
-it('Just rendering',() => {
-    newRenderClient(<Cards data={mockData.data} check={check}/>)
+function test(){
+    const history = createMemoryHistory();
+                history.push("/");
+                const testComponent = renderWithClient(
+                    <Router location={history.location} navigator={history}>
+                    <Routes>
+                        <Route path="/" element={<Login />}></Route>
+                    </Routes>
+                    </Router>
+                );
+            const name = screen.getByPlaceholderText('Enter your Email')
+            const pass = screen.getByPlaceholderText('Password')
+            const button_Log = screen.getByRole('button',{name:'Login'})
+            userEvent.type(name, 'shibansh@parham.in')
+            userEvent.type(pass,'123456789')
+            userEvent.click(button_Log)
+}
+
+describe('Assets Test',() => {
+    beforeAll(() => {
+          it('Logging in ', () => {
+            const history = createMemoryHistory();
+                history.push("/");
+                const testComponent = renderWithClient(
+                    <Router location={history.location} navigator={history}>
+                    <Routes>
+                        <Route path="/" element={<Login />}></Route>
+                    </Routes>
+                    </Router>
+                );
+            const name = screen.getByPlaceholderText('Enter your Email')
+            const pass = screen.getByPlaceholderText('Password')
+            const button_Log = screen.getByRole('button',{name:'Login'})
+            userEvent.type(name, 'shibansh@parham.in')
+            userEvent.type(pass,'123456789')
+            userEvent.click(button_Log)
+          })
+       
+    })
+
+    it('Just rendering',async () => {
+        test()
+        const history = createMemoryHistory();
+        history.push("/Assets");
+        renderWithClient(
+          <Router location={history.location} navigator={history}>
+              <Routes>
+               <Route path="/Assets" element={<Assets />}></Route>
+              </Routes>
+          </Router>
+        )
+          const name_1 = await screen.findByText('Current')
+          expect(name_1).toBeInTheDocument()
+    })
+
+    it('Just rendering_1',async () => {
+        const history = createMemoryHistory();
+        history.push("/Assets");
+        renderWithClient(
+          <Router location={history.location} navigator={history}>
+              <Routes>
+               <Route path="/Assets" element={<Assets />}></Route>
+              </Routes>
+          </Router>
+        )
+          const name_1 = await screen.findByText('Show Filters')
+          expect(name_1).toBeInTheDocument()
+    })
+
 })
+
