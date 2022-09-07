@@ -12,6 +12,7 @@ import { renderWithClient } from "../../test-utils";
 import { newRenderClient } from "../../test-utils";
 import { mockResponse, mockData } from "../../__mock__/axios";
 import Login from "../../Login/Login";
+import { Grid } from '@mantine/core';
 
 var check = false;
 
@@ -34,28 +35,29 @@ const mockData_1 =
 
 describe("Card", () => {
 
-  beforeAll(() => {
-      newRenderClient(<Assets />)
+  // it("First Mock call", () => {
+  //   const history = createMemoryHistory();
+  //   history.push("/");
+  //   const testComponent = renderWithClient(
+  //     <Router location={history.location} navigator={history}>
+  //       <Routes>
+  //         <Route path="/" element={<Login />}></Route>
+  //       </Routes>
+  //     </Router>
+  //   );
+  //   expect(testComponent).toMatchSnapshot();
+  // });
 
-      console.log('Running Assets before each tests')
-  })
-
-  it("First Mock call", () => {
-    const history = createMemoryHistory();
-    history.push("/");
-    const testComponent = renderWithClient(
-      <Router location={history.location} navigator={history}>
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-        </Routes>
-      </Router>
-    );
-    expect(testComponent).toMatchSnapshot();
-  });
-
-  it('Call all the data', async () => {
-      // newRenderClient(<Assets/>)
-      render(<Cards data={mockData_1.data} check={check} />)
+  it.only('Call all the data', async () => {
+      const history = createMemoryHistory();
+      history.push("/Assets");
+      renderWithClient(
+        <Router location={history.location} navigator={history}>
+          <Routes>
+            <Route path="/Assets" element={<Cards data={mockData_1.data} check={check} />}></Route>
+            </Routes>
+        </Router>
+      )
       const host = await screen.findByText('192.168.000')
       expect(host).toBeInTheDocument()
   })

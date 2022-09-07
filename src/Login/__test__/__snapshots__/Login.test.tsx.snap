@@ -22,8 +22,8 @@ exports[`check someting 1`] = `
             >
               <label
                 class="mantine-1w07r5r mantine-TextInput-label"
-                for="mantine-91chfe7tf"
-                id="mantine-91chfe7tf-label"
+                for="mantine-ju4oj5rdi"
+                id="mantine-ju4oj5rdi-label"
               >
                 Email
                 <span
@@ -39,7 +39,7 @@ exports[`check someting 1`] = `
                 <input
                   aria-invalid="false"
                   class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-g773hu"
-                  id="mantine-91chfe7tf"
+                  id="mantine-ju4oj5rdi"
                   placeholder="Enter your Email"
                   required=""
                   type="text"
@@ -52,8 +52,8 @@ exports[`check someting 1`] = `
             >
               <label
                 class="mantine-1w07r5r mantine-TextInput-label"
-                for="mantine-r22n38cl7"
-                id="mantine-r22n38cl7-label"
+                for="mantine-la9ssfbwn"
+                id="mantine-la9ssfbwn-label"
               >
                 Password
                 <span
@@ -69,7 +69,7 @@ exports[`check someting 1`] = `
                 <input
                   aria-invalid="false"
                   class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
-                  id="mantine-r22n38cl7"
+                  id="mantine-la9ssfbwn"
                   placeholder="Password"
                   required=""
                   type="password"
@@ -138,8 +138,8 @@ exports[`check someting 1`] = `
           >
             <label
               class="mantine-1w07r5r mantine-TextInput-label"
-              for="mantine-91chfe7tf"
-              id="mantine-91chfe7tf-label"
+              for="mantine-ju4oj5rdi"
+              id="mantine-ju4oj5rdi-label"
             >
               Email
               <span
@@ -155,7 +155,7 @@ exports[`check someting 1`] = `
               <input
                 aria-invalid="false"
                 class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-g773hu"
-                id="mantine-91chfe7tf"
+                id="mantine-ju4oj5rdi"
                 placeholder="Enter your Email"
                 required=""
                 type="text"
@@ -168,8 +168,8 @@ exports[`check someting 1`] = `
           >
             <label
               class="mantine-1w07r5r mantine-TextInput-label"
-              for="mantine-r22n38cl7"
-              id="mantine-r22n38cl7-label"
+              for="mantine-la9ssfbwn"
+              id="mantine-la9ssfbwn-label"
             >
               Password
               <span
@@ -185,7 +185,7 @@ exports[`check someting 1`] = `
               <input
                 aria-invalid="false"
                 class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
-                id="mantine-r22n38cl7"
+                id="mantine-la9ssfbwn"
                 placeholder="Password"
                 required=""
                 type="password"

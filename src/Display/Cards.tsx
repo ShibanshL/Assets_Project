@@ -30,7 +30,7 @@ function Cards({data,check}:props|any) {
             { data?.map((e:any) =>{
                         return( 
                             <> 
-                        <Grid.Col p='10' span={12} key={e.host}>
+                        {/* <Grid.Col p='10' span={12} key={e.host}> */}
                             <Card style={{background:'white', boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 28px 23px -7px, rgb(0 0 0 / 4%) 0px 12px 12px -7px'}}>
                                 <Grid>
                                     <Grid.Col span={12}>
@@ -174,7 +174,7 @@ function Cards({data,check}:props|any) {
                                     </Grid.Col>
                                 </Grid>
                             </Card>
-                        </Grid.Col>
+                        {/* </Grid.Col> */}
                         </>
                     )
                     })
