@@ -1,33 +1,32 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi, Mocked, Mock } from 'vitest'
 import { render, screen, userEvent } from '../../test-utils'
-// import { newRenderClient } from '../../test-utils'
+import { afterAll, afterEach, beforeAll } from 'vitest'
+import { setupServer } from 'msw/node'
+import { graphql, rest } from 'msw'
 import { Test } from 'vitest'
 import { newRenderClient } from '../../test-utils'
 import Login from '../../Login/Login'
 import TestD from '../TestD'
+import {testResponse} from '../../__mock__/Mock'
+import { createMemoryHistory } from "history";
+import { renderWithClient } from "../../test-utils";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
-const axios = require('axios')
 
-// vi.mock(axios)
+describe('first call', () => { 
+    it('Lets do this', async () => {
+        const history = createMemoryHistory();
+          history.push("/test");
+          const testComponent = renderWithClient(
+            <Router location={history.location} navigator={history}>
+              <Routes>
+                <Route path="/test" element={<TestD />}></Route>
+              </Routes>
+            </Router>
+          );
 
-describe('Simple mock test', () => {
-
-    it('first Try', async () => {
-        // const mockRes = {
-        //     data:
-        //     { 
-        //         userName:'chadisnothere',
-        //         myFirst:'CoolDube',
-        //         age:'23'
-        //     }
-        // }
-        // axios.get.mockResolvedValue(mockRes)
-
-        // const Test = require('../Test')
-        // Test.Rdata()
-
-        render(<TestD />)
-        const name = screen.findByText('Bret')
-        expect(name).toBeTruthy()
+        // render(<TestD />)
+        const name = await screen.findByText('Data_1')
+        expect(name).toBeInTheDocument()
     })
-}) 
+ })

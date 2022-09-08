@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vitest } from "vitest";
 import App from "../../App";
 import Login from "../../Login/Login";
 import Test_File_1 from "../../Test_Files/Test_File_1";
@@ -13,6 +13,7 @@ import { createMemoryHistory } from "history";
 import Assets from "../Assets";
 import Cards from "../Cards";
 import { mockData } from "../../__mock__/axios";
+import { AUTH_KEY } from "../../Store";
 
 var check = true
 
@@ -50,48 +51,20 @@ var results = [
     }
 ]
 
-function test(){
-    const history = createMemoryHistory();
-                history.push("/");
-                const testComponent = renderWithClient(
-                    <Router location={history.location} navigator={history}>
-                    <Routes>
-                        <Route path="/" element={<Login />}></Route>
-                    </Routes>
-                    </Router>
-                );
-            const name = screen.getByPlaceholderText('Enter your Email')
-            const pass = screen.getByPlaceholderText('Password')
-            const button_Log = screen.getByRole('button',{name:'Login'})
-            userEvent.type(name, 'shibansh@parham.in')
-            userEvent.type(pass,'123456789')
-            userEvent.click(button_Log)
-}
+// const setToken = AUTH_KEY((state:any) => state.setToken)
+
+// function Logged_IN(){
+//     // const setToken = AUTH_KEY((state:any) => state.setToken)
+//     setToken('e1c56fee92f768d8198bd5832d04d4e6817b409a')
+// }
+
+// function Logged_OUT(){
+//     // const setToken = AUTH_KEY((state:any) => state.setToken)
+//     setToken('')
+// }
 
 describe('Assets Test',() => {
-    beforeAll(() => {
-          it('Logging in ', () => {
-            const history = createMemoryHistory();
-                history.push("/");
-                const testComponent = renderWithClient(
-                    <Router location={history.location} navigator={history}>
-                    <Routes>
-                        <Route path="/" element={<Login />}></Route>
-                    </Routes>
-                    </Router>
-                );
-            const name = screen.getByPlaceholderText('Enter your Email')
-            const pass = screen.getByPlaceholderText('Password')
-            const button_Log = screen.getByRole('button',{name:'Login'})
-            userEvent.type(name, 'shibansh@parham.in')
-            userEvent.type(pass,'123456789')
-            userEvent.click(button_Log)
-          })
-       
-    })
-
     it('Just rendering',async () => {
-        test()
         const history = createMemoryHistory();
         history.push("/Assets");
         renderWithClient(
@@ -101,8 +74,8 @@ describe('Assets Test',() => {
               </Routes>
           </Router>
         )
-          const name_1 = await screen.findByText('Current')
-          expect(name_1).toBeInTheDocument()
+        const name_1 = await screen.findByText('192.168.00.20')
+        expect(name_1).toBeInTheDocument()
     })
 
     it('Just rendering_1',async () => {
@@ -115,7 +88,7 @@ describe('Assets Test',() => {
               </Routes>
           </Router>
         )
-          const name_1 = await screen.findByText('Show Filters')
+          const name_1 = await screen.findByText('Loading')
           expect(name_1).toBeInTheDocument()
     })
 

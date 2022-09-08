@@ -13,6 +13,7 @@ import { newRenderClient } from "../../test-utils";
 import { mockResponse, mockData } from "../../__mock__/axios";
 import Login from "../../Login/Login";
 import { Grid } from '@mantine/core';
+import { MockedData } from '../../__mock__/Mock';
 
 var check = false;
 
@@ -49,30 +50,31 @@ describe("Card", () => {
   // });
 
   it.only('Call all the data', async () => {
-      const history = createMemoryHistory();
-      history.push("/Assets");
-      renderWithClient(
-        <Router location={history.location} navigator={history}>
-            <Routes>
-             <Route path="/Assets" element={<Cards data={mockData_1.data} check={check} />}></Route>
-            </Routes>
-        </Router>
-      )
+      // const history = createMemoryHistory();
+      // history.push("/Assets");
+      // renderWithClient(
+      //   <Router location={history.location} navigator={history}>
+      //       <Routes>
+      //        <Route path="/Assets" element={<Cards data={MockedData.data.results} check={check} />}></Route>
+      //       </Routes>
+      //   </Router>
+      // )
+      newRenderClient(<Cards data={MockedData.data.results} check={check} />)
       const host = await screen.findByText('192.168.000')
       expect(host).toBeInTheDocument()
   })
 
-  it('Call all the data_1', async () => {
-    // newRenderClient(<Assets/>)
-    render(<Cards data={mockData.data} check={check} />)
-    const host = await screen.findByText('192.168.000')
-    expect(host).toBeInTheDocument()
-  })
+  // it('Call all the data_1', async () => {
+  //   // newRenderClient(<Assets/>)
+  //   render(<Cards data={mockData.data} check={check} />)
+  //   const host = await screen.findByText('192.168.000')
+  //   expect(host).toBeInTheDocument()
+  // })
 
-  it('Call all the data_2', async () => {
-    // newRenderClient(<Assets/>)
-    render(<Cards data={mockResponse} check={check} />)
-    const host = await screen.findByText('192.168.000')
-    expect(host).toBeInTheDocument()
-  })
+  // it('Call all the data_2', async () => {
+  //   // newRenderClient(<Assets/>)
+  //   render(<Cards data={mockResponse} check={check} />)
+  //   const host = await screen.findByText('192.168.000')
+  //   expect(host).toBeInTheDocument()
+  // })
 });

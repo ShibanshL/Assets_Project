@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import {MediaQuery, Text,Group, Button,Burger,Drawer} from '@mantine/core'
 import axios from 'axios';
 
-
 interface ada {
   data:{
     email: string
