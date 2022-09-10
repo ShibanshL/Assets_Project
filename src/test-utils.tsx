@@ -1,12 +1,12 @@
 /* eslint-disable import/export */
 import { cleanup, render } from "@testing-library/react";
-import { afterEach } from "vitest";
+import { afterEach,vi } from "vitest";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter } from "react-router-dom";
 import { rest } from "msw";
 import axios from "axios";
-import { PostLoginResMock } from "./getLoginResMock";
-
+import { PostLoginResMock } from "./ResponseMock/getLoginResMock";
+import {MockedData} from './ResponseMock/AssetsMockResponse'
 afterEach(() => {
   cleanup();
 });
@@ -25,6 +25,21 @@ export const handlers = [
       ctx.json(PostLoginResMock)
     );
   }),
+
+  rest.get(`*/api/org/18/asset/`,
+    (req, res, ctx) => {
+      return res(
+        ctx.set({
+          "Authorization":"Token e1c56fee92f768d8198bd5832d04d4e6817b409a"
+      }),
+        ctx.status(200),
+        // ctx.set({
+        //     "Authorization":"Token e1c56fee92f768d8198bd5832d04d4e6817b409a"
+        // }),
+        ctx.json(MockedData))
+    }),
+  
+
 ];
 const reactQuery = new QueryClient();
 
@@ -63,6 +78,22 @@ export function renderWithClient(ui: React.ReactElement) {
         </QueryClientProvider>
       ),
   };
+}
+
+export const matchMedia_Fn = () => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: vi.fn().mockImplementation(query => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(), // Deprecated
+      removeListener: vi.fn(), // Deprecated
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }))
+  });
 }
 
 export function createWrapper() {
