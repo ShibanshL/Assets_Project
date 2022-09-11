@@ -611,6 +611,58 @@ export const MockedData =
     "request": {}
 }
 
+export const Sub_Assets_First = 
+    {
+        host: "192.168.00.20",
+        display_name: "device_00.20",
+        unique_id: "04009331-d76e-4f84-99fc-893e73fcfb68",
+        tags: [
+            "database 20",
+            "server 20"
+        ],
+        type: "infra",
+        is_live: null,
+        time_to_decommission: null,
+        created_at: "2022-08-09T09:53:22.470395Z",
+        updated_at: "2022-08-09T09:53:22.470412Z",
+        decommission_date: null,
+        org_id: 18,
+        latest_risk_score: null,
+        scan_cycle_count: 1,
+        vuln_count: 0,
+        vuln_breakup: {},
+        last_scan: {
+            id: "523b1ee8-8283-4f97-b5e6-fc38a2f99971",
+            date: "2022-08-03",
+            cycle_id: "c7453ae9-830b-456e-a1f2-309d36614a6d"
+        },
+        cve_status_distribution: {}
+    }
+
+export const Sub_Assets_Second = {
+    next: null,
+    previous: null,
+    count: 1,
+    current: 1,
+    pages: 1,
+    results: [
+        {
+            id: "c7453ae9-830b-456e-a1f2-309d36614a6d",
+            start_date: "2022-08-09",
+            end_date: "2022-08-09",
+            vuln_count: 100,
+            vuln_breakup: {
+                " ": 6,
+                critical: 14,
+                high: 30,
+                medium: 50
+            },
+            scope_count: 100
+        }
+    ],
+    page_size: 20,
+    page_size_query_param: "page_size"
+}
 
 export const testResponse = 
     {

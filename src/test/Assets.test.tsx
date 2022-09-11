@@ -1,16 +1,11 @@
 import { describe, expect, it, vitest, vi } from "vitest";
-import App from "../App";
-import Login from "../Login/Login";
 import { act, render, screen, userEvent } from "../test-utils";
 import { renderHook, waitFor } from "@testing-library/react";
-import { HiLogin } from "react-icons/hi";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { renderWithClient } from "../test-utils";
-import { newRenderClient } from "../test-utils";
 import { createMemoryHistory } from "history";
 import Assets from "../Display/Assets";
-import Cards from "../Display/Cards";
 // import { mockData } from "../../__mock__/axios";
 import { matchMedia_Fn } from "../test-utils";
 import { AUTH_KEY,LOGGED_JN_OUT, useStore } from "../Store";

@@ -20,6 +20,7 @@ function Assets() {
     let nav = useNavigate()
     // const a = useStore((state) => state.num)
     const [check,setCheck] = React.useState(false)
+    const [cardChecked, setCardChecked] = React.useState(false)
     const [opened, setOpened] = React.useState(false);
     const [finalPageVal,setFinalPageVal] = React.useState('20')
     const search = useStore_7(state => state.search)
@@ -92,6 +93,25 @@ React.useEffect(() => {
         return <h2 style={{color:'pink'}}>{error?.message}</h2>
     }
 
+    //This funvtion here checks the checkboxes on each cards
+    const delete_Card = () => {
+        if(check == true){
+            return false
+        }
+        else if(cardChecked == false){
+            return true
+        }
+        // else if(cardChecked == true && check== false){
+        //     return false
+        // }
+        // else if(check == false){
+        //     return false
+        // }
+        // else if()
+        // else{
+        //     return true
+        // }
+    }
 
     //Function to clear all in the filter option
     const clearAllFilter = () => {
@@ -177,7 +197,7 @@ React.useEffect(() => {
                         <Group position='right'>
                             <Button size='xs' leftIcon={<FiUpload />}>Bulk Update</Button>
                             <Button size='xs' leftIcon={<FiPlus />}>Create Assets</Button>
-                            <Button size='xs' color='red' leftIcon={<MdDeleteOutline />} disabled={check==false}>Delete</Button>
+                            <Button size='xs' color='red' leftIcon={<MdDeleteOutline />} disabled={delete_Card()}>Delete</Button>
                         </Group>
                     </Grid.Col>
                 </Grid>
@@ -283,7 +303,7 @@ React.useEffect(() => {
                 </Group>
             </Grid.Col>
             <Grid.Col span={12}>
-                <Cards data={data?.data.results} check={check}/>
+                <Cards data={data?.data.results} setCheck={setCheck} check={check} cardChecked={cardChecked} setCardChecked={setCardChecked}/>
             </Grid.Col>
             <Grid.Col span={12}>
                 {data?.data.count==100?<Text>Page : {page} / 5</Text>:<Text>Page : 1 / 1</Text>}                               

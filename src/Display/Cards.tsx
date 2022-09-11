@@ -18,12 +18,23 @@ interface props{
             }
         ],
 
-    check:boolean
+    setCheck:() => void,
+    check:boolean,
+    setCardChecked:() => void,
+    cardChecked:boolean
 }
 
 
-function Cards({data,check}:props|any) {
+function Cards({data,setCheck,check, cardChecked, setCardChecked}:props|any) {
   
+    const cards_Checked = () => {
+       if(check==true){
+            return true
+       }
+       else if(check == false){
+        
+       }
+    }
 
     return (
         <>
@@ -32,12 +43,12 @@ function Cards({data,check}:props|any) {
                             <> 
                             <Grid>
                                 <Grid.Col p='10' span={12} key={e.host}>
-                                    <Card style={{background:'white', boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 28px 23px -7px, rgb(0 0 0 / 4%) 0px 12px 12px -7px'}}>
+                                    <Card role='My_Cards' style={{background:'white', boxShadow:'rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 28px 23px -7px, rgb(0 0 0 / 4%) 0px 12px 12px -7px'}}>
                                         <Grid>
                                             <Grid.Col span={12}>
                                                 <Group>
-                                                    <Checkbox pr='10px' checked={check} />
-                                                    <Link to={`/Asset/${e.unique_id}`}><AiOutlineLink /></Link>
+                                                    <Checkbox pr='10px' checked={cards_Checked()} onChange={() =>{ setCardChecked(true)}}/>
+                                                    <Link to={`/Asset/${e.unique_id}`} role='Sub_Link'><AiOutlineLink /></Link>
                                                     <Group p='0 10px'>
                                                         <Text weight={700} style={{fontSize:'20px'}}>{e.host}</Text>
                                                     </Group>

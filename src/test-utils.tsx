@@ -6,7 +6,10 @@ import { BrowserRouter } from "react-router-dom";
 import { rest } from "msw";
 import axios from "axios";
 import { PostLoginResMock } from "./ResponseMock/getLoginResMock";
-import {MockedData} from './ResponseMock/AssetsMockResponse'
+import {MockedData, Sub_Assets_First, Sub_Assets_Second} from './ResponseMock/AssetsMockResponse'
+import {urlParam} from './ResponseMock/getLoginResMock'
+
+
 afterEach(() => {
   cleanup();
 });
@@ -33,14 +36,33 @@ export const handlers = [
           "Authorization":"Token e1c56fee92f768d8198bd5832d04d4e6817b409a"
       }),
         ctx.status(200),
-        // ctx.set({
-        //     "Authorization":"Token e1c56fee92f768d8198bd5832d04d4e6817b409a"
-        // }),
         ctx.json(MockedData))
     }),
+    
+    rest.get(`*/api/org/18/asset/${urlParam}`,
+    (req, res, ctx) => {
+      return res( 
+        ctx.status(200),
+        ctx.json(Sub_Assets_First)
+      )
+    }),
+
+    rest.get(`*/api/org/18/asset/${urlParam}/cycles`,
+    (req, res, ctx) => {
+      return res( 
+        ctx.status(200),
+        ctx.json(Sub_Assets_Second)
+      )
+    })
   
+   
 
 ];
+
+// export const Handler_2 = [
+
+// ]
+
 const reactQuery = new QueryClient();
 
 const customRender = (ui: React.ReactElement, options = {}) =>
