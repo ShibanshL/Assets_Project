@@ -1,0 +1,1922 @@
+// Vitest Snapshot v1
+
+exports[`Assets Test > submit Form data 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mantine-Grid-root mantine-MediaQuery-media mantine-zxry0c"
+        style="background: rgb(248, 249, 250);"
+      >
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Grid-root mantine-1cvzra1"
+            style="background: white; box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px;"
+          >
+            <div
+              class="mantine-Col-root mantine-1a6i1ew"
+            >
+              <div
+                class="mantine-Group-root mantine-6y1794"
+              >
+                <div
+                  class="mantine-Group-root mantine-Group-child mantine-zah578"
+                >
+                  <svg
+                    class="mantine-gnzaph mantine-Group-child"
+                    fill="currentColor"
+                    height="22"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 1024 1024"
+                    width="22"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 0 0 0 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 0 0 0 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="mantine-Group-root mantine-Group-child mantine-zah578"
+                >
+                  <div
+                    class="mantine-Text-root mantine-Group-child mantine-1avyzjn"
+                    style="font-size: 22px;"
+                  >
+                     Assets
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mantine-Col-root mantine-gsvw0f"
+            >
+              <div
+                class="mantine-Group-root mantine-147cgkf"
+              >
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        />
+                        <polyline
+                          points="17 8 12 3 7 8"
+                        />
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="3"
+                          y2="15"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Bulk Update
+                    </span>
+                  </div>
+                </button>
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="5"
+                          y2="19"
+                        />
+                        <line
+                          x1="5"
+                          x2="19"
+                          y1="12"
+                          y2="12"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Create Assets
+                    </span>
+                  </div>
+                </button>
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-1ifttme"
+                  disabled=""
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h24v24H0V0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Delete
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            aria-hidden="false"
+            class="mantine-10f44hk"
+            style="box-sizing: border-box; display: none; height: 0px; overflow: hidden;"
+          >
+            <div
+              style="opacity: 1; transition: opacity 200ms ease;"
+            >
+              <div
+                class="mantine-Paper-root mantine-Card-root mantine-xoj88x"
+                style="border: 5px;"
+              >
+                <div
+                  class="mantine-Grid-root mantine-nsdj"
+                >
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Text-root mantine-7ve13"
+                      style="font-size: 14px;"
+                    >
+                      Filters
+                    </div>
+                  </div>
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Divider-root mantine-Divider-horizontal mantine-1lis5e"
+                    />
+                  </div>
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Grid-root mantine-nsdj"
+                    >
+                      <div
+                        class="mantine-Col-root mantine-lucu8g"
+                      >
+                        <div
+                          class="mantine-Group-root mantine-6y1794"
+                        >
+                          <div
+                            class="mantine-Select-root mantine-Group-child mantine-6xf4zl"
+                          >
+                            <label
+                              class="mantine-1w07r5r mantine-Select-label"
+                              for="mantine-bnydjv0wa"
+                              id="mantine-bnydjv0wa-label"
+                            >
+                              Type
+                            </label>
+                            <div
+                              aria-controls="mantine-bnydjv0wa"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              role="combobox"
+                              tabindex="-1"
+                            >
+                              <input
+                                type="hidden"
+                                value=""
+                              />
+                              <div
+                                class="mantine-Select-wrapper mantine-12sbrde"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-invalid="false"
+                                  autocomplete="off"
+                                  class="mantine-Select-defaultVariant mantine-Select-input mantine-1kkmtua"
+                                  data-mantine-stop-propagation="false"
+                                  id="mantine-bnydjv0wa"
+                                  placeholder="Pick for a type"
+                                  readonly=""
+                                  type="search"
+                                  value=""
+                                />
+                                <div
+                                  class="mantine-uquezq mantine-Select-rightSection"
+                                >
+                                  <svg
+                                    data-chevron="true"
+                                    fill="none"
+                                    height="18"
+                                    style="color: rgb(134, 142, 150);"
+                                    viewBox="0 0 15 15"
+                                    width="18"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mantine-Col-root mantine-lucu8g"
+                      >
+                        <div
+                          class="mantine-Group-root mantine-6y1794"
+                        >
+                          <div
+                            class="mantine-Select-root mantine-Group-child mantine-6xf4zl"
+                          >
+                            <label
+                              class="mantine-1w07r5r mantine-Select-label"
+                              for="mantine-xc2xx2k16"
+                              id="mantine-xc2xx2k16-label"
+                            >
+                              Items Per Page
+                            </label>
+                            <div
+                              aria-controls="mantine-xc2xx2k16"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              role="combobox"
+                              tabindex="-1"
+                            >
+                              <input
+                                type="hidden"
+                                value="20"
+                              />
+                              <div
+                                class="mantine-Select-wrapper mantine-12sbrde"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-invalid="false"
+                                  autocomplete="off"
+                                  class="mantine-Select-defaultVariant mantine-Select-input mantine-rcq42x"
+                                  data-mantine-stop-propagation="false"
+                                  id="mantine-xc2xx2k16"
+                                  placeholder="Pick for items per page"
+                                  readonly=""
+                                  type="search"
+                                  value="20"
+                                />
+                                <div
+                                  class="mantine-1n9cu5e mantine-Select-rightSection"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    style="cursor: pointer; transform: rotate(45deg);"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <line
+                                      x1="12"
+                                      x2="12"
+                                      y1="5"
+                                      y2="19"
+                                    />
+                                    <line
+                                      x1="5"
+                                      x2="19"
+                                      y1="12"
+                                      y2="12"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mantine-Col-root mantine-lucu8g"
+                      >
+                        <div
+                          class="mantine-Group-root mantine-6y1794"
+                        >
+                          <div
+                            class="mantine-TextInput-root mantine-Group-child mantine-6xf4zl"
+                          >
+                            <label
+                              class="mantine-1w07r5r mantine-TextInput-label"
+                              for="mantine-ftwl0b143"
+                              id="mantine-ftwl0b143-label"
+                            >
+                              Search
+                            </label>
+                            <div
+                              class="mantine-TextInput-wrapper mantine-12sbrde"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
+                                id="mantine-ftwl0b143"
+                                placeholder="Search"
+                                type="text"
+                                value="192.168.00.20"
+                              />
+                              <div
+                                class="mantine-1n9cu5e mantine-TextInput-rightSection"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  style="cursor: pointer; transform: rotate(45deg);"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <line
+                                    x1="12"
+                                    x2="12"
+                                    y1="5"
+                                    y2="19"
+                                  />
+                                  <line
+                                    x1="5"
+                                    x2="19"
+                                    y1="12"
+                                    y2="12"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Group-root mantine-147cgkf"
+                    >
+                      <button
+                        class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                        type="button"
+                      >
+                        <div
+                          class="mantine-3xbgk5 mantine-Button-inner"
+                        >
+                          <span
+                            class="mantine-qo1k2 mantine-Button-label"
+                          >
+                            Apply
+                          </span>
+                        </div>
+                      </button>
+                      <button
+                        class="mantine-Button-outline mantine-Button-root mantine-Group-child mantine-ohfst4"
+                        type="button"
+                      >
+                        <div
+                          class="mantine-3xbgk5 mantine-Button-inner"
+                        >
+                          <span
+                            class="mantine-qo1k2 mantine-Button-label"
+                          >
+                            Clear All
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-1duuc74"
+        >
+          <div
+            class="mantine-Grid-root mantine-nsdj"
+          >
+            <div
+              class="mantine-Col-root mantine-1a6i1ew"
+            >
+              <div
+                class="mantine-Text-root mantine-qls5vf"
+                style="font-size: 16px;"
+              >
+                Showing 
+                <span
+                  style="color: rgb(245, 159, 0);"
+                />
+                 out of 
+                <span
+                  style="color: rgb(214, 51, 153);"
+                />
+                 resources
+              </div>
+            </div>
+            <div
+              class="mantine-Col-root mantine-1a6i1ew"
+            >
+              <div
+                class="mantine-Group-root mantine-oictu1"
+              >
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-10xqvhb"
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Hide Filters
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-1wbg3yx"
+          style="background: white;"
+        >
+          <div
+            class="mantine-Grid-root mantine-nsdj"
+          >
+            <div
+              class="mantine-Col-root mantine-3rxyez"
+            >
+              <div
+                class="mantine-Group-root mantine-6y1794"
+              >
+                <div
+                  class="mantine-Text-root mantine-Group-child mantine-1avyzjn"
+                  style="font-size: 14px;"
+                >
+                  Current Filters
+                </div>
+              </div>
+            </div>
+            <div
+              class="mantine-Col-root mantine-3rxyez"
+            >
+              <div
+                class="mantine-Group-root mantine-6y1794"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Group-root mantine-10k9p6b"
+            style="background: white; box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px;"
+          >
+            <div
+              class="mantine-Checkbox-root mantine-Group-child mantine-v5pvib"
+            >
+              <div
+                class="mantine-qbjb2s mantine-Checkbox-inner"
+              >
+                <input
+                  class="mantine-1590boo mantine-Checkbox-input"
+                  id="mantine-mmf740y3j"
+                  type="checkbox"
+                />
+                <svg
+                  class="__mantine-ref-icon mantine-180iq9w mantine-Checkbox-icon"
+                  fill="none"
+                  viewBox="0 0 10 7"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4 4.586L1.707 2.293A1 1 0 1 0 .293 3.707l3 3a.997.997 0 0 0 1.414 0l5-5A1 1 0 1 0 8.293.293L4 4.586z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <label
+                class="mantine-1kutx1b mantine-Checkbox-label"
+                for="mantine-mmf740y3j"
+              >
+                Select all Assets
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        />
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Text-root mantine-qls5vf"
+          >
+            Page : 1 / 1
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Group-root mantine-6y1794"
+          >
+            <button
+              class="mantine-Button-filled mantine-Button-root mantine-1bd46bx"
+              type="button"
+            >
+              <div
+                class="mantine-3xbgk5 mantine-Button-inner"
+              >
+                <span
+                  class="mantine-qo1k2 mantine-Button-label"
+                >
+                  1
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        class="mantine-Grid-root mantine-MediaQuery-media mantine-zxry0c"
+        style="background: rgb(248, 249, 250);"
+      >
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Grid-root mantine-1cvzra1"
+            style="background: white; box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px;"
+          >
+            <div
+              class="mantine-Col-root mantine-1a6i1ew"
+            >
+              <div
+                class="mantine-Group-root mantine-6y1794"
+              >
+                <div
+                  class="mantine-Group-root mantine-Group-child mantine-zah578"
+                >
+                  <svg
+                    class="mantine-gnzaph mantine-Group-child"
+                    fill="currentColor"
+                    height="22"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 1024 1024"
+                    width="22"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 0 0 0 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 0 0 0 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="mantine-Group-root mantine-Group-child mantine-zah578"
+                >
+                  <div
+                    class="mantine-Text-root mantine-Group-child mantine-1avyzjn"
+                    style="font-size: 22px;"
+                  >
+                     Assets
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mantine-Col-root mantine-gsvw0f"
+            >
+              <div
+                class="mantine-Group-root mantine-147cgkf"
+              >
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        />
+                        <polyline
+                          points="17 8 12 3 7 8"
+                        />
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="3"
+                          y2="15"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Bulk Update
+                    </span>
+                  </div>
+                </button>
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="5"
+                          y2="19"
+                        />
+                        <line
+                          x1="5"
+                          x2="19"
+                          y1="12"
+                          y2="12"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Create Assets
+                    </span>
+                  </div>
+                </button>
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-1ifttme"
+                  disabled=""
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h24v24H0V0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Delete
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            aria-hidden="true"
+            class="mantine-10f44hk"
+            style="box-sizing: border-box; display: none; height: 0px; overflow: hidden;"
+          >
+            <div
+              style="opacity: 0; transition: opacity 200ms ease;"
+            >
+              <div
+                class="mantine-Paper-root mantine-Card-root mantine-xoj88x"
+                style="border: 5px;"
+              >
+                <div
+                  class="mantine-Grid-root mantine-nsdj"
+                >
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Text-root mantine-7ve13"
+                      style="font-size: 14px;"
+                    >
+                      Filters
+                    </div>
+                  </div>
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Divider-root mantine-Divider-horizontal mantine-1lis5e"
+                    />
+                  </div>
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Grid-root mantine-nsdj"
+                    >
+                      <div
+                        class="mantine-Col-root mantine-lucu8g"
+                      >
+                        <div
+                          class="mantine-Group-root mantine-6y1794"
+                        >
+                          <div
+                            class="mantine-Select-root mantine-Group-child mantine-6xf4zl"
+                          >
+                            <label
+                              class="mantine-1w07r5r mantine-Select-label"
+                              for="mantine-d6ibii692"
+                              id="mantine-d6ibii692-label"
+                            >
+                              Type
+                            </label>
+                            <div
+                              aria-controls="mantine-d6ibii692"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              role="combobox"
+                              tabindex="-1"
+                            >
+                              <input
+                                type="hidden"
+                                value=""
+                              />
+                              <div
+                                class="mantine-Select-wrapper mantine-12sbrde"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-invalid="false"
+                                  autocomplete="off"
+                                  class="mantine-Select-defaultVariant mantine-Select-input mantine-1kkmtua"
+                                  data-mantine-stop-propagation="false"
+                                  id="mantine-d6ibii692"
+                                  placeholder="Pick for a type"
+                                  readonly=""
+                                  type="search"
+                                  value=""
+                                />
+                                <div
+                                  class="mantine-uquezq mantine-Select-rightSection"
+                                >
+                                  <svg
+                                    data-chevron="true"
+                                    fill="none"
+                                    height="18"
+                                    style="color: rgb(134, 142, 150);"
+                                    viewBox="0 0 15 15"
+                                    width="18"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mantine-Col-root mantine-lucu8g"
+                      >
+                        <div
+                          class="mantine-Group-root mantine-6y1794"
+                        >
+                          <div
+                            class="mantine-Select-root mantine-Group-child mantine-6xf4zl"
+                          >
+                            <label
+                              class="mantine-1w07r5r mantine-Select-label"
+                              for="mantine-hn1bcmwdh"
+                              id="mantine-hn1bcmwdh-label"
+                            >
+                              Items Per Page
+                            </label>
+                            <div
+                              aria-controls="mantine-hn1bcmwdh"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              role="combobox"
+                              tabindex="-1"
+                            >
+                              <input
+                                type="hidden"
+                                value="20"
+                              />
+                              <div
+                                class="mantine-Select-wrapper mantine-12sbrde"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-invalid="false"
+                                  autocomplete="off"
+                                  class="mantine-Select-defaultVariant mantine-Select-input mantine-rcq42x"
+                                  data-mantine-stop-propagation="false"
+                                  id="mantine-hn1bcmwdh"
+                                  placeholder="Pick for items per page"
+                                  readonly=""
+                                  type="search"
+                                  value="20"
+                                />
+                                <div
+                                  class="mantine-1n9cu5e mantine-Select-rightSection"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    style="cursor: pointer; transform: rotate(45deg);"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <line
+                                      x1="12"
+                                      x2="12"
+                                      y1="5"
+                                      y2="19"
+                                    />
+                                    <line
+                                      x1="5"
+                                      x2="19"
+                                      y1="12"
+                                      y2="12"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mantine-Col-root mantine-lucu8g"
+                      >
+                        <div
+                          class="mantine-Group-root mantine-6y1794"
+                        >
+                          <div
+                            class="mantine-TextInput-root mantine-Group-child mantine-6xf4zl"
+                          >
+                            <label
+                              class="mantine-1w07r5r mantine-TextInput-label"
+                              for="mantine-95j8kdtxo"
+                              id="mantine-95j8kdtxo-label"
+                            >
+                              Search
+                            </label>
+                            <div
+                              class="mantine-TextInput-wrapper mantine-12sbrde"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
+                                id="mantine-95j8kdtxo"
+                                placeholder="Search"
+                                type="text"
+                                value="192.168.00.20"
+                              />
+                              <div
+                                class="mantine-1n9cu5e mantine-TextInput-rightSection"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  style="cursor: pointer; transform: rotate(45deg);"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <line
+                                    x1="12"
+                                    x2="12"
+                                    y1="5"
+                                    y2="19"
+                                  />
+                                  <line
+                                    x1="5"
+                                    x2="19"
+                                    y1="12"
+                                    y2="12"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mantine-Col-root mantine-3rxyez"
+                  >
+                    <div
+                      class="mantine-Group-root mantine-147cgkf"
+                    >
+                      <button
+                        class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                        type="button"
+                      >
+                        <div
+                          class="mantine-3xbgk5 mantine-Button-inner"
+                        >
+                          <span
+                            class="mantine-qo1k2 mantine-Button-label"
+                          >
+                            Apply
+                          </span>
+                        </div>
+                      </button>
+                      <button
+                        class="mantine-Button-outline mantine-Button-root mantine-Group-child mantine-ohfst4"
+                        type="button"
+                      >
+                        <div
+                          class="mantine-3xbgk5 mantine-Button-inner"
+                        >
+                          <span
+                            class="mantine-qo1k2 mantine-Button-label"
+                          >
+                            Clear All
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-1duuc74"
+        >
+          <div
+            class="mantine-Grid-root mantine-nsdj"
+          >
+            <div
+              class="mantine-Col-root mantine-1a6i1ew"
+            >
+              <div
+                class="mantine-Text-root mantine-qls5vf"
+                style="font-size: 16px;"
+              >
+                Showing 
+                <span
+                  style="color: rgb(245, 159, 0);"
+                />
+                 out of 
+                <span
+                  style="color: rgb(214, 51, 153);"
+                />
+                 resources
+              </div>
+            </div>
+            <div
+              class="mantine-Col-root mantine-1a6i1ew"
+            >
+              <div
+                class="mantine-Group-root mantine-oictu1"
+              >
+                <button
+                  class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-10xqvhb"
+                  type="button"
+                >
+                  <div
+                    class="mantine-3xbgk5 mantine-Button-inner"
+                  >
+                    <span
+                      class="mantine-qo1k2 mantine-Button-label"
+                    >
+                      Show Filters
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-1wbg3yx"
+          style="background: white;"
+        >
+          <div
+            class="mantine-Grid-root mantine-nsdj"
+          >
+            <div
+              class="mantine-Col-root mantine-3rxyez"
+            >
+              <div
+                class="mantine-Group-root mantine-6y1794"
+              >
+                <div
+                  class="mantine-Text-root mantine-Group-child mantine-1avyzjn"
+                  style="font-size: 14px;"
+                >
+                  Current Filters
+                </div>
+              </div>
+            </div>
+            <div
+              class="mantine-Col-root mantine-3rxyez"
+            >
+              <div
+                class="mantine-Group-root mantine-6y1794"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Group-root mantine-10k9p6b"
+            style="background: white; box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px;"
+          >
+            <div
+              class="mantine-Checkbox-root mantine-Group-child mantine-v5pvib"
+            >
+              <div
+                class="mantine-qbjb2s mantine-Checkbox-inner"
+              >
+                <input
+                  class="mantine-1590boo mantine-Checkbox-input"
+                  id="mantine-75c7kkm63"
+                  type="checkbox"
+                />
+                <svg
+                  class="__mantine-ref-icon mantine-180iq9w mantine-Checkbox-icon"
+                  fill="none"
+                  viewBox="0 0 10 7"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4 4.586L1.707 2.293A1 1 0 1 0 .293 3.707l3 3a.997.997 0 0 0 1.414 0l5-5A1 1 0 1 0 8.293.293L4 4.586z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <label
+                class="mantine-1kutx1b mantine-Checkbox-label"
+                for="mantine-75c7kkm63"
+              >
+                Select all Assets
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        />
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Text-root mantine-qls5vf"
+          >
+            Page : 1 / 1
+          </div>
+        </div>
+        <div
+          class="mantine-Col-root mantine-3rxyez"
+        >
+          <div
+            class="mantine-Group-root mantine-6y1794"
+          >
+            <button
+              class="mantine-Button-filled mantine-Button-root mantine-1bd46bx"
+              type="button"
+            >
+              <div
+                class="mantine-3xbgk5 mantine-Button-inner"
+              >
+                <span
+                  class="mantine-qo1k2 mantine-Button-label"
+                >
+                  1
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+  </body>,
+  "container": <div>
+    <div
+      class="mantine-Grid-root mantine-MediaQuery-media mantine-zxry0c"
+      style="background: rgb(248, 249, 250);"
+    >
+      <div
+        class="mantine-Col-root mantine-3rxyez"
+      >
+        <div
+          class="mantine-Grid-root mantine-1cvzra1"
+          style="background: white; box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px;"
+        >
+          <div
+            class="mantine-Col-root mantine-1a6i1ew"
+          >
+            <div
+              class="mantine-Group-root mantine-6y1794"
+            >
+              <div
+                class="mantine-Group-root mantine-Group-child mantine-zah578"
+              >
+                <svg
+                  class="mantine-gnzaph mantine-Group-child"
+                  fill="currentColor"
+                  height="22"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 1024 1024"
+                  width="22"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 0 0 0 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 0 0 0 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="mantine-Group-root mantine-Group-child mantine-zah578"
+              >
+                <div
+                  class="mantine-Text-root mantine-Group-child mantine-1avyzjn"
+                  style="font-size: 22px;"
+                >
+                   Assets
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mantine-Col-root mantine-gsvw0f"
+          >
+            <div
+              class="mantine-Group-root mantine-147cgkf"
+            >
+              <button
+                class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                type="button"
+              >
+                <div
+                  class="mantine-3xbgk5 mantine-Button-inner"
+                >
+                  <span
+                    class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      />
+                      <polyline
+                        points="17 8 12 3 7 8"
+                      />
+                      <line
+                        x1="12"
+                        x2="12"
+                        y1="3"
+                        y2="15"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="mantine-qo1k2 mantine-Button-label"
+                  >
+                    Bulk Update
+                  </span>
+                </div>
+              </button>
+              <button
+                class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                type="button"
+              >
+                <div
+                  class="mantine-3xbgk5 mantine-Button-inner"
+                >
+                  <span
+                    class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <line
+                        x1="12"
+                        x2="12"
+                        y1="5"
+                        y2="19"
+                      />
+                      <line
+                        x1="5"
+                        x2="19"
+                        y1="12"
+                        y2="12"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="mantine-qo1k2 mantine-Button-label"
+                  >
+                    Create Assets
+                  </span>
+                </div>
+              </button>
+              <button
+                class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-1ifttme"
+                disabled=""
+                type="button"
+              >
+                <div
+                  class="mantine-3xbgk5 mantine-Button-inner"
+                >
+                  <span
+                    class="mantine-Button-icon mantine-Button-leftIcon mantine-1g4orza"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 0h24v24H0V0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="mantine-qo1k2 mantine-Button-label"
+                  >
+                    Delete
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mantine-Col-root mantine-3rxyez"
+      >
+        <div
+          aria-hidden="true"
+          class="mantine-10f44hk"
+          style="box-sizing: border-box; display: none; height: 0px; overflow: hidden;"
+        >
+          <div
+            style="opacity: 0; transition: opacity 200ms ease;"
+          >
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-xoj88x"
+              style="border: 5px;"
+            >
+              <div
+                class="mantine-Grid-root mantine-nsdj"
+              >
+                <div
+                  class="mantine-Col-root mantine-3rxyez"
+                >
+                  <div
+                    class="mantine-Text-root mantine-7ve13"
+                    style="font-size: 14px;"
+                  >
+                    Filters
+                  </div>
+                </div>
+                <div
+                  class="mantine-Col-root mantine-3rxyez"
+                >
+                  <div
+                    class="mantine-Divider-root mantine-Divider-horizontal mantine-1lis5e"
+                  />
+                </div>
+                <div
+                  class="mantine-Col-root mantine-3rxyez"
+                >
+                  <div
+                    class="mantine-Grid-root mantine-nsdj"
+                  >
+                    <div
+                      class="mantine-Col-root mantine-lucu8g"
+                    >
+                      <div
+                        class="mantine-Group-root mantine-6y1794"
+                      >
+                        <div
+                          class="mantine-Select-root mantine-Group-child mantine-6xf4zl"
+                        >
+                          <label
+                            class="mantine-1w07r5r mantine-Select-label"
+                            for="mantine-d6ibii692"
+                            id="mantine-d6ibii692-label"
+                          >
+                            Type
+                          </label>
+                          <div
+                            aria-controls="mantine-d6ibii692"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            role="combobox"
+                            tabindex="-1"
+                          >
+                            <input
+                              type="hidden"
+                              value=""
+                            />
+                            <div
+                              class="mantine-Select-wrapper mantine-12sbrde"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-invalid="false"
+                                autocomplete="off"
+                                class="mantine-Select-defaultVariant mantine-Select-input mantine-1kkmtua"
+                                data-mantine-stop-propagation="false"
+                                id="mantine-d6ibii692"
+                                placeholder="Pick for a type"
+                                readonly=""
+                                type="search"
+                                value=""
+                              />
+                              <div
+                                class="mantine-uquezq mantine-Select-rightSection"
+                              >
+                                <svg
+                                  data-chevron="true"
+                                  fill="none"
+                                  height="18"
+                                  style="color: rgb(134, 142, 150);"
+                                  viewBox="0 0 15 15"
+                                  width="18"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                    fill="currentColor"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="mantine-Col-root mantine-lucu8g"
+                    >
+                      <div
+                        class="mantine-Group-root mantine-6y1794"
+                      >
+                        <div
+                          class="mantine-Select-root mantine-Group-child mantine-6xf4zl"
+                        >
+                          <label
+                            class="mantine-1w07r5r mantine-Select-label"
+                            for="mantine-hn1bcmwdh"
+                            id="mantine-hn1bcmwdh-label"
+                          >
+                            Items Per Page
+                          </label>
+                          <div
+                            aria-controls="mantine-hn1bcmwdh"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            role="combobox"
+                            tabindex="-1"
+                          >
+                            <input
+                              type="hidden"
+                              value="20"
+                            />
+                            <div
+                              class="mantine-Select-wrapper mantine-12sbrde"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-invalid="false"
+                                autocomplete="off"
+                                class="mantine-Select-defaultVariant mantine-Select-input mantine-rcq42x"
+                                data-mantine-stop-propagation="false"
+                                id="mantine-hn1bcmwdh"
+                                placeholder="Pick for items per page"
+                                readonly=""
+                                type="search"
+                                value="20"
+                              />
+                              <div
+                                class="mantine-1n9cu5e mantine-Select-rightSection"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  style="cursor: pointer; transform: rotate(45deg);"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <line
+                                    x1="12"
+                                    x2="12"
+                                    y1="5"
+                                    y2="19"
+                                  />
+                                  <line
+                                    x1="5"
+                                    x2="19"
+                                    y1="12"
+                                    y2="12"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="mantine-Col-root mantine-lucu8g"
+                    >
+                      <div
+                        class="mantine-Group-root mantine-6y1794"
+                      >
+                        <div
+                          class="mantine-TextInput-root mantine-Group-child mantine-6xf4zl"
+                        >
+                          <label
+                            class="mantine-1w07r5r mantine-TextInput-label"
+                            for="mantine-95j8kdtxo"
+                            id="mantine-95j8kdtxo-label"
+                          >
+                            Search
+                          </label>
+                          <div
+                            class="mantine-TextInput-wrapper mantine-12sbrde"
+                          >
+                            <input
+                              aria-invalid="false"
+                              class="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-15cu3qq"
+                              id="mantine-95j8kdtxo"
+                              placeholder="Search"
+                              type="text"
+                              value="192.168.00.20"
+                            />
+                            <div
+                              class="mantine-1n9cu5e mantine-TextInput-rightSection"
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                style="cursor: pointer; transform: rotate(45deg);"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <line
+                                  x1="12"
+                                  x2="12"
+                                  y1="5"
+                                  y2="19"
+                                />
+                                <line
+                                  x1="5"
+                                  x2="19"
+                                  y1="12"
+                                  y2="12"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mantine-Col-root mantine-3rxyez"
+                >
+                  <div
+                    class="mantine-Group-root mantine-147cgkf"
+                  >
+                    <button
+                      class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-v40hac"
+                      type="button"
+                    >
+                      <div
+                        class="mantine-3xbgk5 mantine-Button-inner"
+                      >
+                        <span
+                          class="mantine-qo1k2 mantine-Button-label"
+                        >
+                          Apply
+                        </span>
+                      </div>
+                    </button>
+                    <button
+                      class="mantine-Button-outline mantine-Button-root mantine-Group-child mantine-ohfst4"
+                      type="button"
+                    >
+                      <div
+                        class="mantine-3xbgk5 mantine-Button-inner"
+                      >
+                        <span
+                          class="mantine-qo1k2 mantine-Button-label"
+                        >
+                          Clear All
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mantine-Col-root mantine-1duuc74"
+      >
+        <div
+          class="mantine-Grid-root mantine-nsdj"
+        >
+          <div
+            class="mantine-Col-root mantine-1a6i1ew"
+          >
+            <div
+              class="mantine-Text-root mantine-qls5vf"
+              style="font-size: 16px;"
+            >
+              Showing 
+              <span
+                style="color: rgb(245, 159, 0);"
+              />
+               out of 
+              <span
+                style="color: rgb(214, 51, 153);"
+              />
+               resources
+            </div>
+          </div>
+          <div
+            class="mantine-Col-root mantine-1a6i1ew"
+          >
+            <div
+              class="mantine-Group-root mantine-oictu1"
+            >
+              <button
+                class="mantine-Button-filled mantine-Button-root mantine-Group-child mantine-10xqvhb"
+                type="button"
+              >
+                <div
+                  class="mantine-3xbgk5 mantine-Button-inner"
+                >
+                  <span
+                    class="mantine-qo1k2 mantine-Button-label"
+                  >
+                    Show Filters
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mantine-Col-root mantine-1wbg3yx"
+        style="background: white;"
+      >
+        <div
+          class="mantine-Grid-root mantine-nsdj"
+        >
+          <div
+            class="mantine-Col-root mantine-3rxyez"
+          >
+            <div
+              class="mantine-Group-root mantine-6y1794"
+            >
+              <div
+                class="mantine-Text-root mantine-Group-child mantine-1avyzjn"
+                style="font-size: 14px;"
+              >
+                Current Filters
+              </div>
+            </div>
+          </div>
+          <div
+            class="mantine-Col-root mantine-3rxyez"
+          >
+            <div
+              class="mantine-Group-root mantine-6y1794"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mantine-Col-root mantine-3rxyez"
+      >
+        <div
+          class="mantine-Group-root mantine-10k9p6b"
+          style="background: white; box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px;"
+        >
+          <div
+            class="mantine-Checkbox-root mantine-Group-child mantine-v5pvib"
+          >
+            <div
+              class="mantine-qbjb2s mantine-Checkbox-inner"
+            >
+              <input
+                class="mantine-1590boo mantine-Checkbox-input"
+                id="mantine-75c7kkm63"
+                type="checkbox"
+              />
+              <svg
+                class="__mantine-ref-icon mantine-180iq9w mantine-Checkbox-icon"
+                fill="none"
+                viewBox="0 0 10 7"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 4.586L1.707 2.293A1 1 0 1 0 .293 3.707l3 3a.997.997 0 0 0 1.414 0l5-5A1 1 0 1 0 8.293.293L4 4.586z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <label
+              class="mantine-1kutx1b mantine-Checkbox-label"
+              for="mantine-75c7kkm63"
+            >
+              Select all Assets
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mantine-Col-root mantine-3rxyez"
+      />
+      <div
+        class="mantine-Col-root mantine-3rxyez"
+      >
+        <div
+          class="mantine-Text-root mantine-qls5vf"
+        >
+          Page : 1 / 1
+        </div>
+      </div>
+      <div
+        class="mantine-Col-root mantine-3rxyez"
+      >
+        <div
+          class="mantine-Group-root mantine-6y1794"
+        >
+          <button
+            class="mantine-Button-filled mantine-Button-root mantine-1bd46bx"
+            type="button"
+          >
+            <div
+              class="mantine-3xbgk5 mantine-Button-inner"
+            >
+              <span
+                class="mantine-qo1k2 mantine-Button-label"
+              >
+                1
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
